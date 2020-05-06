@@ -1,0 +1,17 @@
+.navigationList {
+    background-color: #800000;
+    padding: 10px 0;
+}
+
+.listItem {
+    display: inline;
+    margin: 0 20px;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.listItem:hover {
+    background-color: #a30000;
+}

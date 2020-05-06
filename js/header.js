@@ -1,7 +1,7 @@
 window.onload = function() {
     siteTitle();
     siteNavigation();
-    
+    siteFooter();
 }
 
 function siteTitle() {
@@ -9,10 +9,28 @@ function siteTitle() {
 }
 
 function siteNavigation() {
-    var navigationList = ["Path to Wealth", "Income Statement", "Balance Sheet", "Casino Simulator", "Money Articles"];
-    document.getElementById("header").innerHTML += "<ul>";
+    var navigationList = ["Home",
+                          "Path to Wealth",
+                          "Budget Grader",
+                          "Income Statement",
+                          "Balance Sheet",
+                          "Casino Simulator",
+                          "Money Articles"];
+    var navigationPath = ["index",
+                          "pathToWealth",
+                          "budgetGrader",
+                          "incomeStatement",
+                          "balanceSheet",
+                          "casinoSimulator",
+                          "moneyArticles"];
+    var header = "<div class='navigationList'>";
     for (var i = 0; i < navigationList.length; i++){
-        document.getElementById("header").innerHTML += "<li>" + navigationList[i] + "</li>";
+        header += "<a class='listItem' href='" + navigationPath[i] + ".html'>" + navigationList[i] + "</a>";
     }
-    document.getElementById("header").innerHTML += "</ul>";
+    header += "</div>";
+    document.getElementById("header").innerHTML += header;
+}
+
+function siteFooter() {
+    document.getElementById("footer").innerHTML += "<div class='siteFooter'>Created and Maintained by Zac McElfresh</div>";
 }
