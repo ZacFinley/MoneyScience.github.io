@@ -2,6 +2,7 @@
     <head>
         <title>Money Science</title>
         <script src="../js/header.js"></script>
+        <script src="../js/pathToWealth.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/global.css">
         <link rel="stylesheet" type="text/css" href="../css/pathToWealth.css">
         <link rel="stylesheet" type="text/css" href="../css/header.css">
@@ -10,7 +11,46 @@
     <body>
         <div id="header"></div>
         <h2 class="subHeader">Path to Wealth</h2>
-        <!--Remaining section-->
+        <p>
+            Have you wondered how long it would take to reach your financial goals?
+            Have you wanted to experience what it would be like to make large financial decsions and
+            see how they will play out? Enter your own numbers or have us randomize an experience
+            for you to play out.
+        </p>
+        <div class="timeline">
+            Year(s): <p id="years">0</p>
+            Month(s): <p id="months">0</p>
+        </div>
+        <div class="inputs">
+            <table>
+                <tr><td>Salary:</td><td><input id="monthlySalary" type="number" min="0" value="0.00" onchange="updateMonthlySalary()"></input></td></tr>
+                <tr><td>Rent:</td><td><input id="monthlyRent" type="number" min="0" value="0.00" onchange="updateMonthlyRent()"></input></td></tr>
+                <tr><td>Mortgage:</td><td><input id="monthlyMortgage" type="number" min="0" value="0.00" onchange="updateMonthlyMortgage()"></input></td></tr>
+                <tr><td>Utilities:</td><td><input id="monthlyUtilities" type="number" min="0" value="0.00" onchange="updateMonthlyUtilities()"></input></td></tr>
+                <tr><td>Food:</td><td><input id="monthlyFood" type="number" min="0" value="0.00" onchange="updateMonthlyFood()"></input></td></tr>
+                <tr><td>Transportation:</td><td><input id="monthlyTransportation" type="number" min="0" value="0.00" onchange="updateMonthlyTransportation()"></input></td></tr>
+                <tr><td>Internet:</td><td><input id="monthlyInternet" type="number" min="0" value="0.00" onchange="updateMonthlyInternet()"></input></td></tr>
+                <tr><td>Phone:</td><td><input id="monthlyPhone" type="number" min="0" value="0.00" onchange="updateMonthlyPhone()"></input></td></tr>
+                <tr><td>Debt:</td><td><input id="monthlyDebt" type="number" min="0" value="0.00" onchange="updateMonthlyDebt()"></input></td></tr>
+                <tr><td>Retirement:</td><td><input id="monthlyRetirement" type="number" min="0" value="0.00" onchange="updateMonthlyRetirement()"></input></td></tr>
+                <tr><td>Individual Investing:</td><td><input id="monthlyIndividualInvesting" type="number" min="0" value="0.00" onchange="updateMonthlyIndividualInvesting()"></input></td></tr>
+                <tr><td>Savings:</td><td><input id="monthlySavings" type="number" min="0" value="0.00" onchange="updateMonthlySavings()"></input></td></tr>
+            </table>
+        </div>
+        <div class="totalAmounts">
+            <table>
+                <tr><td>Remaining Mortgage:</td><td id="remainingMortgage">$0.00</td></tr>
+                <tr><td>Remaining Debt:</td><td id="remainingDebt">$0.00</td></tr>
+                <tr><td>Total Retirement:</td><td id="totalRetirement">$0.00</td></tr>
+                <tr><td>Total Individual Investing:</td><td id="totalIndividualInvesting">$0.00</td></tr>
+                <tr><td>Total Savings:</td><td id="totalSavings">$0.00</td></tr>
+            </table>
+        </div>
+        <div class="buttonPanel">
+            <button onclick="resetTimeline()">Reset Timeline</button>
+            <button>Random Inputs</button>
+            <button onclick="liveMonth()">Live Month</button>
+        </div>
         <div id="footer"></div>
     </body>
 </html>
