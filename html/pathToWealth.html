@@ -18,38 +18,69 @@
             for you to play out.
         </p>
         <div class="timeline">
-            Year(s): <p id="years">0</p>
-            Month(s): <p id="months">0</p>
+            Year(s): <div id="years">0</div>
+            Month(s): <div id="months">0</div>
         </div>
-        <div class="inputs">
-            <table>
-                <tr><td>Salary:</td><td><input id="monthlySalary" type="number" min="0" value="0.00" onchange="updateMonthlySalary()"></input></td></tr>
-                <tr><td>Rent:</td><td><input id="monthlyRent" type="number" min="0" value="0.00" onchange="updateMonthlyRent()"></input></td></tr>
-                <tr><td>Mortgage:</td><td><input id="monthlyMortgage" type="number" min="0" value="0.00" onchange="updateMonthlyMortgage()"></input></td></tr>
-                <tr><td>Utilities:</td><td><input id="monthlyUtilities" type="number" min="0" value="0.00" onchange="updateMonthlyUtilities()"></input></td></tr>
-                <tr><td>Food:</td><td><input id="monthlyFood" type="number" min="0" value="0.00" onchange="updateMonthlyFood()"></input></td></tr>
-                <tr><td>Transportation:</td><td><input id="monthlyTransportation" type="number" min="0" value="0.00" onchange="updateMonthlyTransportation()"></input></td></tr>
-                <tr><td>Internet:</td><td><input id="monthlyInternet" type="number" min="0" value="0.00" onchange="updateMonthlyInternet()"></input></td></tr>
-                <tr><td>Phone:</td><td><input id="monthlyPhone" type="number" min="0" value="0.00" onchange="updateMonthlyPhone()"></input></td></tr>
-                <tr><td>Debt:</td><td><input id="monthlyDebt" type="number" min="0" value="0.00" onchange="updateMonthlyDebt()"></input></td></tr>
-                <tr><td>Retirement:</td><td><input id="monthlyRetirement" type="number" min="0" value="0.00" onchange="updateMonthlyRetirement()"></input></td></tr>
-                <tr><td>Individual Investing:</td><td><input id="monthlyIndividualInvesting" type="number" min="0" value="0.00" onchange="updateMonthlyIndividualInvesting()"></input></td></tr>
-                <tr><td>Savings:</td><td><input id="monthlySavings" type="number" min="0" value="0.00" onchange="updateMonthlySavings()"></input></td></tr>
-            </table>
-        </div>
-        <div class="totalAmounts">
-            <table>
-                <tr><td>Remaining Mortgage:</td><td id="remainingMortgage">$0.00</td></tr>
-                <tr><td>Remaining Debt:</td><td id="remainingDebt">$0.00</td></tr>
-                <tr><td>Total Retirement:</td><td id="totalRetirement">$0.00</td></tr>
-                <tr><td>Total Individual Investing:</td><td id="totalIndividualInvesting">$0.00</td></tr>
-                <tr><td>Total Savings:</td><td id="totalSavings">$0.00</td></tr>
-            </table>
+        <div class="wrapper">
+            <div class="inputs card">
+                <table>
+                    <tr><td>Salary:</td><td><input id="monthlySalary" type="number" min="0" value="0.00" onchange="updateMonthlySalary()"></input></td></tr>
+                    <tr><td>Rent:</td><td><input id="monthlyRent" type="number" min="0" value="0.00" onchange="updateMonthlyRent()"></input></td></tr>
+                    <tr><td>Mortgage:</td><td><input id="monthlyMortgage" type="number" min="0" value="0.00" onchange="updateMonthlyMortgage()"></input></td></tr>
+                    <tr><td>Utilities:</td><td><input id="monthlyUtilities" type="number" min="0" value="0.00" onchange="updateMonthlyUtilities()"></input></td></tr>
+                    <tr><td>Food:</td><td><input id="monthlyFood" type="number" min="0" value="0.00" onchange="updateMonthlyFood()"></input></td></tr>
+                    <tr><td>Transportation:</td><td><input id="monthlyTransportation" type="number" min="0" value="0.00" onchange="updateMonthlyTransportation()"></input></td></tr>
+                    <tr><td>Internet:</td><td><input id="monthlyInternet" type="number" min="0" value="0.00" onchange="updateMonthlyInternet()"></input></td></tr>
+                    <tr><td>Phone:</td><td><input id="monthlyPhone" type="number" min="0" value="0.00" onchange="updateMonthlyPhone()"></input></td></tr>
+                    <tr><td>Debt:</td><td><input id="monthlyDebt" type="number" min="0" value="0.00" onchange="updateMonthlyDebt()"></input></td></tr>
+                    <tr><td>Retirement:</td><td><input id="monthlyRetirement" type="number" min="0" value="0.00" onchange="updateMonthlyRetirement()"></input></td></tr>
+                    <tr><td>Individual Investing:</td><td><input id="monthlyIndividualInvesting" type="number" min="0" value="0.00" onchange="updateMonthlyIndividualInvesting()"></input></td></tr>
+                    <tr><td>Savings:</td><td><input id="monthlySavings" type="number" min="0" value="0.00" onchange="updateMonthlySavings()"></input></td></tr>
+                </table>
+            </div>
+            <div class="totalAmounts card">
+                <table>
+                    <tr>
+                        <th></th>
+                        <th>Balance</th>
+                        <th>Interest</th>
+                    </tr>
+                    <tr>
+                        <td>Remaining Mortgage:</td>
+                        <td><input id="remainingMortgageBalance" type="number" min="0" value="0.00" onchange="updateTotalRemainingMortgage()"></input></td>
+                        <td><input id="remainingMortgageInterest" type="number" min="0" value="0" onchange="updateTotalRemainingMortgageInterest()"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Remaining Debt:</td>
+                        <td><input id="remainingDebtBalance" type="number" min="0" value="0.00" onchange="updateTotalRemainingDebt()"></input></td>
+                        <td><input id="remainingDebtInterest" type="number" min="0" value="0" onchange="updateTotalRemainingDebtInterest()"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Total Retirement:</td>
+                        <td><input id="totalRetirementBalance" type="number" min="0" value="0.00" onchange="updateTotalRetirement()"></input></td>
+                        <td><input id="totalRetirementInterest" type="number" min="0" value="0" onchange="updateTotalRetirementInterest()"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Total Individual Investing:</td>
+                        <td><input id="totalIndividualInvestingBalance" type="number" min="0" value="0.00" onchange="updateTotalIndividualInvesting()"></input></td>
+                        <td><input id="totalIndividualInvestingInterest" type="number" min="0" value="0" onchange="updateTotalIndividualInvestingInterest()"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Total Savings:</td>
+                        <td><input id="totalSavingsBalance" type="number" min="0" value="0.00" onchange="updateTotalSavings()"></input></td>
+                        <td><input id="totalSavingsInterest" type="number" min="0" value="0" onchange="updateTotalSavingsInterest()"></input></td>
+                    </tr>
+                </table>
+                <div class="netWorthWrapper">
+                    Net Worth: <div id="netWorth">$0.00</div>
+                </div>
+            </div>
         </div>
         <div class="buttonPanel">
-            <button onclick="resetTimeline()">Reset Timeline</button>
-            <button>Random Inputs</button>
-            <button onclick="liveMonth()">Live Month</button>
+            <button class="mainButton" onclick="resetTimeline()">Reset Timeline</button>
+            <button class="mainButton">Random Inputs</button>
+            <button class="mainButton" onclick="liveMonth()">Live Month</button>
+            <button class="mainButton" onclick="liveYear()">Live Year</button>
         </div>
         <div id="footer"></div>
     </body>
