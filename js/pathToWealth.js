@@ -106,22 +106,27 @@ function updateMonthlySavings() {
 
 function updateTotalRemainingMortgage() {
     totalRemainingMortgage = parseFloat(document.getElementById("remainingMortgageBalance").value);
+    updateNetWorth();
 }
 
 function updateTotalRemainingDebt() {
     totalRemainingDebt = parseFloat(document.getElementById("remainingDebtBalance").value);
+    updateNetWorth();
 }
 
 function updateTotalRetirement() {
     totalRetirement = parseFloat(document.getElementById("totalRetirementBalance").value);
+    updateNetWorth();
 }
 
 function updateTotalIndividualInvesting() {
     totalIndividualInvesting = parseFloat(document.getElementById("totalIndividualInvestingBalance").value);
+    updateNetWorth();
 }
 
 function updateTotalSavings() {
     totalSavings = parseFloat(document.getElementById("totalSavingsBalance").value);
+    updateNetWorth();
 }
 
 function updateTotalRemainingMortgageInterest() {
@@ -153,7 +158,12 @@ function adjustAccounts() {
     totalRetirement = (totalRetirement * (1 + (totalRetirementInterest * .00083333))) + monthlyRetirement;
     totalIndividualInvesting = (totalIndividualInvesting * (1 + (totalIndividualInvestingInterest * .00083333))) + monthlyIndividualInvesting;
     totalSavings = (totalSavings * (1 + (totalSavingsInterest * .00083333))) + monthCheck;
+    updateNetWorth();
+}
+
+function updateNetWorth() {
     netWorth = totalRetirement + totalIndividualInvesting + totalSavings - totalRemainingMortgage - totalRemainingDebt;
+    updateTotalAmounts();
 }
 
 

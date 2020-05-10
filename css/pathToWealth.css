@@ -1,5 +1,8 @@
 .timeline {
     display: flex;
+    margin: 15px 15%;
+    padding: 15px;
+    border: solid 1px black;
 }
 
 #years,#months,#netWorth {
@@ -40,5 +43,8 @@
     border: solid 1px green;
     display: flex;
     padding: 15px;
-    
+}
+
+.description {
+    text-align: center;
 }
