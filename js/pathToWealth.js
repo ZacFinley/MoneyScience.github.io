@@ -135,13 +135,13 @@ function updateMonthlySavings() {
 
 function updateTotalRemainingMortgage() {
     totalRemainingMortgage = parseFloat(document.getElementById("remainingMortgageBalance").value);
-    getPayment();
+    updateMortgagePayment();
     updateNetWorth();
 }
 
 function updateTotalRemainingDebt() {
     totalRemainingDebt = parseFloat(document.getElementById("remainingDebtBalance").value);
-    getPayment();
+    updateDebtPayment();
     updateNetWorth();
 }
 
@@ -162,12 +162,12 @@ function updateTotalSavings() {
 
 function updateTotalRemainingMortgageInterest() {
     totalRemainingMortgageInterest = parseFloat(document.getElementById("remainingMortgageInterest").value);
-    getPayment();
+    updateMortgagePayment();
 }
 
 function updateTotalRemainingDebtInterest() {
     totalRemainingDebtInterest = parseFloat(document.getElementById("remainingDebtInterest").value);
-    getPayment();
+    updateDebtPayment();
 }
 
 function updateTotalRetirementInterest() {
@@ -192,12 +192,12 @@ function updateAgeMonths() {
 
 function updateTotalRemainingMortgageTerm() {
     totalRemainingMortgageTerm = parseFloat(document.getElementById("remainingMortgageTerm").value);
-    getPayment();
+    updateMortgagePayment();
 }
 
 function updateTotalRemainingDebtTerm() {
     totalRemainingDebtTerm = parseFloat(document.getElementById("remainingDebtTerm").value);
-    getPayment();
+    updateDebtPayment();
 }
 
 function updatePrimaryHouseEquity() {
@@ -248,17 +248,6 @@ function adjustAccounts() {
     updateNetWorth();
 }
 
-function getPayment() {
-    var monthlyMortgageRate = totalRemainingMortgageInterest/1200;
-    var monthsMortgage = totalRemainingMortgageTerm * 12;
-    totalRemainingMortgagePayment = totalRemainingMortgage * ((monthlyMortgageRate * Math.pow((1 + monthlyMortgageRate),monthsMortgage))/(Math.pow((1+monthlyMortgageRate),monthsMortgage)-1));
-    var monthlyDebtRate = totalRemainingDebtInterest/1200;
-    var monthsDebt = totalRemainingDebtTerm * 12;
-    totalRemainingDebtPayment = totalRemainingDebt * ((monthlyDebtRate * Math.pow((1 + monthlyDebtRate),monthsDebt))/(Math.pow((1+monthlyDebtRate),monthsDebt)-1));
-    updatePayments();
-    
-}
-
 function updateNetWorth() {
     netWorth = totalRetirement + totalIndividualInvesting + primaryHouseEquity + rentalEquity + totalSavings - totalRemainingMortgage - totalRemainingDebt;
     updateTotalAmounts();
@@ -282,10 +271,19 @@ function updateTotalAmounts() {
     document.getElementById("netWorth").innerHTML = Number(netWorth).toLocaleString('en-US', {style: 'currency',currency: 'USD'});
 }
 
-function updatePayments() {
+function updateMortgagePayment() {
+    var monthlyMortgageRate = totalRemainingMortgageInterest/1200;
+    var monthsMortgage = totalRemainingMortgageTerm * 12;
+    totalRemainingMortgagePayment = totalRemainingMortgage * ((monthlyMortgageRate * Math.pow((1 + monthlyMortgageRate),monthsMortgage))/(Math.pow((1+monthlyMortgageRate),monthsMortgage)-1));
     if (isFinite(totalRemainingMortgagePayment)) {
         document.getElementById("remainingMortgagePayment").innerHTML = "$" + parseFloat(totalRemainingMortgagePayment).toFixed(2);
     }
+}
+
+function updateDebtPayment() {
+    var monthlyDebtRate = totalRemainingDebtInterest/1200;
+    var monthsDebt = totalRemainingDebtTerm * 12;
+    totalRemainingDebtPayment = totalRemainingDebt * ((monthlyDebtRate * Math.pow((1 + monthlyDebtRate),monthsDebt))/(Math.pow((1+monthlyDebtRate),monthsDebt)-1));
     if (isFinite(totalRemainingDebtPayment)) {
         document.getElementById("remainingDebtPayment").innerHTML = "$" + parseFloat(totalRemainingDebtPayment).toFixed(2);
     }
