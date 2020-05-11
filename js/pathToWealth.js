@@ -1,9 +1,12 @@
 // Timeline
-var months = 0;
-var years = 0;
+var simulatedMonths = 0;
+var simulatedYears = 0;
+var ageMonths = 0;
+var ageYears = 0;
 
 // Inputs
 var monthlySalary = 0;
+var monthlyRentalProfit = 0;
 
 var monthlyRent = 0;
 var monthlyMortgage = 0;
@@ -27,37 +30,63 @@ var totalRemainingMortgage = 0;
 var totalRemainingDebt = 0;
 var totalRetirement = 0;
 var totalIndividualInvesting = 0;
+var primaryHouseEquity = 0;
+var rentalEquity = 0;
 var totalSavings = 0;
     // Interest
 var totalRemainingMortgageInterest = 0;
 var totalRemainingDebtInterest = 0;
 var totalRetirementInterest = 0;
 var totalIndividualInvestingInterest = 0;
+var primaryHouseInterest = 0;
+var rentalInterest = 0;
 var totalSavingsInterest = 0;
+    // Term
+var totalRemainingMortgageTerm = 0;
+var totalRemainingDebtTerm = 0;
+    //Payments
+var totalRemainingMortgagePayment = 0;
+var totalRemainingDebtPayment = 0;
 
 
 var netWorth = 0;
 
 
 function resetTimeline() {
-    months = 0;
-    years = 0;
+    simulatedMonths = 0;
+    simulatedYears = 0;
+    ageMonths = 0;
+    ageYears = 0;
     updateTimeline();
 }
 
 function addMonth() {
-    if (months < 11) {
-        months++;
+    if (simulatedMonths < 11) {
+        simulatedMonths++;
     }
     else {
-        years++;
-        months = 0;
+        simulatedYears++;
+        simulatedMonths = 0;
     }
+    
+    if (ageMonths < 11) {
+        ageMonths++;
+    }
+    else {
+        ageYears++;
+        ageMonths = 0;
+    }
+    document.getElementById("ageYears").value = ageYears;
+    document.getElementById("ageMonths").value = ageMonths;
 }
 
 // OnChange
 function updateMonthlySalary() {
     monthlySalary = parseFloat(document.getElementById("monthlySalary").value);
+}
+
+function updateMonthlyRentalProfit() {
+    monthlyRentalProfit = parseFloat(document.getElementById("monthlyRentalProfit").value);
 }
 
 function updateMonthlyRent() {
@@ -106,11 +135,13 @@ function updateMonthlySavings() {
 
 function updateTotalRemainingMortgage() {
     totalRemainingMortgage = parseFloat(document.getElementById("remainingMortgageBalance").value);
+    getPayment();
     updateNetWorth();
 }
 
 function updateTotalRemainingDebt() {
     totalRemainingDebt = parseFloat(document.getElementById("remainingDebtBalance").value);
+    getPayment();
     updateNetWorth();
 }
 
@@ -131,10 +162,12 @@ function updateTotalSavings() {
 
 function updateTotalRemainingMortgageInterest() {
     totalRemainingMortgageInterest = parseFloat(document.getElementById("remainingMortgageInterest").value);
+    getPayment();
 }
 
 function updateTotalRemainingDebtInterest() {
     totalRemainingDebtInterest = parseFloat(document.getElementById("remainingDebtInterest").value);
+    getPayment();
 }
 
 function updateTotalRetirementInterest() {
@@ -149,28 +182,93 @@ function updateTotalSavingsInterest() {
     totalSavingsInterest = parseFloat(document.getElementById("totalSavingsInterest").value);
 }
 
-// Account Manipulation
-function adjustAccounts() {
-    var monthCheck = monthlySalary;
-    monthCheck = monthCheck - (monthlyRent + monthlyMortgage + monthlyUtilities + monthlyFood + monthlyTransportation + monthlyInternet + monthlyPhone + monthlyDebt + monthlyRetirement + monthlyIndividualInvesting);
-    totalRemainingMortgage -= monthlyMortgage; // handle reducing properly
-    totalRemainingDebt -= monthlyDebt; // handle reducing properly
-    totalRetirement = (totalRetirement * (1 + (totalRetirementInterest * .00083333))) + monthlyRetirement;
-    totalIndividualInvesting = (totalIndividualInvesting * (1 + (totalIndividualInvestingInterest * .00083333))) + monthlyIndividualInvesting;
-    totalSavings = (totalSavings * (1 + (totalSavingsInterest * .00083333))) + monthCheck;
+function updateAgeYears() {
+    ageYears = parseInt(document.getElementById("ageYears").value);
+}
+
+function updateAgeMonths() {
+    ageMonths = parseInt(document.getElementById("ageMonths").value);
+}
+
+function updateTotalRemainingMortgageTerm() {
+    totalRemainingMortgageTerm = parseFloat(document.getElementById("remainingMortgageTerm").value);
+    getPayment();
+}
+
+function updateTotalRemainingDebtTerm() {
+    totalRemainingDebtTerm = parseFloat(document.getElementById("remainingDebtTerm").value);
+    getPayment();
+}
+
+function updatePrimaryHouseEquity() {
+    primaryHouseEquity = parseFloat(document.getElementById("primaryHouseEquityBalance").value);
+    updateNetWorth();
+    
+}
+
+function updatePrimaryHouseEquityInterest() {
+    primaryHouseInterest = parseFloat(document.getElementById("primaryHouseEquityInterest").value);
+}
+
+function updateTotalRentalEquity() {
+    rentalEquity = parseFloat(document.getElementById("totalRentalEquityBalance").value);
     updateNetWorth();
 }
 
+function updateTotalRentalEquityInterest() {
+    rentalInterest = parseFloat(document.getElementById("totalRentalEquityInterest").value);
+}
+
+// Account Manipulation
+function adjustAccounts() {
+    var monthCheck = monthlySalary + monthlyRentalProfit;
+    monthCheck = monthCheck - (monthlyRent + monthlyMortgage + monthlyUtilities + monthlyFood + monthlyTransportation + monthlyInternet + monthlyPhone + monthlyDebt + monthlyRetirement + monthlyIndividualInvesting);
+    var mortgageMonthInterest = parseFloat(totalRemainingMortgagePayment * (totalRemainingMortgageInterest / 1200));
+    if (totalRemainingMortgage >= (monthlyMortgage - mortgageMonthInterest)){
+        totalRemainingMortgage -= (monthlyMortgage - mortgageMonthInterest);
+    }
+    else {
+        totalSavings += parseFloat((monthlyMortgage - mortgageMonthInterest) - totalRemainingMortgage);
+        totalRemainingMortgage = 0;
+    }
+    
+    var debtMonthInterest = parseFloat(totalRemainingDebtPayment * (totalRemainingDebtInterest / 1200));
+    if (totalRemainingDebt >= (monthlyDebt - debtMonthInterest)){
+        totalRemainingDebt -= (monthlyDebt - debtMonthInterest);
+    }
+    else {
+        totalSavings += parseFloat((monthlyDebt - debtMonthInterest) - totalRemainingDebt);
+        totalRemainingDebt = 0;
+    }
+    totalRetirement = (totalRetirement * (1 + (totalRetirementInterest / 1200))) + monthlyRetirement;
+    totalIndividualInvesting = (totalIndividualInvesting * (1 + (totalIndividualInvestingInterest / 1200))) + monthlyIndividualInvesting;
+    primaryHouseEquity = (primaryHouseEquity * (1 + (primaryHouseInterest / 1200)));
+    rentalEquity = (rentalEquity * (1 + (rentalInterest / 1200)));
+    totalSavings = parseFloat((totalSavings * (1 + (totalSavingsInterest / 1200))) + monthCheck);
+    updateNetWorth();
+}
+
+function getPayment() {
+    var monthlyMortgageRate = totalRemainingMortgageInterest/1200;
+    var monthsMortgage = totalRemainingMortgageTerm * 12;
+    totalRemainingMortgagePayment = totalRemainingMortgage * ((monthlyMortgageRate * Math.pow((1 + monthlyMortgageRate),monthsMortgage))/(Math.pow((1+monthlyMortgageRate),monthsMortgage)-1));
+    var monthlyDebtRate = totalRemainingDebtInterest/1200;
+    var monthsDebt = totalRemainingDebtTerm * 12;
+    totalRemainingDebtPayment = totalRemainingDebt * ((monthlyDebtRate * Math.pow((1 + monthlyDebtRate),monthsDebt))/(Math.pow((1+monthlyDebtRate),monthsDebt)-1));
+    updatePayments();
+    
+}
+
 function updateNetWorth() {
-    netWorth = totalRetirement + totalIndividualInvesting + totalSavings - totalRemainingMortgage - totalRemainingDebt;
+    netWorth = totalRetirement + totalIndividualInvesting + primaryHouseEquity + rentalEquity + totalSavings - totalRemainingMortgage - totalRemainingDebt;
     updateTotalAmounts();
 }
 
 
 // Display
 function updateTimeline() {
-    document.getElementById("years").innerHTML = years;
-    document.getElementById("months").innerHTML = months;
+    document.getElementById("simulatedYears").innerHTML = simulatedYears;
+    document.getElementById("simulatedMonths").innerHTML = simulatedMonths;
 }
 
 function updateTotalAmounts() {
@@ -178,8 +276,19 @@ function updateTotalAmounts() {
     document.getElementById("remainingDebtBalance").value = parseFloat(totalRemainingDebt).toFixed(2);
     document.getElementById("totalRetirementBalance").value = parseFloat(totalRetirement).toFixed(2);
     document.getElementById("totalIndividualInvestingBalance").value = parseFloat(totalIndividualInvesting).toFixed(2);
+    document.getElementById("primaryHouseEquityBalance").value = parseFloat(primaryHouseEquity).toFixed(2);
+    document.getElementById("totalRentalEquityBalance").value = parseFloat(rentalEquity).toFixed(2);
     document.getElementById("totalSavingsBalance").value = parseFloat(totalSavings).toFixed(2);
     document.getElementById("netWorth").innerHTML = Number(netWorth).toLocaleString('en-US', {style: 'currency',currency: 'USD'});
+}
+
+function updatePayments() {
+    if (isFinite(totalRemainingMortgagePayment)) {
+        document.getElementById("remainingMortgagePayment").innerHTML = "$" + parseFloat(totalRemainingMortgagePayment).toFixed(2);
+    }
+    if (isFinite(totalRemainingDebtPayment)) {
+        document.getElementById("remainingDebtPayment").innerHTML = "$" + parseFloat(totalRemainingDebtPayment).toFixed(2);
+    }
 }
 
 function liveMonth() {
