@@ -17,13 +17,16 @@
             Enter your own numbers or have us randomize an experience for you to play out.
         </p>
         <div class="timeline">
-            Year(s): <div id="years">0</div>
-            Month(s): <div id="months">0</div>
+            Simulated Year(s):<div id="simulatedYears">0</div>
+            Simulated Month(s):<div id="simulatedMonths">0</div>
+            Age Year(s):<input id="ageYears" type="number" min="0" value="0" onchange="updateAgeYears()"></input>
+            Age Month(s):<input id="ageMonths" type="number" min="0" value="0" onchange="updateAgeMonths()"></input>
         </div>
         <div class="wrapper">
             <div class="inputs card">
                 <table>
                     <tr><td>Salary:</td><td><input id="monthlySalary" type="number" min="0" value="0.00" onchange="updateMonthlySalary()"></input></td></tr>
+                    <tr><td>Rental Profit:</td><td><input id="monthlyRentalProfit" type="number" min="0" value="0.00" onchange="updateMonthlyRentalProfit()"></input></td></tr>
                     <tr><td>Rent:</td><td><input id="monthlyRent" type="number" min="0" value="0.00" onchange="updateMonthlyRent()"></input></td></tr>
                     <tr><td>Mortgage:</td><td><input id="monthlyMortgage" type="number" min="0" value="0.00" onchange="updateMonthlyMortgage()"></input></td></tr>
                     <tr><td>Utilities:</td><td><input id="monthlyUtilities" type="number" min="0" value="0.00" onchange="updateMonthlyUtilities()"></input></td></tr>
@@ -43,16 +46,22 @@
                         <th></th>
                         <th>Balance</th>
                         <th>Interest</th>
+                        <th>Years</th>
+                        <th>Payment</th>
                     </tr>
                     <tr>
                         <td>Remaining Mortgage:</td>
                         <td><input id="remainingMortgageBalance" type="number" min="0" value="0.00" onchange="updateTotalRemainingMortgage()"></input></td>
                         <td><input id="remainingMortgageInterest" type="number" min="0" value="0" onchange="updateTotalRemainingMortgageInterest()"></input></td>
+                        <td><input id="remainingMortgageTerm" type="number" min="0" value="0" onchange="updateTotalRemainingMortgageTerm()"></input></td>
+                        <td id="remainingMortgagePayment">$0.00</td>
                     </tr>
                     <tr>
                         <td>Remaining Debt:</td>
                         <td><input id="remainingDebtBalance" type="number" min="0" value="0.00" onchange="updateTotalRemainingDebt()"></input></td>
                         <td><input id="remainingDebtInterest" type="number" min="0" value="0" onchange="updateTotalRemainingDebtInterest()"></input></td>
+                        <td><input id="remainingDebtTerm" type="number" min="0" value="0" onchange="updateTotalRemainingDebtTerm()"></input></td>
+                        <td id="remainingDebtPayment">$0.00</td>
                     </tr>
                     <tr>
                         <td>Total Retirement:</td>
@@ -63,6 +72,16 @@
                         <td>Total Individual Investing:</td>
                         <td><input id="totalIndividualInvestingBalance" type="number" min="0" value="0.00" onchange="updateTotalIndividualInvesting()"></input></td>
                         <td><input id="totalIndividualInvestingInterest" type="number" min="0" value="0" onchange="updateTotalIndividualInvestingInterest()"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Primary House Equity:</td>
+                        <td><input id="primaryHouseEquityBalance" type="number" min="0" value="0.00" onchange="updatePrimaryHouseEquity()"></input></td>
+                        <td><input id="primaryHouseEquityInterest" type="number" min="0" value="0" onchange="updatePrimaryHouseEquityInterest()"></input></td>
+                    </tr>
+                    <tr>
+                        <td>Total Rental Equity:</td>
+                        <td><input id="totalRentalEquityBalance" type="number" min="0" value="0.00" onchange="updateTotalRentalEquity()"></input></td>
+                        <td><input id="totalRentalEquityInterest" type="number" min="0" value="0" onchange="updateTotalRentalEquityInterest()"></input></td>
                     </tr>
                     <tr>
                         <td>Total Savings:</td>
