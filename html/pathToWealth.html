@@ -27,6 +27,7 @@
                 <table>
                     <tr><td>Salary:</td><td><input id="monthlySalary" type="number" min="0" value="0.00" onchange="updateMonthlySalary()"></input></td></tr>
                     <tr><td>Rental Profit:</td><td><input id="monthlyRentalProfit" type="number" min="0" value="0.00" onchange="updateMonthlyRentalProfit()"></input></td></tr>
+                    <tr><td>Giving:</td><td><input id="monthlyGiving" type="number" min="0" value="0.00" onchange="updateMonthlyGiving()"></input></td></tr>
                     <tr><td>Rent:</td><td><input id="monthlyRent" type="number" min="0" value="0.00" onchange="updateMonthlyRent()"></input></td></tr>
                     <tr><td>Mortgage:</td><td><input id="monthlyMortgage" type="number" min="0" value="0.00" onchange="updateMonthlyMortgage()"></input></td></tr>
                     <tr><td>Utilities:</td><td><input id="monthlyUtilities" type="number" min="0" value="0.00" onchange="updateMonthlyUtilities()"></input></td></tr>
@@ -92,6 +93,16 @@
                 <div class="netWorthWrapper">
                     Net Worth: <div id="netWorth">$0.00</div>
                 </div>
+                <tr>
+                    <td>Giving Fund:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td><input id="totalGivingBalance" type="number" min="0" value="0.00" onchange="updateTotalGiving()"></input></td>
+                    <td><input id="totalGivingInterest" type="number" min="0" value="0" onchange="updateTotalGivingInterest()"></input></td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    <td><div id="totalGivingPayment">$0.00</div></td>
+        
+                </tr>
             </div>
         </div>
         <div class="buttonPanel">
