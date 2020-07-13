@@ -2,6 +2,7 @@
     <head>
         <title>Money Science</title>
         <script src="../js/header.js"></script>
+        <script src="../js/incomeStatement.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/global.css">
         <link rel="stylesheet" type="text/css" href="../css/incomeStatement.css">
         <link rel="stylesheet" type="text/css" href="../css/header.css">
@@ -17,6 +18,88 @@
             Do not include contributions to assets such as savings accounts or investing accounts.<br>
             Your total income should be more than your total expenses.
         </p>
+        <div class="wrapper">
+            <div class="leftWrapper">
+                <div class="tile">
+                    <div class="tileHeader center">
+                        Income
+                    </div>
+                    <div class="center font20">
+                        <input id="incomeName" class="inputName font20" value="Income Item"></input>
+                        <div class="inline">
+                            $<input id="incomeAmount" class="inputName font20" type="number" value=0.00></input>
+                        </div>
+                        <button id="incomeAddBtn" class="addButton" onclick="addIncome()">Add</button>
+                    </div>
+                </div>
+                <div class="tile">
+                    <div class="tileHeader center">
+                        Expense
+                    </div>
+                    <div class="center font20">
+                        <input id="expenseName" class="inputName font20" value="Expense Item"></input>
+                        <div class="inline">
+                            $<input id="expenseAmount" class="inputName font20" type="number" value=0.00></input>
+                        </div>
+                        <button id="expenseAddBtn" class="addButton" onclick="addExpense()">Add</button>
+                    </div>
+                </div>
+                <div class="tile">
+                    <div class="tileHeader center">
+                        Savings
+                    </div>
+                    <div class="center font20">
+                        <input id="savingsName" class="inputName font20" value="Savings Item"></input>
+                        <div class="inline">
+                            $<input id="savingsAmount" class="inputName font20" type="number" value=0.00></input>
+                        </div>
+                        <button id="savingsAddBtn" class="addButton" onclick="addSavings()">Add</button>
+                    </div>
+                </div>
+            </div>
+            <div class="rightWrapper">
+                <div class="tile">
+                    <div class="tileHeader center">
+                        Income Statement
+                    </div>
+                    <table id="incomeStatement" class="font20">
+                        <tr>
+                            <td>Income:</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Total Income:</td>
+                            <td></td>
+                            <td class="underline">$0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Expenses:</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Total Expenses:</td>
+                            <td></td>
+                            <td>$0.00</td>
+                        </tr>
+                        <tr>
+                            <td class="font20Bold">Net Income:</td>
+                            <td></td>
+                            <td></td>
+                            <td class="font20Bold">$0.00</td>
+                        </tr>
+                        <tr>
+                            <td>Savings:</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Total Savings:</td>
+                            <td></td>
+                            <td>$0.00</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
         <div id="footer"></div>
     </body>
 </html>
