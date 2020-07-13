@@ -7,3 +7,70 @@
     margin: 20px 40px;
     padding: 15px;
 }
+
+.wrapper {
+    display: flex;
+}
+
+.leftWrapper {
+    width: 40%;
+}
+
+.rightWrapper {
+    width: 60%;
+}
+
+.tile {
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid black;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.tileHeader {
+    font-size: 30px;
+    padding: 0 0 10px 0;
+}
+
+.center {
+    text-align: center;
+}
+
+.inputName {
+    height: 40px;
+}
+
+.font20 {
+    font-size: 20px;
+}
+
+.addButton {
+    height: 40px;
+    width: 40px;
+    border: 3px solid #450000;
+    background-color: #bb0000;
+    color: white;
+    border-radius: 5px 15px;
+}
+
+.addButton:hover {
+    background-color: #ff8080;
+}
+
+.inline {
+    display: inline;
+}
+
+#incomeStatement {
+    width: 100%;
+}
+
+.font20Bold {
+    font-size: 30px;
+    font-style: bold;
+}
