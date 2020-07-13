@@ -2,6 +2,7 @@
     <head>
         <title>Money Science</title>
         <script src="../js/header.js"></script>
+        <script src="../js/balanceSheet.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/global.css">
         <link rel="stylesheet" type="text/css" href="../css/balanceSheet.css">
         <link rel="stylesheet" type="text/css" href="../css/header.css">
@@ -43,32 +44,32 @@
                 <div class="card">
                     <div class="cardHeader">
                         Balance Sheet
-                        <div class="tableWrapper">
-                            <table>
-                                <tr>
-                                    <td>Assets:</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Total Assets:</td>
-                                    <td></td>
-                                    <td>$0.00</td>
-                                </tr>
-                            </table>
-                            <table>
-                                <tr>
-                                    <td>Liabilities:</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>Total Liabilities:</td>
-                                    <td></td>
-                                    <td>$0.00</td>
-                                </tr>
-                            </table>
-                        </div>
-                        <div id="netWorth" class="netWorth">Net Worth: $0.00</div>
                     </div>
+                    <div class="tableWrapper">
+                        <table id="assetsTable">
+                            <tr>
+                                <td>Assets:</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Total Assets:</td>
+                                <td></td>
+                                <td>$0.00</td>
+                            </tr>
+                        </table>
+                        <table id="liabilitiesTable">
+                            <tr>
+                                <td>Liabilities:</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Total Liabilities:</td>
+                                <td></td>
+                                <td>$0.00</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div id="netWorth" class="netWorth">Net Worth: $0.00</div>
                 </div>
             </div>
         </div>
