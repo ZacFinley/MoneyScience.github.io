@@ -20,19 +20,13 @@
     width: 60%;
 }
 
-.tile {
-    padding: 10px;
-    margin: 10px;
-    border: 2px solid black;
-}
-
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
 
-.tileHeader {
+.cardHeader {
     font-size: 30px;
     padding: 0 0 10px 0;
 }
@@ -41,7 +35,7 @@ input::-webkit-inner-spin-button {
     text-align: center;
 }
 
-.inputName {
+input {
     height: 40px;
 }
 
@@ -52,10 +46,11 @@ input::-webkit-inner-spin-button {
 .addButton {
     height: 40px;
     width: 40px;
-    border: 3px solid #450000;
+    border: none;
     background-color: #bb0000;
     color: white;
     border-radius: 5px 15px;
+    box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .addButton:hover {
