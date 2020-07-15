@@ -56,6 +56,18 @@
                         <button id="savingsAddBtn" class="addButton" onclick="addSavings()">Add</button>
                     </div>
                 </div>
+                <div class="card">
+                    <div class="cardHeader center">
+                        Investments
+                    </div>
+                    <div class="center font20">
+                        <input id="investmentsName" class="font20" value="Investment Item"></input>
+                        <div class="inline">
+                            $<input id="investmentsAmount" class="font20" type="number" value=0.00></input>
+                        </div>
+                        <button id="investmentsAddBtn" class="addButton" onclick="addInvestments()">Add</button>
+                    </div>
+                </div>
             </div>
             <div class="rightWrapper">
                 <div class="card">
@@ -87,6 +99,10 @@
                             <td></td>
                             <td class="font20Bold">$0.00</td>
                         </tr>
+                    </table>
+                </div>
+                <div class="card">
+                    <table id="savingsStatement" class="font20">
                         <tr>
                             <td>Savings:</td>
                         </tr>
@@ -98,6 +114,33 @@
                         </tr>
                     </table>
                 </div>
+                <div class="card">
+                    <table id="investmentsStatement" class="font20">
+                        <tr>
+                            <td>Investments:</td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>Total Investments:</td>
+                            <td></td>
+                            <td>$0.00</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div id="savingsRatio" class="ratios">
+                Savings Rate:
+            </div>
+            <div id="financialFreedom" class="ratios">
+                Financial Freedom Completion:
+            </div>
+            <div id="maximumHousingBudget" class="ratios">
+                Maximum Monthly Housing Budget:
+            </div>
+            <div id="lifeInsuranceFaceValue" class="ratios">
+                Life Insurance Face Value Minimum:
             </div>
         </div>
         <div id="footer"></div>
