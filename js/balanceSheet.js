@@ -3,7 +3,15 @@ var liabilities = [];
 
 var assetTotal = 0.00;
 var liabilitiesTotal = 0.00;
+
 var netWorth = 0.00;
+var previousNetWorth = 0.00;
+
+var age = 0;
+var preTaxIncome = 0.00;
+
+var retirementAge = 0;
+var retirementAmount = 0.00;
 
 function calculateNetWorth() {
     netWorth = assetTotal - liabilitiesTotal;
@@ -81,6 +89,10 @@ function updateLiabilites() {
 
 function updateNetWorth() {
     document.getElementById("netWorth").innerHTML = "Net Worth: $" + parseFloat(netWorth).toFixed(2);
+    document.getElementById("currentNetWorth").innerHTML = "Current Net Worth: $" + parseFloat(netWorth).toFixed(2);
+    updateNetWorthChange();
+    updateBenchmarkNetWorth();
+    updateDebtAssetRatio();
 }
 
 function updateBalanceSheet() {
@@ -89,4 +101,78 @@ function updateBalanceSheet() {
     updateNetWorth();
 }
 
+function updatePreviousNetWorth() {
+    previousNetWorth = parseFloat(document.getElementById("previousNetWorthInput").value);
+    updateNetWorthChange();
+}
+
+function updateNetWorthChange() {
+    var netWorthChange = netWorth - previousNetWorth;
+    var increasedDecreased = "did not change.";
+    var increaseDecrease = "";
+    var netWorthChangePercent = (Math.abs(netWorthChange)/previousNetWorth)*100;
+    if (netWorthChange > 0) {
+        increasedDecreased = "increased";
+        increaseDecrease = "increase";
+    }
+    else if (netWorthChange < 0) {
+        increasedDecreased = "decreased";
+        increaseDecrease = "decrease";
+    }
+    else {
+        document.getElementById("netWorthChange").innerHTML = "Your net worth " + increasedDecreased;
+    }
+    document.getElementById("netWorthChange").innerHTML = "Your net worth " + increasedDecreased + " by $" + parseFloat(netWorthChange).toFixed(2) + " which is an " + increaseDecrease + " of " + parseFloat(netWorthChangePercent).toFixed(2) + "%";
+}
+
+function updateAge() {
+    age = document.getElementById("ageInput").value;
+    updateBenchmarkNetWorth();
+    updateRetirementGoalResults();
+    updateFutureValue();
+}
+
+function updatePreTaxIncome() {
+    preTaxIncome = document.getElementById("preTaxIncomeInput").value;
+    updateBenchmarkNetWorth();
+}
+
+function updateBenchmarkNetWorth() {
+    var benchmarkNetWorth = parseFloat((age * preTaxIncome)/10).toFixed(2);
+    document.getElementById("benchmarkNetWorth").innerHTML = "Benchmark Net Worth: $" + benchmarkNetWorth;
+    
+    if (netWorth < (benchmarkNetWorth/2)) {
+        document.getElementById("benchmarkNetWorth").innerHTML += ". Under accumulators of wealth (UAWs) are those whose real net worth is less than one-half of their expected net worth."
+    }
+    else if (netWorth <= benchmarkNetWorth) {
+        document.getElementById("benchmarkNetWorth").innerHTML += ". Average accumulators of wealth (AAW) are on par with their expected net worth."
+    }
+    else {
+        document.getElementById("benchmarkNetWorth").innerHTML += ". Prodigious accumulators of wealth (PAWs) have a net worth twice their expected level."
+    }
+}
+
+function updateDebtAssetRatio() {
+    document.getElementById("debtAssetRatio").innerHTML = "Debt/Asset Ratio: " + parseFloat((liabilitiesTotal / assetTotal) * 100).toFixed(2) + "%";
+}
+
+function updateRetirementAge() {
+    retirementAge = document.getElementById("retirementAgeInput").value;
+    updateRetirementGoalResults();
+    updateFutureValue();
+}
+
+function updateRetirementAmount() {
+    retirementAmount = document.getElementById("retirementAmountInput").value;
+    updateRetirementGoalResults();
+}
+
+function updateRetirementGoalResults() {
+    document.getElementById("retirementGoalResults").innerHTML = "which means I have " + (retirementAge - age) + " year(s) to earn $" + parseFloat(retirementAmount - netWorth).toFixed(2) + " which is an average of " + ((parseFloat(retirementAmount - netWorth).toFixed(2))/(retirementAge - age)) + " per year. (using net worth instead of retirement category change when categories are created).";
+}
+
+function updateFutureValue() {
+    var interest = document.getElementById("futureValueInterestInput").value/100;
+    document.getElementById("futureValueResult").innerHTML = "$" + parseFloat(1 * Math.pow((1+interest),(retirementAge-age))).toFixed(2);
+}
 

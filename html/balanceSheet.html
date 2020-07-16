@@ -74,21 +74,63 @@
             </div>
         </div>
         <div class="card">
-            Ratios<br>
-            Previous Net Worth (add an input for date)<br>
-            Auto fill current net worth<br>
-            Auto fill $ and % change in net worth<br>
-            Debt to asset ratio<br>
-            Invested percentage of assets<br>
-            Passive Income to Total income<br>
-            Side to Total income<br>
-            Max house value with 20% down payment<br>
-            Predicted Net worth<br>
-            Retirement Savings Prediction<br>
-            Retirement savings goal and age<br>
-            Remaing time to achieve retirement savings goal<br>
-            Future value of $1 from now to goal retirement age<br>
-            If you where to retire today<br>
+            <div id="age" class="ratios">
+                Age:
+                <input id="ageInput" class="font20" type="number" value=0 onchange="updateAge()"></input>
+            </div>
+            <div id="preTaxIncome" class="ratios">
+                Pre-tax Income: $
+                <input id="preTaxIncomeInput" class="font20" type="number" value=0 onchange="updatePreTaxIncome()"></input>
+            </div>
+            <div id="previousNetWorth" class="ratios">
+                Previous Net Worth: $
+                <input id="previousNetWorthInput" class="font20" type="number" value=0.00 onchange="updatePreviousNetWorth()"></input>
+            </div>
+            <div id="currentNetWorth" class="ratios">
+                Current Net Worth: $0.00
+            </div>
+            <div id="netWorthChange" class="ratios">
+                Your net worth (Increased / Decreased) by $0.00 which is an (Increase / Decrease) of 0.00%
+            </div>
+            <div id="benchmarkNetWorth" class="ratios">
+                Benchmark Net Worth: $0.00
+            </div>
+            <div id="debtAssetRatio" class="ratios">
+                Debt/Asset Ratio: 0.00%
+            </div>
+            <div id="investedOfAssets" class="ratios">
+                Invested percentage of assets (Need categories for this)
+            </div>
+            <div id="passiveOfIncome" class="ratios">
+                Passive Income to Total income (Need categories for this)
+            </div>
+            <div id="sideOfIncome" class="ratios">
+                Side to Total income (Need categories for this)
+            </div>
+            <div id="maxHouseValue" class="ratios">
+                Max house value with 20% down payment (Need after tax amount for this)
+            </div>
+            <div id="retirementPredict" class="ratios">
+                Retirement Savings Prediction
+            </div>
+            <div id="retirementGoalAge" class="ratios">
+                Retirement savings goal and age (Look up the old progam for this)
+            </div>
+            <div id="remainingRetirementGoalAge" class="ratios">
+                I want to retire at
+                <input id="retirementAgeInput" class="font20" type="number" value=0 onchange="updateRetirementAge()">(Age)</input>
+                with $
+                <input id="retirementAmountInput" class="font20" type="number" value=0 onchange="updateRetirementAmount()"></input>
+                <div id="retirementGoalResults">
+                    which means I have 0 year(s) to earn $0.00.
+                </div>
+            </div>
+            <div id="futureValue" class="ratios">
+                $1 invested today growing at an average of <input id="futureValueInterestInput" class="font20" type="number" value=0.0 onchange="updateFutureValue()">%</input> annually will be worth <div id="futureValueResult">$0.00</div> when I retire.
+            </div>
+            <div id="retireToday" class="ratios">
+                If I were to retire today<br>
+            </div>
         </div>
         <div id="footer"></div>
     </body>
