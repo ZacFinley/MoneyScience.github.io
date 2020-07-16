@@ -168,7 +168,7 @@ function updateRetirementAmount() {
 }
 
 function updateRetirementGoalResults() {
-    document.getElementById("retirementGoalResults").innerHTML = "which means I have " + (retirementAge - age) + " year(s) to earn $" + parseFloat(retirementAmount - netWorth).toFixed(2) + " which is an average of " + ((parseFloat(retirementAmount - netWorth).toFixed(2))/(retirementAge - age)) + " per year. (using net worth instead of retirement category change when categories are created).";
+    document.getElementById("retirementGoalResults").innerHTML = "which means I have " + (retirementAge - age) + " year(s) to earn $" + parseFloat(retirementAmount - netWorth).toFixed(2) + " which is an average of $" + (parseFloat((retirementAmount - netWorth)/(retirementAge - age)).toFixed(2)) + " per year. (using net worth instead of retirement category change when categories are created).";
 }
 
 function updateFutureValue() {
