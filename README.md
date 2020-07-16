@@ -4,11 +4,16 @@ Money Science website that will teach people about money in our society and how 
 
 TODO:
 - add borders around "Income", "Expenses", "Savings"
+- add "remaining Net Income" to the income statement
 
 - add applicable ratio calculations to the Income Statement
 - add applicable ratio calculations to the Balance Sheet
 
 - Plan out the budget grader
+
+-CD ladder visualizer
+- ammoritization Calculator
+- future value chart
 
 - Debt snowball visualizer
     - list all debts and their payments, reorganize them from smallest to largest and take in actual monthly money availible to pay off frbt to calculate the payoff

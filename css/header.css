@@ -12,6 +12,12 @@
     text-decoration: none;
 }
 
+@media (max-width: 1100px) {
+    .listItem {
+        display: block;
+    }
+}
+
 .listItem:hover {
     background-color: #a30000;
 }
