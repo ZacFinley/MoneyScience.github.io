@@ -49,7 +49,11 @@
 
 input {
     height: 40px;
-    width: 200px;
+    width: 150px;
+}
+
+select {
+    width: 150px;
 }
 
 input::-webkit-outer-spin-button,
@@ -82,3 +86,7 @@ table {
 #ageInput {
     width: 60px;
     }
+
+#futureValueResult {
+    display: inline;
+}
