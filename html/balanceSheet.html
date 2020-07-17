@@ -26,6 +26,12 @@
                     <div class="center font20">
                         <input id="assetName" class="assetName font20" value="Asset Item"></input>
                         $<input id="assetAmount" class="assetName font20" type="number" value=0.00></input>
+                        <select id="assetCategory">
+                            <option selected="" value="Cash/Cash Equivalent">Cash/Cash Equivalent</option>
+                            <option value="Real Estate">Real Estate</option>
+                            <option value="Retirement">Retirement</option>
+                            <option value="Individual Investing">Individual Investing</option>
+                        </select>
                         <button id="assetAddBtn" class="addButton" onclick="addAsset()">Add</button>
                     </div>
                 </div>
@@ -36,6 +42,13 @@
                     <div class="center font20">
                         <input id="liabilityName" class="liabilityName font20" value="Liability Item"></input>
                         $<input id="liabilityAmount" class="liabilityAmount font20" type="number" value=0.00></input>
+                        <select id="liabilityCategory">
+                            <option selected="" value="Mortgage">Mortgage</option>
+                            <option value="Car">Car</option>
+                            <option value="Credit Cards">Credit Cards</option>
+                            <option value="Personal Loans">Personal Loans</option>
+                            <option value="Student Loans">Student Loans</option>
+                        </select>
                         <button id="liabilityAddBtn" class="addButton" onclick="addLiability()">Add</button>
                     </div>
                 </div>
@@ -96,25 +109,17 @@
                 Benchmark Net Worth: $0.00
             </div>
             <div id="debtAssetRatio" class="ratios">
-                Debt/Asset Ratio: 0.00%
+                Debt/Assets: 0.00%
             </div>
             <div id="investedOfAssets" class="ratios">
-                Invested percentage of assets (Need categories for this)
-            </div>
-            <div id="passiveOfIncome" class="ratios">
-                Passive Income to Total income (Need categories for this)
-            </div>
-            <div id="sideOfIncome" class="ratios">
-                Side to Total income (Need categories for this)
+                Invested/Assets: 0.00%
             </div>
             <div id="maxHouseValue" class="ratios">
                 Max house value with 20% down payment (Need after tax amount for this)
             </div>
             <div id="retirementPredict" class="ratios">
-                Retirement Savings Prediction
-            </div>
-            <div id="retirementGoalAge" class="ratios">
-                Retirement savings goal and age (Look up the old progam for this)
+                Retirement Savings Prediction (Look up the old progam for this)
+
             </div>
             <div id="remainingRetirementGoalAge" class="ratios">
                 I want to retire at
@@ -129,7 +134,7 @@
                 $1 invested today growing at an average of <input id="futureValueInterestInput" class="font20" type="number" value=0.0 onchange="updateFutureValue()">%</input> annually will be worth <div id="futureValueResult">$0.00</div> when I retire.
             </div>
             <div id="retireToday" class="ratios">
-                If I were to retire today<br>
+                If I were to retire today I could withdraw $0.00 from my retirement accounts which is 5% of the account a month or $0.00 a year.
             </div>
         </div>
         <div id="footer"></div>
