@@ -15,10 +15,33 @@
             Add a description
         </p>
         <div class="wrapper">
-            <div class="radioButtonWrapper">
-                <input type="radio" name="taxFilingStatus" checked onclick="taxFiling(0)">Single</input>
-                <input type="radio" name="taxFilingStatus" onclick="taxFiling(1)">Married, Filing Jointly</input>
-                <input type="radio" name="taxFilingStatus" onclick="taxFiling(2)">Head of Household</input>
+            <div class="card">
+                <div>
+                    $<input id="preDeductionInput" type="number" value=0.0 onchange="updatePreDeductionIncome()"></input>
+                    <div id ="standardDeduction">
+                        - Standard Duduction of $12400 = $0.00
+                    </div>
+                </div>
+                <div class="radioButtonWrapper">
+                    <input type="radio" name="taxFilingStatus" checked onclick="updateFilingStatus(0)">Single</input>
+                    <input type="radio" name="taxFilingStatus" onclick="updateFilingStatus(1)">Married, Filing Jointly</input>
+                    <input type="radio" name="taxFilingStatus" onclick="updateFilingStatus(2)">Head of Household</input>
+                </div>
+            </div>
+            <div class="card">
+                <table id="taxResults">
+                    <tr><th>Tax Rate</th><th>Income Breakpoints</th><th>My Income Amount</th><th>My Tax Amount</th></tr>
+                    <tr><td>10%</td><td id="breakpointTier1">$0 - $9875</td><td id="incomeAmount1">$0.00</td><td id="taxAmount1">$0.00</td></tr>
+                    <tr><td>12%</td><td id="breakpointTier2">$9876 - $40125</td><td id="incomeAmount2">$0.00</td><td id="taxAmount2">$0.00</td></tr>
+                    <tr><td>22%</td><td id="breakpointTier3">$40126 - $85525</td><td id="incomeAmount3">$0.00</td><td id="taxAmount3">$0.00</td></tr>
+                    <tr><td>24%</td><td id="breakpointTier4">$85526 - $163300</td><td id="incomeAmount4">$0.00</td><td id="taxAmount4">$0.00</td></tr>
+                    <tr><td>32%</td><td id="breakpointTier5">$163301 - $207350</td><td id="incomeAmount5">$0.00</td><td id="taxAmount5">$0.00</td></tr>
+                    <tr><td>35%</td><td id="breakpointTier6">$207351 - $518400</td><td id="incomeAmount6">$0.00</td><td id="taxAmount6">$0.00</td></tr>
+                    <tr><td>37%</td><td id="breakpointTier7">$518401 or more</td><td id="incomeAmount7">$0.00</td><td id="taxAmount7">$0.00</td></tr>
+                </table>
+                <div id="taxResultTotal">
+                    You will owe $0.00 in taxes. Which is $0.00 a month.
+                </div>
             </div>
         </div>
         <div id="footer"></div>
