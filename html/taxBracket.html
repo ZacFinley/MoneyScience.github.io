@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Tax Bracket</title>
+        <script src="../js/header.js"></script>
+        <script src="../js/taxBracket.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/global.css">
+        <link rel="stylesheet" type="text/css" href="../css/taxBracket.css">
+        <link rel="stylesheet" type="text/css" href="../css/header.css">
+        <link rel="stylesheet" type="text/css" href="../css/footer.css">
+    </head>
+    <body>
+        <div id="header"></div>
+        <h2 class="subHeader">Tax Bracket</h2>
+        <p class="description">
+            Add a description
+        </p>
+        <div class="wrapper">
+            <div class="radioButtonWrapper">
+                <input type="radio" name="taxFilingStatus" checked onclick="taxFiling(0)">Single</input>
+                <input type="radio" name="taxFilingStatus" onclick="taxFiling(1)">Married, Filing Jointly</input>
+                <input type="radio" name="taxFilingStatus" onclick="taxFiling(2)">Head of Household</input>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </body>
+</html>
+

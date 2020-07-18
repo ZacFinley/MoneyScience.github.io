@@ -90,3 +90,12 @@ table {
 #futureValueResult {
     display: inline;
 }
+
+input[type="radio"] {
+    width:20px;
+    height: 20px;
+}
+
+.radioButtonWrapper {
+    margin-bottom: 5px;
+}

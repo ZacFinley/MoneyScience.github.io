@@ -14,6 +14,7 @@ function siteNavigation() {
                           "Budget Grader",
                           "Income Statement",
                           "Balance Sheet",
+                          "Tax Bracket",
                           "Casino Simulator",
                           "Money Articles"];
     var navigationPath = ["index",
@@ -21,6 +22,7 @@ function siteNavigation() {
                           "budgetGrader",
                           "incomeStatement",
                           "balanceSheet",
+                          "taxBracket",
                           "casinoSimulator",
                           "moneyArticles"];
     var header = "<div class='navigationList'>";
