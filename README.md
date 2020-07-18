@@ -3,11 +3,10 @@ Money Science website that will teach people about money in our society and how 
 
 
 TODO:
+- add new files to the header
+
 - add borders around "Income", "Expenses", "Savings"
 - add "remaining Net Income" to the income statement
-
-- add applicable ratio calculations to the Income Statement
-- add applicable ratio calculations to the Balance Sheet
 
 - Plan out the budget grader
 
