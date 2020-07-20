@@ -16,7 +16,8 @@ function siteNavigation() {
                           "Balance Sheet",
                           "Tax Bracket",
                           "Casino Simulator",
-                          "Money Articles"];
+                          "Money Articles",
+                          "Amortization Calculator"];
     var navigationPath = ["index",
                           "pathToWealth",
                           "budgetGrader",
@@ -24,7 +25,8 @@ function siteNavigation() {
                           "balanceSheet",
                           "taxBracket",
                           "casinoSimulator",
-                          "moneyArticles"];
+                          "moneyArticles",
+                          "amortizationCalculator"];
     var header = "<div class='navigationList'>";
     for (var i = 0; i < navigationList.length; i++){
         header += "<a class='listItem' href='" + navigationPath[i] + ".html'>" + navigationList[i] + "</a>";
