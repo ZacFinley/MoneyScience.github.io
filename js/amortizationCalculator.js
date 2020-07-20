@@ -25,6 +25,7 @@ function calculatePayment() {
 }
 
 function calculateChart() {
+    paymentChart = [];
     var year = new Date().getYear() + 1900;
     var month = new Date().getMonth();
     var remainingBalance = loanAmount;
