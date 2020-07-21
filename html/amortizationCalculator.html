@@ -17,18 +17,24 @@
         </p>
         <div class="wrapper">
             <div class="card">
-                Loan Amount:
-                <input id="loanAmountInput" type="number" value=0.00></input>
-                <input id="loanInterestInput" type="number" value=0.00>%</input>
-                <input id="loanDurationInput">year(s)</input>
-                <button onclick="updateAll()">Calculate</button>
+                <div>
+                    Loan Amount:
+                    $<input id="loanAmountInput" type="number" value=0.00></input>
+                    <input id="loanInterestInput" type="number" value=0.00>%</input>
+                    <input id="loanDurationInput">year(s)</input>
+                    <button onclick="updateAll()">Calculate</button>
+                </div>
+                <div>
+                    Extra Payment Amount:
+                    $<input id="extraPaymentAmountInput" type="number" value=0.00></input>
+                </div>
             </div>
             <div id="paymentResult" class="card">
                 Your payment will be: $0.00
             </div>
             <div id="paymentChart" class="card">
                 <table id="amortizationChart">
-                    <tr><th>Year</th><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Loan Balance</th></tr>
+                    <tr><th>Year</th><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Loan Balance</th><th>Principal</th><th>Interest</th><th>Extra Payment</th><th>Loan Balance with Extra Payment</th></tr>
                 </table>
             </div>
         </div>
