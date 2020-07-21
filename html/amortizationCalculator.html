@@ -25,6 +25,8 @@
                     <button onclick="updateAll()">Calculate</button>
                 </div>
                 <div>
+                    Asset Value:
+                    $<input id="assetValueInput" type="number" value=0.00></input>
                     Extra Payment Amount:
                     $<input id="extraPaymentAmountInput" type="number" value=0.00></input>
                 </div>
@@ -34,7 +36,7 @@
             </div>
             <div id="paymentChart" class="card">
                 <table id="amortizationChart">
-                    <tr><th>Year</th><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Loan Balance</th><th>Principal</th><th>Interest</th><th>Extra Payment</th><th>Loan Balance with Extra Payment</th></tr>
+                    <tr><th>Year</th><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th><th>LTV %</th><th>Principal</th><th>Interest</th><th>Extra Payment</th><th>Balance w/ Extra Payment</th><th>LTV %</th></tr>
                 </table>
             </div>
         </div>

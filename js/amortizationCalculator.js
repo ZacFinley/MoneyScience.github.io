@@ -3,6 +3,7 @@ var loanInterestAnnual = 0.00;
 var loanInterestMonthly = 0.00;
 var loanDurationYears = 0;
 var loanDurationMonths = 0;
+var assetValue = 0.00;
 
 var payment = 0.00;
 
@@ -16,6 +17,7 @@ function updateAll() {
     updateLoanAmount();
     updateDuration();
     updateExtraPaymentAmount();
+    updateAssetValue();
     
     // call the calculation function
     calculatePayment();
@@ -30,7 +32,7 @@ function calculatePayment() {
 function calculateChart() {
     paymentChart = [];
     var year = new Date().getYear() + 1900;
-    var month = new Date().getMonth();
+    var month = new Date().getMonth() + 1;
     var remainingBalance = loanAmount;
     var remainingBalanceExtraPayment = loanAmount;
     var paymentChartRow = [];
@@ -43,20 +45,24 @@ function calculateChart() {
         paymentChartRow.push(parseFloat(remainingBalance*loanInterestMonthly).toFixed(2));
         remainingBalance -= payment-(remainingBalance*loanInterestMonthly);
         paymentChartRow.push(remainingBalance);
-        if (extraPaymentAmount > 0) {
+        paymentChartRow.push((remainingBalance/assetValue) * 100);
+        if ((extraPaymentAmount > 0) && (remainingBalanceExtraPayment >= 0)) {
             paymentChartRow.push(parseFloat(payment-(remainingBalanceExtraPayment*loanInterestMonthly)).toFixed(2));
             paymentChartRow.push(parseFloat(remainingBalanceExtraPayment*loanInterestMonthly).toFixed(2));
             paymentChartRow.push(extraPaymentAmount);
             remainingBalanceExtraPayment -= payment-(remainingBalanceExtraPayment*loanInterestMonthly);
             remainingBalanceExtraPayment -= extraPaymentAmount;
-            if (remainingBalanceExtraPayment >= 0) {
+            if(remainingBalanceExtraPayment >= 0) {
                 paymentChartRow.push(remainingBalanceExtraPayment);
+                paymentChartRow.push((remainingBalanceExtraPayment/assetValue)*100);
             }
             else {
+                paymentChartRow.push(0.00);
                 paymentChartRow.push(0.00);
             }
         }
         else {
+            paymentChartRow.push(0.00);
             paymentChartRow.push(0.00);
             paymentChartRow.push(0.00);
             paymentChartRow.push(0.00);
@@ -101,12 +107,16 @@ function updatePaymentResult() {
 }
 
 function updatePaymentChart() {
-    document.getElementById("amortizationChart").innerHTML = "<tr><th>Year</th><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Loan Balance</th><th>Principal</th><th>Interest</th><th>Extra Payment</th><th>Loan Balance with Extra Payment</th></tr>";
+    document.getElementById("amortizationChart").innerHTML = "<tr><th>Year</th><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th><th>LTV %</th><th>Principal</th><th>Interest</th><th>Extra Payment</th><th>Balance w/ Extra Payment</th><th>LTV %</th></tr>";
     for (var i = 0; i < paymentChart.length; i++){
-        document.getElementById("amortizationChart").innerHTML += "<tr><td>" + paymentChart[i][0] + "</td><td>" + paymentChart[i][1] + "</td><td>$" + parseFloat(paymentChart[i][2]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][3]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][4]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][5]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][6]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][7]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][8]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][9]).toFixed(2) + "</td></tr>";
+        document.getElementById("amortizationChart").innerHTML += "<tr><td>" + paymentChart[i][0] + "</td><td>" + paymentChart[i][1] + "</td><td>$" + parseFloat(paymentChart[i][2]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][3]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][4]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][5]).toFixed(2) + "</td><td>" + parseFloat(paymentChart[i][6]).toFixed(2) + "%</td><td>$" + parseFloat(paymentChart[i][7]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][8]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][9]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][10]).toFixed(2) + "</td><td>" + parseFloat(paymentChart[i][11]).toFixed(2) + "%</td></tr>";
     }
 }
 
 function updateExtraPaymentAmount() {
     extraPaymentAmount = document.getElementById("extraPaymentAmountInput").value;
+}
+
+function updateAssetValue() {
+    assetValue = document.getElementById("assetValueInput").value;
 }
