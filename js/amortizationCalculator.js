@@ -43,7 +43,7 @@ function calculateChart() {
         paymentChartRow.push(parseFloat(remainingBalance*loanInterestMonthly).toFixed(2));
         remainingBalance -= payment-(remainingBalance*loanInterestMonthly);
         paymentChartRow.push(remainingBalance);
-        if (remainingBalanceExtraPayment >= 0) {
+        if (extraPaymentAmount > 0) {
             paymentChartRow.push(parseFloat(payment-(remainingBalanceExtraPayment*loanInterestMonthly)).toFixed(2));
             paymentChartRow.push(parseFloat(remainingBalanceExtraPayment*loanInterestMonthly).toFixed(2));
             paymentChartRow.push(extraPaymentAmount);
