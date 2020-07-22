@@ -11,7 +11,6 @@ TODO:
 -CD ladder visualizer
 - ammoritization Calculator button styles
 - future value chart like dave ramsey
-- Net worth growth chart with slider for % input
 
 - Debt snowball visualizer
     - list all debts and their payments, reorganize them from smallest to largest and take in actual monthly money availible to pay off frbt to calculate the payoff

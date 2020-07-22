@@ -15,8 +15,22 @@
             Add a description
         </p>
         <div class="wrapper">
-            
-            
+            <div class="card">
+                <div class="inputWrapper">
+                    Net Worth:
+                    $<input id="netWorthInput" type="number" value=0.00 onchange="updateNetWorth()"></input>
+                    <input id="rangeInput" class="sliderBar" type="range" min="0" max="10000" value="1" onchange="updatePercentage()"></input>
+                    <div id="percentageOutput">0.00%</div>
+                    <input id="durationInput" type="number" onchange="updateDuration()"></input>
+                    <input id="monthlyRadioInput" type="radio" name="compound" checked onclick="monthChecked()">Months</input>
+                    <input id="yearlyRadioInput" type="radio" name="compound" onclick="yearChecked()">Years</input>
+                </div>
+            </div>
+            <div class="card">
+                <table id="resultCard">
+                    <tr><th>Year</th><th>Month</th><th>Start Net Worth</th><th>Increase</th><th>End Net Worth</th></tr>
+                </table>
+            </div>
         </div>
         <div id="footer"></div>
     </body>
