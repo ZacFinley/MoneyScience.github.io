@@ -32,7 +32,14 @@ function calculatePayment() {
 function calculateChart() {
     paymentChart = [];
     var year = new Date().getYear() + 1900;
-    var month = new Date().getMonth() + 1;
+    var month = new Date().getMonth();
+    if (month === 11){
+        month = 0
+        year++;
+    }
+    else {
+        month++;
+    }
     var remainingBalance = loanAmount;
     var remainingBalanceExtraPayment = loanAmount;
     var paymentChartRow = [];

@@ -15,8 +15,24 @@
             Add a description
         </p>
         <div class="wrapper">
-            
-            
+            <div class="card">
+                Total Monthly Debt Budget
+                $<input id="monthlyDebtBudgetInput" type="number" value=0.00 onchange="updateTotalMonthlyDebtBudget()"></input>
+                <div id="nonMinimumPayment">You have $0.00 above your minimum payments to paydown your debts</div>
+            </div>
+            <div class="card">
+                Loan Name
+                <input id="loanNameInput"></input>
+                Loan Balance
+                $<input id="loanBalanceInput" type="number" value=0.00></input>
+                Loan Interest rate
+                <input id="loanInterestInput" type="number" value=0.00>%</input>
+                Minimum Payment
+                $<input id="loanPaymentInput" type="number" value=0.00></input>
+                <button onclick="addToDebtList()">Add</button>
+            </div>
+            <div id="debtList">
+            </div>
         </div>
         <div id="footer"></div>
     </body>

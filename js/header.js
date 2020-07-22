@@ -15,18 +15,24 @@ function siteNavigation() {
                           "Income Statement",
                           "Balance Sheet",
                           "Tax Bracket",
+                          "Amortization Calculator",
+                          "Net Worth Growth",
+                          "Debt Snowball",
+                          "CD Ladder",
                           "Casino Simulator",
-                          "Money Articles",
-                          "Amortization Calculator"];
+                          "Money Articles"];
     var navigationPath = ["index",
                           "pathToWealth",
                           "budgetGrader",
                           "incomeStatement",
                           "balanceSheet",
                           "taxBracket",
+                          "amortizationCalculator",
+                          "netWorthGrowth",
+                          "debtSnowball",
+                          "cdVisualizer",
                           "casinoSimulator",
-                          "moneyArticles",
-                          "amortizationCalculator"];
+                          "moneyArticles"];
     var header = "<div class='navigationList'>";
     for (var i = 0; i < navigationList.length; i++){
         header += "<a class='listItem' href='" + navigationPath[i] + ".html'>" + navigationList[i] + "</a>";
