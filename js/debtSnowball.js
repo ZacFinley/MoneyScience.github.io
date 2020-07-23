@@ -44,9 +44,26 @@ function makeListOutput() {
 }
 
 function createNewDebtCard(name, balance, rate, payment, previousPayment) {
-    document.getElementById("debtList").innerHTML += "<div class='card'>Name: " + name + "<br>Balance: $" + balance + "<br>Rate: " + rate + "%<br>Minimum Payment: $" + payment + "<br>Snowball Payment: $" + parseFloat(previousPayment + aboveMinumumPaymentsAmount + payment).toFixed(2) + "<br>Months to Payoff: " + "</div>";
-    
-    // months to pay off
+        // months to pay off
+    var snowballPayment = (previousPayment + aboveMinumumPaymentsAmount + payment);
+    var monthsToPayoff = 0;
+    if (snowballPayment >= balance) {
+        monthsToPayoff = 1;
+    }
+    else {
+        monthsToPayoff = calculatePayoffMonths(balance, rate, payment, (previousPayment + aboveMinumumPaymentsAmount));
+    }
+    document.getElementById("debtList").innerHTML += "<div class='card'>Name: " + name + "<br>Balance: $" + balance + "<br>Rate: " + rate + "%<br>Minimum Payment: $" + payment + "<br>Snowball Payment: $" + parseFloat(snowballPayment).toFixed(2) + "<br>Months to Payoff: " + monthsToPayoff + "</div>";
 }
 
+function calculatePayoffMonths(balance, rate, minPayment, extraPayment) {
+    var monthsUntilPayoff = 0;
+    var tempBalance = balance;
+    while (tempBalance > 0) {
+        monthsUntilPayoff++;
+        tempBalance -= (minPayment * (1-(rate/100)));
+        tempBalance -= extraPayment
+    }
+    return monthsUntilPayoff;
+}
 
