@@ -3,6 +3,7 @@ Money Science website that will teach people about money in our society and how 
 
 
 TODO:
+-add emergency savings estimate to income statement
 - add new files to the header
 
 - add borders around "Income", "Expenses", "Savings"

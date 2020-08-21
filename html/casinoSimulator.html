@@ -2,6 +2,7 @@
     <head>
         <title>Money Science</title>
         <script src="../js/header.js"></script>
+        <script src="../js/casinoSimulator.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/global.css">
         <link rel="stylesheet" type="text/css" href="../css/casinoSimulator.css">
         <link rel="stylesheet" type="text/css" href="../css/header.css">
@@ -17,6 +18,20 @@
             No money will ever be accepted to play these games.<br>
             Any money displayed is competely fake and only for demonstrative purposes.
         </p>
+        <div class="card">
+            <div id="globalBank" class="center font40">
+                Bank: $200
+            </div>
+        </div>
+        <div class="card halfWidth">
+            <div class="header">
+                Slots
+            </div>
+            <table>
+                <tr><td id="slot1">-</td><td id="slot2">-</td><td id="slot3">-</td></tr>
+            </table>
+            <button onclick="slotsSpin()">SPIN</div>
+        </div>
         Roulette
         Blackjack
         Slot Machine

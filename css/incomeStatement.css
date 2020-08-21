@@ -83,3 +83,26 @@ input {
     text-align: center;
     font-size: 40px;
 }
+
+@media print {
+    .description {
+        display: none;
+    }
+    
+    .subHeader {
+        display: none;
+    }
+    
+    .leftWrapper {
+        display: none;
+    }
+    
+    .rightWrapper {
+        width: 100%;
+    }
+    
+    .ratios {
+        text-align: left;
+        font-size: 20px;
+    }
+}
