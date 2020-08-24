@@ -84,6 +84,50 @@ input {
     font-size: 40px;
 }
 
+.piechart {
+    display: block;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: solid 1px black;
+    margin: auto auto auto auto;
+}
+
+.outFlowPiechart {
+    display: block;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    border: solid 1px black;
+    margin: auto auto auto auto;
+}
+
+.leftBreakdown {
+    width: 50%;
+    text-align: center;
+    display: flex;
+}
+
+@media (max-width: 1250px) {
+    .leftBreakdown {
+        display: block;
+    }
+}
+
+.leftBreakdown table {
+    margin: 30px 0px auto auto;
+    width: 246px;
+}
+
+.rightBreakdown {
+    width: 50%;
+    text-align: center;
+}
+
+.pieChartPadding {
+    margin-top: 50px;
+}
+
 @media print {
     .description {
         display: none;
@@ -104,5 +148,12 @@ input {
     .ratios {
         text-align: left;
         font-size: 20px;
+    }
+    
+    .remainingNetIncome {
+        display: none;
+    }
+    .ratioCard {
+        page-break-before: always;
     }
 }
