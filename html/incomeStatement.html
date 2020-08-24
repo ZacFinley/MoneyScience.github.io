@@ -26,6 +26,13 @@
                     </div>
                     <div class="center font20">
                         <input id="incomeName" class="font20" value="Income Item"></input>
+                        <select id="incomeCategory" class="font20">
+                            <option value="Salary">Salary</option>
+                            <option value="Side">Side</option>
+                            <option value="Dividend">Dividend</option>
+                            <option value="Rental">Rental</option>
+                            <option value="Other">Other</option>
+                        </select>
                         <div class="inline">
                             $<input id="incomeAmount" class="font20" type="number" value=0.00></input>
                         </div>
@@ -38,6 +45,21 @@
                     </div>
                     <div class="center font20">
                         <input id="expenseName" class="font20" value="Expense Item"></input>
+                        <select id="expenseCategory" class="font20">
+                            <option value="Federal Tax">Federal Tax</option>
+                            <option value="State Tax">State Tax</option>
+                            <option value="Medicare Tax">Medicare Tax</option>
+                            <option value="Social Security Tax">Social Security Tax</option>
+                            <option value="Transportation">Transportation</option>
+                            <option value="Rent/Mortgage">Rent/Mortgage</option>
+                            <option value="Food">Food</option>
+                            <option value="Utilities">Utilities</option>
+                            <option value="Insurance">Insurance</option>
+                            <option value="Technology">Technology</option>
+                            <option value="Entertainment">Entertainment</option>
+                            <option value="House Maintenance">House Maintenance</option>
+                            <option value="Pets">Pets</option>
+                        </select>
                         <div class="inline">
                             $<input id="expenseAmount" class="font20" type="number" value=0.00></input>
                         </div>
@@ -69,7 +91,7 @@
                     </div>
                 </div>
             </div>
-            <div class="rightWrapper">
+            <div id="rightWrapper" class="rightWrapper">
                 <div class="card">
                     <div class="cardHeader center">
                         Income Statement
@@ -95,6 +117,7 @@
                         </tr>
                         <tr>
                             <td class="font20Bold">Net Income:</td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td class="font20Bold">$0.00</td>
@@ -129,24 +152,164 @@
                 </div>
             </div>
         </div>
-        <div class="card">
+        <div class="card ratioCard">
             <div id="savingsRatio" class="ratios">
-                Savings Rate:
+                Savings Rate: 0.00%
+            </div>
+            <div id="investmentsRatio" class="ratios">
+                Investments Rate: 0.00%
             </div>
             <div id="financialFreedom" class="ratios">
-                Financial Freedom Completion:
+                Financial Freedom Completion: 0.00%
             </div>
             <div id="maximumHousingBudget" class="ratios">
-                Maximum Monthly Housing Budget:
+                Maximum Monthly Housing Budget: $0.00
             </div>
             <div id="lifeInsuranceFaceValue" class="ratios">
-                Life Insurance Face Value Minimum:
+                Life Insurance Face Value Minimum: $0.00
             </div>
-            <div id="passiveOfIncome" class="ratios">
-                Passive Income to Total income (Need categories for this)
+            <div id="emergencyFundMinimum" class="ratios">
+                Emergency Fund Minimum (3 - 6 months of expenses): $0.00 - $0.00
             </div>
-            <div id="sideOfIncome" class="ratios">
-                Side to Total income (Need categories for this)
+            <div class="wrapper">
+                <div id="incomeCategoryBreakdown" class="leftBreakdown">
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td style="width:135px;">Income Breakdown:</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#800000;width:15px;"></td>
+                            <td style="width:135px;">Salary</td>
+                            <td id="salaryCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#803A00;width:15px;"></td>
+                            <td style="width:135px;">Side</td>
+                            <td id="sideCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#004D4D;width:15px;"></td>
+                            <td style="width:135px;">Dividend</td>
+                            <td id="dividendCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#006600;width:15px;"></td>
+                            <td style="width:135px;">Rental</td>
+                            <td id="rentalCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#ffffff;width:15px;"></td>
+                            <td style="width:135px;">Other</td>
+                            <td id="otherCategoryBreakdown">0.00%</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="rightBreakdown">
+                    <div id="incomePieChart" class="piechart ratios pieChartPadding" style="background: conic-gradient(#ffffff 0 360deg);">
+                    </div>
+                </div>
+            </div>
+            <div class="wrapper">
+                <div id="outflowCategoryBreakdown" class="leftBreakdown">
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td style="width:137px;">Expense Breakdown:</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#201100;width:15px;"></td>
+                            <td style="width:135px;">Federal Tax</td>
+                            <td id="fedTaxCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#473600;width:15px;"></td>
+                            <td style="width:135px;">State Tax</td>
+                            <td id="stateTaxCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#6e3b00;width:15px;"></td>
+                            <td style="width:135px;">Medicare Tax</td>
+                            <td id="medTaxCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#965000;width:15px;"></td>
+                            <td style="width:135px;">Social Security Tax</td>
+                            <td id="ssTaxCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#bd6500;width:15px;"></td>
+                            <td style="width:135px;">Transportation</td>
+                            <td id="transportationCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#e47a00;width:15px;"></td>
+                            <td style="width:135px;">Rent/Mortgage</td>
+                            <td id="rentMortgageCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#0c0700;width:15px;"></td>
+                            <td style="width:135px;">Food</td>
+                            <td id="foodCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#5b3100;width:15px;"></td>
+                            <td style="width:135px;">Utilities</td>
+                            <td id="utilitiesCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#824600;width:15px;"></td>
+                            <td style="width:135px;">Insurance</td>
+                            <td id="insuranceCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#a95b00;width:15px;"></td>
+                            <td style="width:135px;">Technology</td>
+                            <td id="technologyCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#d07000;width:15px;"></td>
+                            <td style="width:135px;">Entertainment</td>
+                            <td id="entertainmentCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#f88400;width:15px;"></td>
+                            <td style="width:135px;">House Maintenance</td>
+                            <td id="houseMaintCategoryBreakdown">0.00%</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#ffa033;width:15px;"></td>
+                            <td style="width:135px;">Pets</td>
+                            <td id="petCategoryBreakdown">0.00%</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td style="width:135px;">Savings Breakdown:</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#004D4D;width:15px;"></td>
+                            <td style="width:135px;">Savings</td>
+                            <td id="savingsCategoryBreakdown">0.00%</td>
+                        </tr>
+                    </table>
+                    <table>
+                        <tr>
+                            <td></td>
+                            <td style="width:179px;">Investments Breakdown:</td>
+                        </tr>
+                        <tr>
+                            <td style="background-color:#006600;width:15px;"></td>
+                            <td style="width:135px;">Investments</td>
+                            <td id="investmentsCategoryBreakdown">0.00%</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="rightBreakdown">
+                    <div id="outflowPieChart" class="outFlowPiechart ratios pieChartPadding" style="background: conic-gradient(#ffffff 0 360deg);">
+                    </div>
+                </div>
             </div>
         </div>
         <div id="footer"></div>
