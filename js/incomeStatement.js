@@ -34,69 +34,14 @@ var netIncome = 0.00;
 function calculateTotals() {
     if (income.length > 0){
         incomeTotal = 0;
-        salaryCategory = 0.00;
-        sideCategory = 0.00;
-        dividedCategory = 0.00;
-        rentalCategory = 0.00;
         for(var i = 0; i < income.length; i++){
-            switch (income[i][1]) {
-                case "Salary": salaryCategory += income[i][2];
-                    break;
-                case "Side": sideCategory += income[i][2];
-                    break;
-                case "Dividend": dividedCategory += income[i][2];
-                    break;
-                case "Rental": rentalCategory += income[i][2];
-                    break;
-            }
-            incomeTotal += income[i][2];
+            incomeTotal += income[i][1];
         }
     }
     if (expenses.length > 0){
         expenseTotal = 0;
-        federalTaxCategory = 0.00;
-        stateTaxCategory = 0.00;
-        medicareTaxCategory = 0.00;
-        socialSecurityTaxCategory = 0.00;
-        transportationCategory = 0.00;
-        rentMortgageCategory = 0.00;
-        foodCategory = 0.00;
-        utilitiesCategory = 0.00;
-        insuranceCategory = 0.00;
-        technologyCategory = 0.00;
-        entertainmentCategory = 0.00;
-        houseMaintenanceCategory = 0.00;
-        petsCategory = 0.00;
         for(var j = 0; j < expenses.length; j++){
-            switch (expenses[j][1]) {
-                case "Federal Tax": federalTaxCategory += expenses[j][2];
-                    break;
-                case "State Tax": stateTaxCategory += expenses[j][2];
-                    break;
-                case "Medicare Tax": medicareTaxCategory += expenses[j][2];
-                    break;
-                case "Social Security Tax": socialSecurityTaxCategory += expenses[j][2];
-                    break;
-                case "Transportation": transportationCategory += expenses[j][2];
-                    break;
-                case "Rent/Mortgage": rentMortgageCategory += expenses[j][2];
-                    break;
-                case "Food": foodCategory += expenses[j][2];
-                    break;
-                case "Utilities": utilitiesCategory += expenses[j][2];
-                    break;
-                case "Insurance": insuranceCategory += expenses[j][2];
-                    break;
-                case "Technology": technologyCategory += expenses[j][2];
-                    break;
-                case "Entertainment": entertainmentCategory += expenses[j][2];
-                    break;
-                case "House Maintenance": houseMaintenanceCategory += expenses[j][2];
-                    break;
-                case "Pets": petsCategory += expenses[j][2];
-                    break;
-            }
-            expenseTotal += expenses[j][2];
+            expenseTotal += expenses[j][1];
         }
     }
     if (savings.length > 0){
@@ -122,7 +67,7 @@ function updateIncomeStatement() {
     // Income line items
     if (income.length > 0){
         for (var i = 0; i < income.length; i++) {
-            document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>" + income[i][0] + "</td><td>" + income[i][1] + "</td><td>$" + parseFloat(income[i][2]).toFixed(2) + "</td><td></td></tr>";
+            document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>" + income[i][0] + "</td><td>$" + parseFloat(income[i][1]).toFixed(2) + "</td><td></td></tr>";
         }
     }
     
@@ -135,7 +80,7 @@ function updateIncomeStatement() {
     // Expense line items
     if (expenses.length > 0){
         for (var i = 0; i < expenses.length; i++) {
-            document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>" + expenses[i][0] + "</td><td>" + expenses[i][1] + "</td><td>$" + parseFloat(expenses[i][2]).toFixed(2) + "</td><td></td></tr>";
+            document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>" + expenses[i][0] + "</td><td>$" + parseFloat(expenses[i][1]).toFixed(2) + "</td><td></td></tr>";
         }
     }
     
@@ -188,7 +133,6 @@ function addIncome() {
     // Adding the item
     var incomeLineItem = [];
     incomeLineItem.push(document.getElementById("incomeName").value);
-    incomeLineItem.push(document.getElementById("incomeCategory").value);
     incomeLineItem.push(parseFloat(document.getElementById("incomeAmount").value));
     income.push(incomeLineItem);
     // Update the statement
@@ -202,7 +146,6 @@ function addExpense() {
     // Adding the item
     var expenseLineItem = [];
     expenseLineItem.push(document.getElementById("expenseName").value);
-    expenseLineItem.push(document.getElementById("expenseCategory").value);
     expenseLineItem.push(parseFloat(document.getElementById("expenseAmount").value));
     expenses.push(expenseLineItem);
     // Update the statement
@@ -282,90 +225,97 @@ function emergencyFundMinimum() {
 }
 
 function incomePieChartUpdate() {
-    var categoryPercentages = [(salaryCategory/incomeTotal)];
-    categoryPercentages.push(sideCategory/incomeTotal);
-    categoryPercentages.push(dividedCategory/incomeTotal);
-    categoryPercentages.push(rentalCategory/incomeTotal);
+    var colorsArray = ["#800000", "#803A00", "#004D4D", "#006600", "#ffffff"];
+    var categoryPercentages = [];
+    var dataPoints = [];
+    document.getElementById("incomeCategoryBreakdownTable").innerHTML = ("<tr><td></td><td style='width:135px;'>Income Breakdown:</td></tr>");
+    var incomePieChartString = "conic-gradient(";
     
-    var dataPoints = [parseFloat(categoryPercentages[0]*360)];
-    dataPoints.push(parseFloat(categoryPercentages[1]*360) + dataPoints[0]);
-    dataPoints.push(parseFloat(categoryPercentages[2]*360) + dataPoints[1]);
-    dataPoints.push(parseFloat(categoryPercentages[3]*360) + dataPoints[2]);
-    
-    document.getElementById("salaryCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[0]*100).toFixed(2) + "%");
-    document.getElementById("sideCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[1]*100).toFixed(2) + "%");
-    document.getElementById("dividendCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[2]*100).toFixed(2) + "%");
-    document.getElementById("rentalCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[3]*100).toFixed(2) + "%");
-    document.getElementById("otherCategoryBreakdown").innerHTML = (parseFloat((1 - categoryPercentages[0] - categoryPercentages[1] - categoryPercentages[2] - categoryPercentages[3])*100).toFixed(2) + "%");
-    
-    document.getElementById("incomePieChart").style["background"] = "conic-gradient(#800000 " + dataPoints[0] + "deg,#803A00 " + dataPoints[0] + "deg " + dataPoints[1] + "deg,#004D4D " + dataPoints[1] + "deg " + dataPoints[2] + "deg,#006600 " + dataPoints[2] + "deg " + dataPoints[3] + "deg,#ffffff " + dataPoints[3] + "deg 360deg)";
+    for (var j = 0; j < income.length; j++) {
+        categoryPercentages.push(income[j][1]/incomeTotal);
+        if (j === 0) {
+            dataPoints.push(parseFloat(categoryPercentages[j]*360));
+            incomePieChartString += (colorsArray[j%4] + " 0deg " + dataPoints[j] + "deg");
+        }
+        else {
+            dataPoints.push(parseFloat(categoryPercentages[j]*360) + dataPoints[j-1]);
+            incomePieChartString += ("," + colorsArray[j%4] + " " + dataPoints[j-1] + "deg " + dataPoints[j] + "deg");
+        }
+        
+        if (parseFloat(categoryPercentages[j]*100).toFixed(2) !== "0.00") {
+            document.getElementById("incomeCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (colorsArray[j%4]) + ";width:15px;'></td><td style='width:135px;'>" + income[j][0] + "</td><td>" + parseFloat(categoryPercentages[j]*100).toFixed(2) + "%</td></tr>");
+        }
+    }
+    incomePieChartString += (")");
+    document.getElementById("incomePieChart").style["background"] = incomePieChartString;
+
 }
 
 function outflowPieChartUpdate() {
-    var categoryPercentages = [(federalTaxCategory/incomeTotal)];
-    categoryPercentages.push(stateTaxCategory/incomeTotal);
-    categoryPercentages.push(medicareTaxCategory/incomeTotal);
-    categoryPercentages.push(socialSecurityTaxCategory/incomeTotal);
-    categoryPercentages.push(transportationCategory/incomeTotal);
-    categoryPercentages.push(rentMortgageCategory/incomeTotal);
-    categoryPercentages.push(foodCategory/incomeTotal);
-    categoryPercentages.push(utilitiesCategory/incomeTotal);
-    categoryPercentages.push(insuranceCategory/incomeTotal);
-    categoryPercentages.push(technologyCategory/incomeTotal);
-    categoryPercentages.push(entertainmentCategory/incomeTotal);
-    categoryPercentages.push(houseMaintenanceCategory/incomeTotal);
-    categoryPercentages.push(petsCategory/incomeTotal);
+    var expensesColorsArray = ["#201100", "#473600", "#6e3b00", "#965000", "#bd6500", "#e47a00", "#0c0700", "#5b3100", "#824600", "#a95b00", "#d07000", "#f88400", "#ffa033"];
+    var savingsColorsArray = ["#004D4D", "#ffffff"];
+    var investmentsColorsArray = ["#006600", "#ffffff"];
+    var categoryPercentages = [];
+    var dataPoints = [];
+    
+    document.getElementById("expensesCategoryBreakdownTable").innerHTML = "<tr><td></td><td style='width:137px;'>Expense Breakdown:</td></tr>";
+    document.getElementById("savingsCategoryBreakdownTable").innerHTML = "<tr><td></td><td style='width:135px;'>Savings Breakdown:</td></tr>";
+    document.getElementById("investmentsCategoryBreakdownTable").innerHTML = "<tr><td></td><td style='width:179px;'>Investments Breakdown:</td></tr>";
+    var outFlowPieChartString = "conic-gradient(";
+    // Expenses
+    for (var i = 0; i < expenses.length; i++){
+        categoryPercentages.push(expenses[i][1]/incomeTotal);
+        if (i === 0) {
+            dataPoints.push(parseFloat(categoryPercentages[i]*360));
+            outFlowPieChartString += (expensesColorsArray[i%12] + " 0deg " + dataPoints[i] + "deg");
+        }
+        else {
+            dataPoints.push(parseFloat(categoryPercentages[i]*360) + dataPoints[i-1]);
+            outFlowPieChartString += ("," + expensesColorsArray[i%12] + " " + dataPoints[i-1] + "deg " + dataPoints[i] + "deg");
+        }
+        if (parseFloat(categoryPercentages[i]*100).toFixed(2) !== "0.00") {
+            document.getElementById("expensesCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (expensesColorsArray[i%12]) + ";width:15px;'></td><td style='width:137px;'>" + expenses[i][0] + "</td><td>" + parseFloat(categoryPercentages[i]*100).toFixed(2) + "%</td></tr>");
+        }
+    }
+
     //savings
-    categoryPercentages.push(savingsTotal/incomeTotal);
+    for (var j = 0; j < savings.length; j++){
+        var jBaseline = j + expenses.length;
+        categoryPercentages.push(savings[j][1]/incomeTotal);
+        if (jBaseline === 0) {
+            dataPoints.push(parseFloat(categoryPercentages[jBaseline]*360));
+            outFlowPieChartString += (savingsColorsArray[j%1] + " 0deg " + dataPoints[jBaseline] + "deg");
+        }
+        else {
+            dataPoints.push(parseFloat(categoryPercentages[jBaseline]*360) + dataPoints[jBaseline-1]);
+            outFlowPieChartString += ("," + savingsColorsArray[j%1] + " " + dataPoints[jBaseline-1] + "deg " + dataPoints[jBaseline] + "deg");
+        }
+        if (parseFloat(categoryPercentages[jBaseline]*100).toFixed(2) !== "0.00") {
+            document.getElementById("savingsCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (savingsColorsArray[j%1]) + ";width:15px;'></td><td style='width:135px;'>" + savings[j][0] + "</td><td>" + parseFloat(categoryPercentages[jBaseline]*100).toFixed(2) + "%</td></tr>");
+        }
+    }
     //investments
-    categoryPercentages.push(investmentsTotal/incomeTotal);
-    
-    var dataPoints = [parseFloat(categoryPercentages[0]*360)];
-    dataPoints.push(parseFloat(categoryPercentages[1]*360) + dataPoints[0]);
-    dataPoints.push(parseFloat(categoryPercentages[2]*360) + dataPoints[1]);
-    dataPoints.push(parseFloat(categoryPercentages[3]*360) + dataPoints[2]);
-    dataPoints.push(parseFloat(categoryPercentages[4]*360) + dataPoints[3]);
-    dataPoints.push(parseFloat(categoryPercentages[5]*360) + dataPoints[4]);
-    dataPoints.push(parseFloat(categoryPercentages[6]*360) + dataPoints[5]);
-    dataPoints.push(parseFloat(categoryPercentages[7]*360) + dataPoints[6]);
-    dataPoints.push(parseFloat(categoryPercentages[8]*360) + dataPoints[7]);
-    dataPoints.push(parseFloat(categoryPercentages[9]*360) + dataPoints[8]);
-    dataPoints.push(parseFloat(categoryPercentages[10]*360) + dataPoints[9]);
-    dataPoints.push(parseFloat(categoryPercentages[11]*360) + dataPoints[10]);
-    dataPoints.push(parseFloat(categoryPercentages[12]*360) + dataPoints[11]);
-    dataPoints.push(parseFloat(categoryPercentages[13]*360) + dataPoints[12]);
-    dataPoints.push(parseFloat(categoryPercentages[14]*360) + dataPoints[13]);
-    
-    document.getElementById("fedTaxCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[0]*100).toFixed(2) + "%");
-    document.getElementById("stateTaxCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[1]*100).toFixed(2) + "%");
-    document.getElementById("medTaxCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[2]*100).toFixed(2) + "%");
-    document.getElementById("ssTaxCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[3]*100).toFixed(2) + "%");
-    document.getElementById("transportationCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[4]*100).toFixed(2) + "%");
-    document.getElementById("rentMortgageCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[5]*100).toFixed(2) + "%");
-    document.getElementById("foodCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[6]*100).toFixed(2) + "%");
-    document.getElementById("utilitiesCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[7]*100).toFixed(2) + "%");
-    document.getElementById("insuranceCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[8]*100).toFixed(2) + "%");
-    document.getElementById("technologyCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[9]*100).toFixed(2) + "%");
-    document.getElementById("entertainmentCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[10]*100).toFixed(2) + "%");
-    document.getElementById("houseMaintCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[11]*100).toFixed(2) + "%");
-    document.getElementById("petCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[12]*100).toFixed(2) + "%");
-    document.getElementById("savingsCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[13]*100).toFixed(2) + "%");
-    document.getElementById("investmentsCategoryBreakdown").innerHTML = (parseFloat(categoryPercentages[14]*100).toFixed(2) + "%");
-    
-    document.getElementById("outflowPieChart").style["background"] = "conic-gradient(#201100 " + dataPoints[0] + "deg," +
-    "#473600 " + dataPoints[0] + "deg " + dataPoints[1] + "deg," +
-    "#6e3b00 " + dataPoints[1] + "deg " + dataPoints[2] + "deg," +
-    "#965000 " + dataPoints[2] + "deg " + dataPoints[3] + "deg," +
-    "#bd6500 " + dataPoints[3] + "deg " + dataPoints[4] + "deg," +
-    "#e47a00 " + dataPoints[4] + "deg " + dataPoints[5] + "deg," +
-    "#0c0700 " + dataPoints[5] + "deg " + dataPoints[6] + "deg," +
-    "#5b3100 " + dataPoints[6] + "deg " + dataPoints[7] + "deg," +
-    "#824600 " + dataPoints[7] + "deg " + dataPoints[8] + "deg," +
-    "#a95b00 " + dataPoints[8] + "deg " + dataPoints[9] + "deg," +
-    "#d07000 " + dataPoints[9] + "deg " + dataPoints[10] + "deg," +
-    "#f88400 " + dataPoints[10] + "deg " + dataPoints[11] + "deg," +
-    "#ffa033 " + dataPoints[11] + "deg " + dataPoints[12] + "deg," +
-    "#004D4D " + dataPoints[12] + "deg " + dataPoints[13] + "deg," +
-    "#006600 " + dataPoints[13] + "deg " + dataPoints[14] + "deg," +
-    "#ffffff " + dataPoints[14] + "deg 360deg)";
+    for (var k = 0; k < investments.length; k++){
+        var kBaseline = k + expenses.length + savings.length;
+        categoryPercentages.push(investments[k][1]/incomeTotal);
+        if (kBaseline === 0) {
+            dataPoints.push(parseFloat(categoryPercentages[kBaseline]*360));
+            outFlowPieChartString += (investmentsColorsArray[k%1] + " 0deg " + dataPoints[kBaseline] + "deg");
+        }
+        else {
+            dataPoints.push(parseFloat(categoryPercentages[k + expenses.length]*360) + dataPoints[(kBaseline)-1]);
+            outFlowPieChartString += ("," + investmentsColorsArray[k%1] + " " + dataPoints[kBaseline-1] + "deg " + dataPoints[kBaseline] + "deg");
+        }
+        if (parseFloat(categoryPercentages[i + expenses.length]*100).toFixed(2) !== "0.00") {
+            document.getElementById("investmentsCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (investmentsColorsArray[k%1]) + ";width:15px;'></td><td style='width:179px;'>" + investments[k][0] + "</td><td>" + parseFloat(categoryPercentages[kBaseline]*100).toFixed(2) + "%</td></tr>");
+        }
+    }
+    if (expenses.length > 0 || savings.length > 0 || investments.length > 0) {
+        outFlowPieChartString += (",#ffffff " + dataPoints[expenses.length + savings.length + investments.length - 1] + "deg 360deg)");
+    }
+    else {
+        outFlowPieChartString += (")");
+    }
+    console.log(outFlowPieChartString);
+    document.getElementById("outflowPieChart").style["background"] = outFlowPieChartString;
 }
