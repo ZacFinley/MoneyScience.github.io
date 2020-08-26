@@ -31,6 +31,26 @@ var petsCategory = 0.00;
 
 var netIncome = 0.00;
 
+function monthOnChange() {
+    document.getElementById("monthWrapper").innerHTML = "<div id='month' onClick='reset()'>" + document.getElementById("monthInput").value + "</div>,&nbsp;";
+}
+
+function reset() {
+    document.getElementById("monthYearWrapper").innerHTML = "<div id='monthWrapper' class='month wrapper'></div><div id='yearWrapper' class='year'></div>";
+    document.getElementById("monthWrapper").innerHTML = "<input id='monthInput' class='month' placeholder='Month' onchange='monthOnChange()'></input><button onclick='removeMonth()'>Remove Month</button>";
+    document.getElementById("yearWrapper").classList.remove("month");
+    document.getElementById("yearWrapper").innerHTML = "<input id='yearInput' class='year' placeholder='Year' onchange='yearOnChange()'></input>";
+}
+
+function yearOnChange() {
+    document.getElementById("yearWrapper").innerHTML = "<div id='year' onClick='reset()'>" + document.getElementById("yearInput").value + "</div>";
+}
+
+function removeMonth() {
+    document.getElementById("monthWrapper").remove();
+    document.getElementById("yearWrapper").classList.add("month");
+}
+
 function calculateTotals() {
     if (income.length > 0){
         incomeTotal = 0;
@@ -235,15 +255,15 @@ function incomePieChartUpdate() {
         categoryPercentages.push(income[j][1]/incomeTotal);
         if (j === 0) {
             dataPoints.push(parseFloat(categoryPercentages[j]*360));
-            incomePieChartString += (colorsArray[j%4] + " 0deg " + dataPoints[j] + "deg");
+            incomePieChartString += (colorsArray[j%(colorsArray.length-1)] + " 0deg " + dataPoints[j] + "deg");
         }
         else {
             dataPoints.push(parseFloat(categoryPercentages[j]*360) + dataPoints[j-1]);
-            incomePieChartString += ("," + colorsArray[j%4] + " " + dataPoints[j-1] + "deg " + dataPoints[j] + "deg");
+            incomePieChartString += ("," + colorsArray[j%(colorsArray.length-1)] + " " + dataPoints[j-1] + "deg " + dataPoints[j] + "deg");
         }
         
         if (parseFloat(categoryPercentages[j]*100).toFixed(2) !== "0.00") {
-            document.getElementById("incomeCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (colorsArray[j%4]) + ";width:15px;'></td><td style='width:135px;'>" + income[j][0] + "</td><td>" + parseFloat(categoryPercentages[j]*100).toFixed(2) + "%</td></tr>");
+            document.getElementById("incomeCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (colorsArray[j%(colorsArray.length-1)]) + ";width:15px;'></td><td style='width:135px;'>" + income[j][0] + "</td><td>" + parseFloat(categoryPercentages[j]*100).toFixed(2) + "%</td></tr>");
         }
     }
     incomePieChartString += (")");
@@ -253,8 +273,8 @@ function incomePieChartUpdate() {
 
 function outflowPieChartUpdate() {
     var expensesColorsArray = ["#201100", "#473600", "#6e3b00", "#965000", "#bd6500", "#e47a00", "#0c0700", "#5b3100", "#824600", "#a95b00", "#d07000", "#f88400", "#ffa033"];
-    var savingsColorsArray = ["#004D4D", "#ffffff"];
-    var investmentsColorsArray = ["#006600", "#ffffff"];
+    var savingsColorsArray = ["#004D4D", "#007474", "#009b9b", "#00c3c3", "#00eaea"];
+    var investmentsColorsArray = ["#003f00", "#006600", "#008d00", "#00b400", "#00dc00"];
     var categoryPercentages = [];
     var dataPoints = [];
     
@@ -267,14 +287,14 @@ function outflowPieChartUpdate() {
         categoryPercentages.push(expenses[i][1]/incomeTotal);
         if (i === 0) {
             dataPoints.push(parseFloat(categoryPercentages[i]*360));
-            outFlowPieChartString += (expensesColorsArray[i%12] + " 0deg " + dataPoints[i] + "deg");
+            outFlowPieChartString += (expensesColorsArray[i%(expensesColorsArray.length)] + " 0deg " + dataPoints[i] + "deg");
         }
         else {
             dataPoints.push(parseFloat(categoryPercentages[i]*360) + dataPoints[i-1]);
-            outFlowPieChartString += ("," + expensesColorsArray[i%12] + " " + dataPoints[i-1] + "deg " + dataPoints[i] + "deg");
+            outFlowPieChartString += ("," + expensesColorsArray[i%(expensesColorsArray.length)] + " " + dataPoints[i-1] + "deg " + dataPoints[i] + "deg");
         }
         if (parseFloat(categoryPercentages[i]*100).toFixed(2) !== "0.00") {
-            document.getElementById("expensesCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (expensesColorsArray[i%12]) + ";width:15px;'></td><td style='width:137px;'>" + expenses[i][0] + "</td><td>" + parseFloat(categoryPercentages[i]*100).toFixed(2) + "%</td></tr>");
+            document.getElementById("expensesCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (expensesColorsArray[i%(expensesColorsArray.length)]) + ";width:15px;'></td><td style='width:137px;'>" + expenses[i][0] + "</td><td>" + parseFloat(categoryPercentages[i]*100).toFixed(2) + "%</td></tr>");
         }
     }
 
@@ -284,14 +304,14 @@ function outflowPieChartUpdate() {
         categoryPercentages.push(savings[j][1]/incomeTotal);
         if (jBaseline === 0) {
             dataPoints.push(parseFloat(categoryPercentages[jBaseline]*360));
-            outFlowPieChartString += (savingsColorsArray[j%1] + " 0deg " + dataPoints[jBaseline] + "deg");
+            outFlowPieChartString += (savingsColorsArray[j%(savingsColorsArray.length)] + " 0deg " + dataPoints[jBaseline] + "deg");
         }
         else {
             dataPoints.push(parseFloat(categoryPercentages[jBaseline]*360) + dataPoints[jBaseline-1]);
-            outFlowPieChartString += ("," + savingsColorsArray[j%1] + " " + dataPoints[jBaseline-1] + "deg " + dataPoints[jBaseline] + "deg");
+            outFlowPieChartString += ("," + savingsColorsArray[j%(savingsColorsArray.length)] + " " + dataPoints[jBaseline-1] + "deg " + dataPoints[jBaseline] + "deg");
         }
         if (parseFloat(categoryPercentages[jBaseline]*100).toFixed(2) !== "0.00") {
-            document.getElementById("savingsCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (savingsColorsArray[j%1]) + ";width:15px;'></td><td style='width:135px;'>" + savings[j][0] + "</td><td>" + parseFloat(categoryPercentages[jBaseline]*100).toFixed(2) + "%</td></tr>");
+            document.getElementById("savingsCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (savingsColorsArray[j%(savingsColorsArray.length)]) + ";width:15px;'></td><td style='width:135px;'>" + savings[j][0] + "</td><td>" + parseFloat(categoryPercentages[jBaseline]*100).toFixed(2) + "%</td></tr>");
         }
     }
     //investments
@@ -300,14 +320,14 @@ function outflowPieChartUpdate() {
         categoryPercentages.push(investments[k][1]/incomeTotal);
         if (kBaseline === 0) {
             dataPoints.push(parseFloat(categoryPercentages[kBaseline]*360));
-            outFlowPieChartString += (investmentsColorsArray[k%1] + " 0deg " + dataPoints[kBaseline] + "deg");
+            outFlowPieChartString += (investmentsColorsArray[k%(investmentsColorsArray.length)] + " 0deg " + dataPoints[kBaseline] + "deg");
         }
         else {
-            dataPoints.push(parseFloat(categoryPercentages[k + expenses.length]*360) + dataPoints[(kBaseline)-1]);
-            outFlowPieChartString += ("," + investmentsColorsArray[k%1] + " " + dataPoints[kBaseline-1] + "deg " + dataPoints[kBaseline] + "deg");
+            dataPoints.push(parseFloat(categoryPercentages[kBaseline]*360) + dataPoints[(kBaseline)-1]);
+            outFlowPieChartString += ("," + investmentsColorsArray[k%(investmentsColorsArray.length)] + " " + dataPoints[kBaseline-1] + "deg " + dataPoints[kBaseline] + "deg");
         }
         if (parseFloat(categoryPercentages[i + expenses.length]*100).toFixed(2) !== "0.00") {
-            document.getElementById("investmentsCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (investmentsColorsArray[k%1]) + ";width:15px;'></td><td style='width:179px;'>" + investments[k][0] + "</td><td>" + parseFloat(categoryPercentages[kBaseline]*100).toFixed(2) + "%</td></tr>");
+            document.getElementById("investmentsCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (investmentsColorsArray[k%(investmentsColorsArray.length)]) + ";width:15px;'></td><td style='width:179px;'>" + investments[k][0] + "</td><td>" + parseFloat(categoryPercentages[kBaseline]*100).toFixed(2) + "%</td></tr>");
         }
     }
     if (expenses.length > 0 || savings.length > 0 || investments.length > 0) {
@@ -316,6 +336,5 @@ function outflowPieChartUpdate() {
     else {
         outFlowPieChartString += (")");
     }
-    console.log(outFlowPieChartString);
     document.getElementById("outflowPieChart").style["background"] = outFlowPieChartString;
 }

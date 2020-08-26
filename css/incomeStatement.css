@@ -12,6 +12,16 @@
     display: flex;
 }
 
+.month {
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.year {
+    margin-right: auto;
+    cursor: pointer;
+}
+
 .leftWrapper {
     width: 40%;
 }
