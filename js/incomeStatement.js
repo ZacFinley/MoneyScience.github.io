@@ -9,25 +9,10 @@ var savingsTotal = 0.00;
 var investmentsTotal = 0.00;
 
 // income categories
-var salaryCategory = 0.00;
-var sideCategory = 0.00;
-var dividedCategory = 0.00;
-var rentalCategory = 0.00;
+var rentDividend = 0.00;
 
 // expense categories
-var federalTaxCategory = 0.00;
-var stateTaxCategory = 0.00;
-var medicareTaxCategory = 0.00;
-var socialSecurityTaxCategory = 0.00;
-var transportationCategory = 0.00;
-var rentMortgageCategory = 0.00;
-var foodCategory = 0.00;
-var utilitiesCategory = 0.00;
-var insuranceCategory = 0.00;
-var technologyCategory = 0.00;
-var entertainmentCategory = 0.00;
-var houseMaintenanceCategory = 0.00;
-var petsCategory = 0.00;
+var taxes = 0.00;
 
 var netIncome = 0.00;
 
@@ -54,13 +39,21 @@ function removeMonth() {
 function calculateTotals() {
     if (income.length > 0){
         incomeTotal = 0;
+        rentDividend = 0.00;
         for(var i = 0; i < income.length; i++){
+            if (income[i][0].includes("Rent") || income[i][0].includes("Dividend")) {
+                rentDividend += income[i][1];
+            }
             incomeTotal += income[i][1];
         }
     }
     if (expenses.length > 0){
         expenseTotal = 0;
+        taxes = 0.00;
         for(var j = 0; j < expenses.length; j++){
+            if (expenses[j][0].includes("Tax")) {
+                taxes += expenses[j][1];
+            }
             expenseTotal += expenses[j][1];
         }
     }
@@ -221,19 +214,19 @@ function investmentsRatio() {
 }
 
 function financialFreedom() {
-    if (isNaN((dividedCategory+rentalCategory)/expenseTotal)){
+    if (isNaN((rentDividend)/expenseTotal)){
         document.getElementById("financialFreedom").innerHTML = ("Financial Freedom Completion: " + parseFloat(0.00).toFixed(2) + "%");
     }
-    else if (((dividedCategory+rentalCategory)/expenseTotal) == Number.POSITIVE_INFINITY || ((dividedCategory+rentalCategory)/expenseTotal) == Number.NEGATIVE_INFINITY) {
+    else if (((rentDividend)/expenseTotal) == Number.POSITIVE_INFINITY || ((rentDividend)/expenseTotal) == Number.NEGATIVE_INFINITY) {
         document.getElementById("financialFreedom").innerHTML = ("Financial Freedom Completion: " + parseFloat(100.00).toFixed(2) + "%");
     }
     else {
-        document.getElementById("financialFreedom").innerHTML = ("Financial Freedom Completion: " + parseFloat(((dividedCategory+rentalCategory)/expenseTotal)*100).toFixed(2) + "%");
+        document.getElementById("financialFreedom").innerHTML = ("Financial Freedom Completion: " + parseFloat(((rentDividend)/expenseTotal)*100).toFixed(2) + "%");
     }
 }
 
 function maximumHousingBudget() {
-    document.getElementById("maximumHousingBudget").innerHTML = ("Maximum Monthly Housing Budget: $" + parseFloat((incomeTotal - federalTaxCategory - stateTaxCategory - medicareTaxCategory - socialSecurityTaxCategory)/4).toFixed(2));
+    document.getElementById("maximumHousingBudget").innerHTML = ("Maximum Monthly Housing Budget: $" + parseFloat((incomeTotal - taxes)/4).toFixed(2));
 }
 
 function lifeInsuranceValue() {
