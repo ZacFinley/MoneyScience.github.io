@@ -255,9 +255,7 @@ function incomePieChartUpdate() {
             incomePieChartString += ("," + colorsArray[j%(colorsArray.length-1)] + " " + dataPoints[j-1] + "deg " + dataPoints[j] + "deg");
         }
         
-        if (parseFloat(categoryPercentages[j]*100).toFixed(2) !== "0.00") {
-            document.getElementById("incomeCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (colorsArray[j%(colorsArray.length-1)]) + ";width:15px;'></td><td style='width:135px;'>" + income[j][0] + "</td><td>" + parseFloat(categoryPercentages[j]*100).toFixed(2) + "%</td></tr>");
-        }
+        document.getElementById("incomeCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (colorsArray[j%(colorsArray.length-1)]) + ";width:15px;'></td><td style='width:135px;'>" + income[j][0] + "</td><td>" + parseFloat(categoryPercentages[j]*100).toFixed(2) + "%</td></tr>");
     }
     incomePieChartString += (")");
     document.getElementById("incomePieChart").style["background"] = incomePieChartString;
@@ -286,9 +284,7 @@ function outflowPieChartUpdate() {
             dataPoints.push(parseFloat(categoryPercentages[i]*360) + dataPoints[i-1]);
             outFlowPieChartString += ("," + expensesColorsArray[i%(expensesColorsArray.length)] + " " + dataPoints[i-1] + "deg " + dataPoints[i] + "deg");
         }
-        if (parseFloat(categoryPercentages[i]*100).toFixed(2) !== "0.00") {
-            document.getElementById("expensesCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (expensesColorsArray[i%(expensesColorsArray.length)]) + ";width:15px;'></td><td style='width:137px;'>" + expenses[i][0] + "</td><td>" + parseFloat(categoryPercentages[i]*100).toFixed(2) + "%</td></tr>");
-        }
+        document.getElementById("expensesCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (expensesColorsArray[i%(expensesColorsArray.length)]) + ";width:15px;'></td><td style='width:137px;'>" + expenses[i][0] + "</td><td>" + parseFloat(categoryPercentages[i]*100).toFixed(2) + "%</td></tr>");
     }
 
     //savings
