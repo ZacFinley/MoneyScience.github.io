@@ -101,7 +101,7 @@ function updateIncomeStatement() {
     document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>Total Expenses:</td><td></td><td>$" + parseFloat(expenseTotal).toFixed(2) + "</td></tr>";
     
     // Net Income
-    document.getElementById("incomeStatement").innerHTML += "<tr><td class='font20Bold'>Net Income:</td><td></td><td></td><td></td><td class='font20Bold'>$" + parseFloat(netIncome).toFixed(2) + "</td></tr>";
+    document.getElementById("incomeStatement").innerHTML += "<tr><td class='font30Bold'>Net Income:</td><td></td><td></td><td></td><td class='font30Bold'>$" + parseFloat(netIncome).toFixed(2) + "</td></tr>";
     
     // Savings header
     document.getElementById("savingsStatement").innerHTML = "<tr><td>Savings:</td></tr>";
