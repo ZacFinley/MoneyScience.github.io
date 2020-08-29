@@ -153,10 +153,6 @@ input {
         text-align: left;
         font-size: 12px;
     }
-    
-    .remainingNetIncome {
-        display: none;
-    }
     .ratioCard {
         page-break-before: always;
     }

@@ -27,7 +27,7 @@
     .card {
         box-shadow: unset;
         border: solid 1px gray;
-        margin: 20px 40px;
+        margin: 10px 40px;
         padding: 5px;
     }
 }
