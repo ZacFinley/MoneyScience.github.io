@@ -2,12 +2,6 @@
     text-align: center;
 }
 
-.card {
-    box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    margin: 20px 20px;
-    padding: 15px;
-}
-
 .wrapper {
     display: flex;
 }
@@ -84,7 +78,7 @@ input {
     width: 100%;
 }
 
-.font20Bold {
+.font30Bold {
     font-size: 30px;
     font-style: bold;
 }
@@ -157,7 +151,7 @@ input {
     
     .ratios {
         text-align: left;
-        font-size: 20px;
+        font-size: 12px;
     }
     
     .remainingNetIncome {
@@ -169,5 +163,14 @@ input {
     
     .leftBreakdown {
         display: unset;
+    }
+    .cardHeader {
+        font-size: 15px;
+    }
+    .font20 {
+        font-size: 10px;
+    }
+    .font30Bold {
+        font-size: 15px;
     }
 }

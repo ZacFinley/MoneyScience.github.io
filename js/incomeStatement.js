@@ -41,7 +41,7 @@ function calculateTotals() {
         incomeTotal = 0;
         rentDividend = 0.00;
         for(var i = 0; i < income.length; i++){
-            if (income[i][0].includes("Rent") || income[i][0].includes("Dividend")) {
+            if (income[i][0].includes("Rent") || income[i][0].includes("Dividend") || income[i][0].includes("Interest")) {
                 rentDividend += income[i][1];
             }
             incomeTotal += income[i][1];

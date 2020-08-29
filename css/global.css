@@ -17,3 +17,17 @@
     margin: 20px 40px;
     padding: 15px;
 }
+
+@media print {
+    .siteFooter {
+        background-color: unset;
+        color: black;
+        padding: 5px;
+    }
+    .card {
+        box-shadow: unset;
+        border: solid 1px gray;
+        margin: 20px 40px;
+        padding: 5px;
+    }
+}
