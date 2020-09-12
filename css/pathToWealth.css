@@ -14,12 +14,6 @@
     display: flex;
 }
 
-.card {
-    box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-    margin: 20px 40px;
-    padding: 15px;
-}
-
 .buttonPanel {
     padding: 15px;
 }
@@ -36,4 +30,36 @@
 
 #totalGivingPayment {
     display: inline;
+}
+
+.inputs {
+    width: 25%;
+}
+
+.totalAmounts {
+    width: 75%
+}
+
+.inputsTable {
+    margin: 0 auto;
+}
+
+@media (max-width: 1200px) {
+    .wrapper {
+        display: unset;
+    }
+    
+    .inputs {
+        min-width: 288px;
+        margin: 0 auto;
+    }
+    
+    .totalAmounts {
+        width: unset;
+        min-width: 738px;
+    }
+    
+    .totalAmountsTable {
+        margin: 0 auto;
+    }
 }
