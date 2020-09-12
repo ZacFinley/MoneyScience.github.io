@@ -59,12 +59,62 @@ var totalGivingPayment = 0;
 var netWorth = 0;
 
 
-function resetTimeline() {
+function reset() {
+    // Timeline
     simulatedMonths = 0;
     simulatedYears = 0;
     ageMonths = 0;
     ageYears = 0;
+    currentMonth = new Date().getMonth();
+    // Inputs
+    monthlySalary = 0;
+    monthlyRentalProfit = 0;
+    monthlyGiving = 0;
+    monthlyRent = 0;
+    monthlyMortgage = 0;
+    monthlyUtilities = 0;
+    monthlyFood = 0;
+    monthlyTransportation = 0;
+    monthlyInternet = 0;
+    monthlyPhone = 0;
+    monthlyDebt = 0;
+    monthlyRetirement = 0;
+    monthlyIndividualInvesting = 0;
+    monthlySavings = 0;
+    // Totals
+    totalIncome = 0;
+    totalExpenses = 0;
+    totalRemainingMortgage = 0;
+    totalRemainingDebt = 0;
+    totalRetirement = 0;
+    totalIndividualInvesting = 0;
+    primaryHouseEquity = 0;
+    rentalEquity = 0;
+    totalSavings = 0;
+    totalGivingBalance = 0;
+    // Interest
+    totalRemainingMortgageInterest = 0;
+    totalRemainingDebtInterest = 0;
+    totalRetirementInterest = 0;
+    totalIndividualInvestingInterest = 0;
+    primaryHouseInterest = 0;
+    rentalInterest = 0;
+    totalSavingsInterest = 0;
+    totalGivingInterest = 0;
+    // Term
+    totalRemainingMortgageTerm = 0;
+    totalRemainingDebtTerm = 0;
+    //Payments
+    totalRemainingMortgagePayment = 0;
+    totalRemainingDebtPayment = 0;
+    totalGivingPayment = 0;
+    netWorth = 0;
     updateTimeline();
+    document.getElementById("ageYears").value = ageYears;
+    document.getElementById("ageMonths").value = ageMonths;
+    updateTotalAmounts();
+    updateMortgagePayment();
+    updateDebtPayment();
 }
 
 function addMonth() {

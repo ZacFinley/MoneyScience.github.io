@@ -33,20 +33,6 @@
     text-align: center;
 }
 
-.addButton {
-    height: 40px;
-    width: 80px;
-    border: none;
-    background-color: #bb0000;
-    color: white;
-    border-radius: 5px 15px;
-    box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
-}
-
-.addButton:hover {
-    background-color: #ff8080;
-}
-
 input {
     height: 40px;
     width: 150px;
