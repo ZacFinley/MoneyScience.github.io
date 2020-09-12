@@ -3,12 +3,20 @@ Money Science website that will teach people about money in our society and how 
 
 
 TODO:
-- add new files to the header
-
--CD ladder visualizer
-- ammoritization Calculator button styles
-- future value chart like dave ramsey
+- future value chart like dave ramsey maybe on the home page
 
 - debt snowball sort on interest rate if balance is the same
+- Print settings for all pages (mainly balance sheet)
 
-- Plan out the budget grader
+Mobile
+    -pages
+    -header
+    
+Printable debt payoff chart
+
+-$100,000 article
+- helpful links on home page
+
+-Path to wealth NaN issue when Mortgage payment calc has been done and reset is click then live month
+-new name for site (look for domain)
+
