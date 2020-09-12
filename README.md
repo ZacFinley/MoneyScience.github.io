@@ -19,4 +19,3 @@ Printable debt payoff chart
 
 -Path to wealth NaN issue when Mortgage payment calc has been done and reset is click then live month
 -new name for site (look for domain)
-
