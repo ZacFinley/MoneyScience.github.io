@@ -166,16 +166,16 @@ function updateNetWorthChange() {
     var netWorthChangePercent = (Math.abs(netWorthChange)/previousNetWorth)*100;
     if (netWorthChange > 0) {
         increasedDecreased = "increased";
-        increaseDecrease = "increase";
+        increaseDecrease = "an increase";
     }
     else if (netWorthChange < 0) {
         increasedDecreased = "decreased";
-        increaseDecrease = "decrease";
+        increaseDecrease = "a decrease";
     }
     else {
         document.getElementById("netWorthChange").innerHTML = "Your net worth " + increasedDecreased;
     }
-    document.getElementById("netWorthChange").innerHTML = "Your net worth " + increasedDecreased + " by $" + parseFloat(netWorthChange).toFixed(2) + " which is an " + increaseDecrease + " of " + parseFloat(netWorthChangePercent).toFixed(2) + "%";
+    document.getElementById("netWorthChange").innerHTML = "Your net worth " + increasedDecreased + " by $" + parseFloat(netWorthChange).toFixed(2) + " which is " + increaseDecrease + " of " + parseFloat(netWorthChangePercent).toFixed(2) + "%";
 }
 
 function updateAge() {
