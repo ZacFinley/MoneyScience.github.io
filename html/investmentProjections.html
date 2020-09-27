@@ -17,21 +17,22 @@
         </p>
         <div class="wrapper">
             <div class="card">
+                <div id="account0Totals">Account Totals - Current: $0.00 Projected: $0.00</div>
                 <table id="account0">
                     <tr>
                         <th>Ticker</th>
                         <th>Shares</th>
                         <th>Price</th>
                         <th>Current Total</th>
-                        <th>Adjustment</th>
+                        <th>Adjustment (%)</th>
                         <th>Projected Total</th>
                     </tr>
                     <tr>
-                        <td><input id="investment0Ticker" class="tickerInput" onChange=""></input></td>
-                        <td><input id="investment0Shares" class="sharesInput" onChange=""></input></td>
-                        <td><input id="investment0Price"class="priceInput" onChange=""></input></td>
+                        <td><input id="investment0Ticker" class="tickerInput" onChange="updateInvestmentTicker(0,0)"></input></td>
+                        <td><input id="investment0Shares" class="sharesInput" onChange="updateInvestmentShares(0,0)" type="number"></input></td>
+                        <td><input id="investment0Price"class="priceInput" onChange="updateInvestmentPrice(0,0)" type="number"></input></td>
                         <td id="investment0CurrentTotal" class="center">$0.00</td>
-                        <td><input id="investment0Adjustment" class="adjustmentInput" type="number" value="0" step=".1" onChange=""></input></td>
+                        <td><input id="investment0Adjustment" class="adjustmentInput" type="number" value="0" step=".1" onChange="updateInvestmentAdjustment(0,0)"></input></td>
                         <td id="investment0ProjectedTotal" class="center">$0.00</td>
                     </tr>
                 </table>
