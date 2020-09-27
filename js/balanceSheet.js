@@ -16,6 +16,26 @@ var preTaxIncome = 0.00;
 var retirementAge = 0;
 var retirementAmount = 0.00;
 
+function monthOnChange() {
+    document.getElementById("monthWrapper").innerHTML = "<div id='month' onClick='reset()'>" + document.getElementById("monthInput").value + "</div>,&nbsp;";
+}
+
+function reset() {
+    document.getElementById("monthYearWrapper").innerHTML = "<div id='monthWrapper' class='month wrapper'></div><div id='yearWrapper' class='year'></div>";
+    document.getElementById("monthWrapper").innerHTML = "<input id='monthInput' class='month' placeholder='Month' onchange='monthOnChange()'></input><button class='mainButton' onclick='removeMonth()'>Remove Month</button>";
+    document.getElementById("yearWrapper").classList.remove("month");
+    document.getElementById("yearWrapper").innerHTML = "<input id='yearInput' class='year' placeholder='Year' onchange='yearOnChange()'></input>";
+}
+
+function yearOnChange() {
+    document.getElementById("yearWrapper").innerHTML = "<div id='year' onClick='reset()'>" + document.getElementById("yearInput").value + "</div>";
+}
+
+function removeMonth() {
+    document.getElementById("monthWrapper").remove();
+    document.getElementById("yearWrapper").classList.add("month");
+}
+
 function calculateNetWorth() {
     netWorth = assetTotal - liabilitiesTotal;
 }
