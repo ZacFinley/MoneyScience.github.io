@@ -17,6 +17,17 @@
             A liability is something you owe to someone.<br>
             Assets - Liabilities = Net Worth
         </p>
+        <div id="monthYearWrapper" class="card wrapper center font20">
+            <div id="monthWrapper" class="month wrapper">
+                <input id="monthInput" class="month" placeholder="Month" onchange="monthOnChange()">
+                </input>
+                <button class="mainButton" onclick="removeMonth()">Remove Month</button>
+            </div>
+            <div id="yearWrapper" class="year">
+                <input id="yearInput" class="year" placeholder="Year" onchange="yearOnChange()">
+                </input>
+            </div>
+        </div>
         <div class="wrapper">
             <div class="topWrapper">
                 <div class="card inline width50Percent">

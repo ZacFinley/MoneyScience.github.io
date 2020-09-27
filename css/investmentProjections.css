@@ -1,0 +1,11 @@
+table {
+    width: 100%;
+}
+
+.tickerInput,.sharesInput,.priceInput,.adjustmentInput {
+    width: 100%;
+}
+
+.center {
+    text-align: center;
+}

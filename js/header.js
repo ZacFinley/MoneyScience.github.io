@@ -17,6 +17,7 @@ function siteNavigation() {
                           "Amortization Calculator",
                           "Net Worth Growth",
                           "Debt Snowball",
+                          "Investment Projections",
                           "Money Articles"];
     var navigationPath = ["index",
                           "pathToWealth",
@@ -26,6 +27,7 @@ function siteNavigation() {
                           "amortizationCalculator",
                           "netWorthGrowth",
                           "debtSnowball",
+                          "investmentProjections",
                           "moneyArticles"];
     var header = "<div class='navigationList'>";
     for (var i = 0; i < navigationList.length; i++){
