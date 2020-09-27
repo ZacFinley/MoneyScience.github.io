@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Investment Projections</title>
+        <script src="../js/header.js"></script>
+        <script src="../js/investmentProjections.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/global.css">
+            <link rel="stylesheet" type="text/css" href="../css/investmentProjections.css">
+                <link rel="stylesheet" type="text/css" href="../css/header.css">
+                    <link rel="stylesheet" type="text/css" href="../css/footer.css">
+                        </head>
+    <body>
+        <div id="header"></div>
+        <h2 class="subHeader">Investment Projections</h2>
+        <p class="description">
+        Enter your investments grouped by account.<br>
+        Then adjust the percentage increase or decrease to visualize the changes in the account value.
+        </p>
+        <div class="wrapper">
+            <div class="card">
+                <table id="account0">
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Current Total</th>
+                        <th>Adjustment</th>
+                        <th>Projected Total</th>
+                    </tr>
+                    <tr>
+                        <td><input id="investment0Ticker" class="tickerInput" onChange=""></input></td>
+                        <td><input id="investment0Shares" class="sharesInput" onChange=""></input></td>
+                        <td><input id="investment0Price"class="priceInput" onChange=""></input></td>
+                        <td id="investment0CurrentTotal" class="center">$0.00</td>
+                        <td><input id="investment0Adjustment" class="adjustmentInput" type="number" value="0" step=".1" onChange=""></input></td>
+                        <td id="investment0ProjectedTotal" class="center">$0.00</td>
+                    </tr>
+                </table>
+                <button class="mainButton" onClick="addInvestment(0)">Add Investment</button>
+            </div>
+            <button class="mainButton">Add Account</button>
+        </div>
+        <div id="footer"></div>
+    </body>
+</html>
