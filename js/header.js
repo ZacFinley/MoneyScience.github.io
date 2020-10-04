@@ -38,5 +38,5 @@ function siteNavigation() {
 }
 
 function siteFooter() {
-    document.getElementById("footer").innerHTML += "<div class='siteFooter'>Created and Maintained by Zac McElfresh</div>";
+    document.getElementById("footer").innerHTML += "<div class='siteFooter'>Created and Maintained by Zac McElfresh<div align=center class='counter'><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-zc210463c1wAWcd9-50.gif' border='0' alt='free web counter'></a><script type='text/javascript' src='https://www.counter12.com/ad.js?id=zc210463c1wAWcd9'></script></div></div>";
 }
