@@ -1,6 +1,5 @@
 .navigationList {
-    background-color: #800000;
-    padding: 10px 0;
+text-align: center;
 }
 
 @media print {
@@ -10,18 +9,15 @@
 }
 
 .listItem {
-    display: inline;
-    margin: 0 20px;
+    display: inline-block;
+    margin: 3px 5px;
     color: white;
     font-size: 20px;
     cursor: pointer;
     text-decoration: none;
-}
-
-@media (max-width: 1100px) {
-    .listItem {
-        display: block;
-    }
+    background-color: #800000;
+    padding: 3px 6px;
+    border-radius: 8px;
 }
 
 .listItem:hover {
