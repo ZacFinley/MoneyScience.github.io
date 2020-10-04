@@ -15,7 +15,8 @@
         Enter your investments grouped by account.<br>
         Then adjust the percentage increase or decrease to visualize the changes in the account value.
         </p>
-        <div class="wrapper">
+        <div id="masterTotals" class="masterTotals">Current: $0.00 Projected: $0.00</div>
+        <div id="accountsWrapper" class="wrapper">
             <div class="card">
                 <div id="account0Totals">Account Totals - Current: $0.00 Projected: $0.00</div>
                 <table id="account0">
@@ -25,20 +26,24 @@
                         <th>Price</th>
                         <th>Current Total</th>
                         <th>Adjustment (%)</th>
+                        <th>Projected Price</th>
                         <th>Projected Total</th>
                     </tr>
                     <tr>
-                        <td><input id="investment0Ticker" class="tickerInput" onChange="updateInvestmentTicker(0,0)"></input></td>
-                        <td><input id="investment0Shares" class="sharesInput" onChange="updateInvestmentShares(0,0)" type="number"></input></td>
-                        <td><input id="investment0Price"class="priceInput" onChange="updateInvestmentPrice(0,0)" type="number"></input></td>
-                        <td id="investment0CurrentTotal" class="center">$0.00</td>
-                        <td><input id="investment0Adjustment" class="adjustmentInput" type="number" value="0" step=".1" onChange="updateInvestmentAdjustment(0,0)"></input></td>
-                        <td id="investment0ProjectedTotal" class="center">$0.00</td>
+                        <td><input id="a0i0Ticker" class="tickerInput" onChange="updateInvestmentTicker(0,0)"></input></td>
+                        <td><input id="a0i0Shares" class="sharesInput" onChange="updateInvestmentShares(0,0)" type="number"></input></td>
+                        <td><input id="a0i0Price"class="priceInput" onChange="updateInvestmentPrice(0,0)" type="number"></input></td>
+                        <td id="a0i0CurrentTotal" class="center">$0.00</td>
+                        <td><input id="a0i0Adjustment" class="adjustmentInput" type="number" value="0" step=".1" onChange="updateInvestmentAdjustment(0,0)"></input></td>
+                        <td id="a0i0ProjectedPrice" class="center">$0.00</td>
+                        <td id="a0i0ProjectedTotal" class="center">$0.00</td>
                     </tr>
                 </table>
                 <button class="mainButton" onClick="addInvestment(0)">Add Investment</button>
             </div>
-            <button class="mainButton">Add Account</button>
+        </div>
+        <div class="addAccountWrapper">
+            <button class="mainButton" onClick="addAccount()">Add Account</button>
         </div>
         <div id="footer"></div>
     </body>

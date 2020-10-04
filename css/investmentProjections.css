@@ -13,3 +13,14 @@ table {
 .accountTotal {
     float: right;
 }
+
+.masterTotals {
+    text-align: center;
+    font-size: 25px;
+}
+
+.addAccountWrapper {
+    text-align: right;
+    padding-right: 80px;
+    margin-bottom: 20px;
+}
