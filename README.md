@@ -4,13 +4,10 @@ Money Science website that will teach people about money in our society and how 
 
 TODO:
 - future value chart like dave ramsey maybe on the home page
-
 - debt snowball sort on interest rate if balance is the same
-- Print settings for all pages (mainly balance sheet)
 
 Mobile
     -pages
-    -header
     
 Printable debt payoff chart
 

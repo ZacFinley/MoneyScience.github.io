@@ -35,6 +35,10 @@
     background-color: #7b4a77;
 }
 
+.printButton {
+    float:right;
+}
+
 @media print {
     .siteFooter {
         background-color: unset;
@@ -47,4 +51,9 @@
         margin: 10px 40px;
         padding: 5px;
     }
+    .printButton {
+        display: none;
+    }
 }
+
+
