@@ -2,12 +2,6 @@
 text-align: center;
 }
 
-@media print {
-    .navigationList {
-        display: none;
-    }
-}
-
 .listItem {
     display: inline-block;
     margin: 3px 5px;
@@ -22,4 +16,18 @@ text-align: center;
 
 .listItem:hover {
     background-color: #a30000;
+}
+
+.counter {
+    display: inline-block;
+    float: right;
+}
+
+@media print {
+    .navigationList {
+        display: none;
+    }
+    .counter {
+        display: none;
+    }
 }
