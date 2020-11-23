@@ -5,3 +5,20 @@ body {
 .description {
     text-align: center;
 }
+
+.inputCard {
+    display: flex;
+}
+
+.calculateBtn {
+    margin: 0px 40px;
+}
+
+.listOfAccounts {
+    display: flex;
+}
+
+.listElement {
+    margin: 0 auto;
+    text-align: center;
+}
