@@ -11,8 +11,8 @@ Mobile
     
 Printable debt payoff chart
 
--$100,000 article
-- helpful links on home page
 
 -Path to wealth NaN issue when Mortgage payment calc has been done and reset is click then live month
+
+- Under, average, above accumilators of wealth fix (average is set too low I think)
 -new name for site (look for domain)
