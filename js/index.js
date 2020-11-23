@@ -52,7 +52,7 @@ function calculateInterestOnly() {
     for (var i = 0; i < accounts.length; i++){
         accountBalances.push([]);
         balances = [];
-        for (var j = 0; j < years; j++) {
+        for (var j = 0; j <= years; j++) {
             if (j === 0) {
                 balances.push(accounts[i][1]);
             }
@@ -68,7 +68,7 @@ function calculateInterestContrib() {
     var balances = [];
     for (var i = 0; i < accounts.length; i++){
         balances = [];
-        for (var j = 0; j < years; j++) {
+        for (var j = 0; j <= years; j++) {
             if (j === 0) {
                 balances.push(accounts[i][1]);
             }
@@ -84,7 +84,7 @@ function calculateInterestContribMatch() {
     var balances = [];
     for (var i = 0; i < accounts.length; i++){
         balances = [];
-        for (var j = 0; j < years; j++) {
+        for (var j = 0; j <= years; j++) {
             if (j === 0) {
                 balances.push(accounts[i][1]);
             }
@@ -130,6 +130,11 @@ function getTotalChartArray() {
 function makeListOfAccounts() {
     document.getElementById("accountList").innerHTML = '';
     for (var i = 0; i < accounts.length; i++) {
-        document.getElementById("accountList").innerHTML += '<div class="card">' + accounts[i][0] + accounts[i][1] + accounts[i][2] + accounts[i][3] + accounts[i][4] + '</div>';
+        var accountNameDisplay = '<div class="listElement">' + accounts[i][0] + '</div>';
+        var currentBalanceDisplay = '<div class="listElement">Starting Balance<br>$' + accounts[i][1] + '</div>';
+        var annualInterestDisplay = '<div class="listElement">Annual Interest<br>' + (accounts[i][2] * 100) + '%</div>';
+        var monthlyContributionDisplay = '<div class="listElement">Monthly Contribution<br>$' + (accounts[i][3] / 12) + '</div>';
+        var employerMatchDisplay = '<div class="listElement">Monthly Match<br>$' + (accounts[i][4] / 12) + '</div>';
+        document.getElementById("accountList").innerHTML += '<div class="card listOfAccounts">' + accountNameDisplay + currentBalanceDisplay + annualInterestDisplay + monthlyContributionDisplay + employerMatchDisplay + '</div>';
     }
 }

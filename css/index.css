@@ -13,3 +13,12 @@ body {
 .calculateBtn {
     margin: 0px 40px;
 }
+
+.listOfAccounts {
+    display: flex;
+}
+
+.listElement {
+    margin: 0 auto;
+    text-align: center;
+}
