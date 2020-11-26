@@ -37,9 +37,14 @@ function removeMonth() {
 }
 
 function calculateTotals() {
+    incomeTotal = 0;
+    rentDividend = 0.00;
+    expenseTotal = 0;
+    taxes = 0.00;
+    savingsTotal = 0;
+    investmentsTotal = 0;
+    
     if (income.length > 0){
-        incomeTotal = 0;
-        rentDividend = 0.00;
         for(var i = 0; i < income.length; i++){
             if (income[i][0].includes("Rent") || income[i][0].includes("Dividend") || income[i][0].includes("Interest")) {
                 rentDividend += income[i][1];
@@ -47,9 +52,8 @@ function calculateTotals() {
             incomeTotal += income[i][1];
         }
     }
+    
     if (expenses.length > 0){
-        expenseTotal = 0;
-        taxes = 0.00;
         for(var j = 0; j < expenses.length; j++){
             if (expenses[j][0].includes("Tax")) {
                 taxes += expenses[j][1];
@@ -57,14 +61,14 @@ function calculateTotals() {
             expenseTotal += expenses[j][1];
         }
     }
+    
     if (savings.length > 0){
-        savingsTotal = 0;
         for(var j = 0; j < savings.length; j++){
             savingsTotal += savings[j][1];
         }
     }
+    
     if (investments.length > 0){
-        investmentsTotal = 0;
         for(var j = 0; j < investments.length; j++){
             investmentsTotal += investments[j][1];
         }
@@ -80,7 +84,7 @@ function updateIncomeStatement() {
     // Income line items
     if (income.length > 0){
         for (var i = 0; i < income.length; i++) {
-            document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>" + income[i][0] + "</td><td>$" + parseFloat(income[i][1]).toFixed(2) + "</td><td></td></tr>";
+            document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>" + income[i][0] + "</td><td>$" + parseFloat(income[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeIncome(" + i + ")'>X</button></td></tr>";
         }
     }
     
@@ -93,7 +97,7 @@ function updateIncomeStatement() {
     // Expense line items
     if (expenses.length > 0){
         for (var i = 0; i < expenses.length; i++) {
-            document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>" + expenses[i][0] + "</td><td>$" + parseFloat(expenses[i][1]).toFixed(2) + "</td><td></td></tr>";
+            document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>" + expenses[i][0] + "</td><td>$" + parseFloat(expenses[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeExpense(" + i + ")'>X</button></td></tr>";
         }
     }
     
@@ -109,7 +113,7 @@ function updateIncomeStatement() {
     // Savings line items
     if (savings.length > 0){
         for (var i = 0; i < savings.length; i++) {
-            document.getElementById("savingsStatement").innerHTML += "<tr><td></td><td>" + savings[i][0] + "</td><td>$" + parseFloat(savings[i][1]).toFixed(2) + "</td><td></td></tr>";
+            document.getElementById("savingsStatement").innerHTML += "<tr><td></td><td>" + savings[i][0] + "</td><td>$" + parseFloat(savings[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeSavings(" + i + ")'>X</button></td></tr>";
         }
     }
     // Total savings
@@ -121,7 +125,7 @@ function updateIncomeStatement() {
     // Investments line items
     if (investments.length > 0){
         for (var i = 0; i < investments.length; i++) {
-            document.getElementById("investmentsStatement").innerHTML += "<tr><td></td><td>" + investments[i][0] + "</td><td>$" + parseFloat(investments[i][1]).toFixed(2) + "</td><td></td></tr>";
+            document.getElementById("investmentsStatement").innerHTML += "<tr><td></td><td>" + investments[i][0] + "</td><td>$" + parseFloat(investments[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeInvestments(" + i + ")'>X</button></td></tr>";
         }
     }
     // Total Investments
@@ -155,6 +159,11 @@ function addIncome() {
     document.getElementById("incomeAmount").value = 0.00;
 }
 
+function removeIncome(index) {
+    income.splice(index,1);
+    updateIncomeStatement();
+}
+
 function addExpense() {
     // Adding the item
     var expenseLineItem = [];
@@ -166,6 +175,11 @@ function addExpense() {
     // Reset inputs
     document.getElementById("expenseName").value = "Expense Item";
     document.getElementById("expenseAmount").value = 0.00;
+}
+
+function removeExpense(index) {
+    expenses.splice(index,1);
+    updateIncomeStatement();
 }
 
 function addSavings() {
@@ -181,6 +195,11 @@ function addSavings() {
     document.getElementById("savingsAmount").value = 0.00;
 }
 
+function removeSavings(index) {
+    savings.splice(index,1);
+    updateIncomeStatement();
+}
+
 function addInvestments() {
     // Adding the item
     var investmentsLineItem = [];
@@ -192,6 +211,11 @@ function addInvestments() {
     // Reset inputs
     document.getElementById("investmentsName").value = "Investments Item";
     document.getElementById("investmentsAmount").value = 0.00;
+}
+
+function removeInvestments(index) {
+    investments.splice(index,1);
+    updateIncomeStatement();
 }
 
 function updateRatios() {

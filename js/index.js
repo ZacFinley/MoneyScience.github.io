@@ -36,6 +36,11 @@ function addAccountInfo() {
     calculateAccountBalances();
 }
 
+function removeAccountInfo(accountIndex) {
+    accounts.splice(accountIndex,1);
+    calculateAccountBalances();
+}
+
 function calculateAccountBalances() {
     accountBalances = [];
     masterAccountBalances = [];
@@ -135,6 +140,7 @@ function makeListOfAccounts() {
         var annualInterestDisplay = '<div class="listElement">Annual Interest<br>' + (accounts[i][2] * 100) + '%</div>';
         var monthlyContributionDisplay = '<div class="listElement">Monthly Contribution<br>$' + (accounts[i][3] / 12) + '</div>';
         var employerMatchDisplay = '<div class="listElement">Monthly Match<br>$' + (accounts[i][4] / 12) + '</div>';
-        document.getElementById("accountList").innerHTML += '<div class="card listOfAccounts">' + accountNameDisplay + currentBalanceDisplay + annualInterestDisplay + monthlyContributionDisplay + employerMatchDisplay + '</div>';
+        var deleteAccountBtn = '<button class="deleteButton" onclick="removeAccountInfo(' + i + ')">X</button>';
+        document.getElementById("accountList").innerHTML += '<div class="card listOfAccounts">' + accountNameDisplay + currentBalanceDisplay + annualInterestDisplay + monthlyContributionDisplay + employerMatchDisplay + deleteAccountBtn + '</div>';
     }
 }
