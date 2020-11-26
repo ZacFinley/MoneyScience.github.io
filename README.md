@@ -12,9 +12,6 @@ Mobile
 
 - Under, average, above accumilators of wealth fix (average is set too low I think)
 -new name for site (look for domain)
-
-- able to remove entries
-    -balance sheet
     
 - Edit entries
     -homepage

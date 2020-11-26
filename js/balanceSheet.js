@@ -41,14 +41,14 @@ function calculateNetWorth() {
 }
 
 function calculateTotals() {
+    assetTotal = 0.0;
+    liabilitiesTotal = 0.0;
     if (assets.length > 0) {
-        assetTotal = 0.0;
         for (var i = 0; i < assets.length; i++) {
             assetTotal += assets[i][1];
         }
     }
     if (liabilities.length > 0) {
-        liabilitiesTotal = 0.0;
         for (var j = 0; j < liabilities.length; j++) {
             liabilitiesTotal += liabilities[j][1];
         }
@@ -65,13 +65,17 @@ function addAsset() {
     var value = elem.options[elem.selectedIndex].value;
     assetLineItem.push(value);
     assets.push(assetLineItem);
-    calculateTotals();
     // Update the statement
     updateBalanceSheet();
     
     // Reset inputs
     document.getElementById("assetName").value = "Asset Item";
     document.getElementById("assetAmount").value = 0.00;
+}
+
+function removeAsset(index) {
+    assets.splice(index,1);
+    updateBalanceSheet();
 }
 
 function addLiability() {
@@ -83,13 +87,17 @@ function addLiability() {
     var value = elem.options[elem.selectedIndex].value;
     liabilityLineItem.push(value);
     liabilities.push(liabilityLineItem);
-    calculateTotals();
     // Update the statement
     updateBalanceSheet();
     
     // Reset inputs
     document.getElementById("liabilityName").value = "Liability Item";
     document.getElementById("liabilityAmount").value = 0.00;
+}
+
+function removeLiability(index) {
+    liabilities.splice(index,1);
+    updateBalanceSheet();
 }
 
 function updateAssets() {
@@ -103,18 +111,18 @@ function updateAssets() {
     if (assets.length > 0) {
         for (var i = 0; i < assets.length; i++) {
             if (assets[i][2] === "Cash/Cash Equivalent") {
-                cashList += "<tr><td>Cash/Cash Equivalent</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2) + "</td><td></td></tr>";
+                cashList += "<tr><td>Cash/Cash Equivalent</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeAsset(" + i + ")'>X</button></td></tr>";
             }
             else if (assets[i][2] === "Real Estate") {
-                realEstateList += "<tr><td>Real Estate</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2) + "</td><td></td></tr>";
+                realEstateList += "<tr><td>Real Estate</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeAsset(" + i + ")'>X</button></td></tr>";
             }
             else if (assets[i][2] === "Retirement") {
-                retirementList += "<tr><td>Retirement</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2) + "</td><td></td></tr>";
+                retirementList += "<tr><td>Retirement</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeAsset(" + i + ")'>X</button></td></tr>";
                 retirementTotal += assets[i][1];
                 updateRetireToday();
             }
             else if (assets[i][2] === "Individual Investing") {
-                individualInvestingList += "<tr><td>Individual Investing</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2) + "</td><td></td></tr>";
+                individualInvestingList += "<tr><td>Individual Investing</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeAsset(" + i + ")'>X</button></td></tr>";
                 individualInvestmentsTotal += assets[i][1];
             }
 
@@ -136,19 +144,19 @@ function updateLiabilites() {
     if (liabilities.length > 0) {
         for (var i = 0; i < liabilities.length; i++) {
             if (liabilities[i][2] === "Mortgage") {
-                mortgageList += "<tr><td>Mortgage</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td></td></tr>";
+                mortgageList += "<tr><td>Mortgage</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
             }
             else if (liabilities[i][2] === "Car") {
-                carList += "<tr><td>Car</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td></td></tr>";
+                carList += "<tr><td>Car</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
             }
             else if (liabilities[i][2] === "Credit Cards") {
-                creditCardList += "<tr><td>Credit Cards</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td></td></tr>";
+                creditCardList += "<tr><td>Credit Cards</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
             }
             else if (liabilities[i][2] === "Personal Loans") {
-                studentLoanList += "<tr><td>Personal Loans</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td></td></tr>";
+                studentLoanList += "<tr><td>Personal Loans</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
             }
             else if (liabilities[i][2] === "Student Loans") {
-                studentLoanList += "<tr><td>Student Loans</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td></td></tr>";
+                studentLoanList += "<tr><td>Student Loans</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
             }
             
         }
@@ -169,6 +177,7 @@ function updateNetWorth() {
 }
 
 function updateBalanceSheet() {
+    calculateTotals();
     updateAssets();
     updateLiabilites();
     updateNetWorth();
