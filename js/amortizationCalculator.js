@@ -110,13 +110,13 @@ function updateDuration() {
 }
 
 function updatePaymentResult() {
-    document.getElementById("paymentResult").innerHTML = "Your payment will be: $" + parseFloat(payment).toFixed(2);
+    document.getElementById("paymentResult").innerHTML = "Your payment will be: $" + parseFloat(payment).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 function updatePaymentChart() {
     document.getElementById("amortizationChart").innerHTML = "<tr><th>Year</th><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th><th>LTV %</th><th>Principal</th><th>Interest</th><th>Extra Payment</th><th>Balance w/ Extra Payment</th><th>LTV %</th></tr>";
     for (var i = 0; i < paymentChart.length; i++){
-        document.getElementById("amortizationChart").innerHTML += "<tr><td>" + paymentChart[i][0] + "</td><td>" + paymentChart[i][1] + "</td><td>$" + parseFloat(paymentChart[i][2]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][3]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][4]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][5]).toFixed(2) + "</td><td>" + parseFloat(paymentChart[i][6]).toFixed(2) + "%</td><td>$" + parseFloat(paymentChart[i][7]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][8]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][9]).toFixed(2) + "</td><td>$" + parseFloat(paymentChart[i][10]).toFixed(2) + "</td><td>" + parseFloat(paymentChart[i][11]).toFixed(2) + "%</td></tr>";
+        document.getElementById("amortizationChart").innerHTML += "<tr><td>" + paymentChart[i][0] + "</td><td>" + paymentChart[i][1] + "</td><td>$" + parseFloat(paymentChart[i][2]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td>$" + parseFloat(paymentChart[i][3]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td>$" + parseFloat(paymentChart[i][4]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td>$" + parseFloat(paymentChart[i][5]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td>" + parseFloat(paymentChart[i][6]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%</td><td>$" + parseFloat(paymentChart[i][7]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td>$" + parseFloat(paymentChart[i][8]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td>$" + parseFloat(paymentChart[i][9]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td>$" + parseFloat(paymentChart[i][10]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td>" + parseFloat(paymentChart[i][11]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%</td></tr>";
     }
 }
 

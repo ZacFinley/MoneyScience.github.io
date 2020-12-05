@@ -26,7 +26,7 @@ function updateStandardDeduction() {
     if (preDeductionIncome >= standardDeduction[filingStatus]) {
         preTaxIncome = preDeductionIncome - standardDeduction[filingStatus];
     }
-    document.getElementById("standardDeduction").innerHTML = "- Standard Duduction of $" + parseFloat(standardDeduction[filingStatus]).toFixed(2) + " = $" + parseFloat(preTaxIncome).toFixed(2);
+    document.getElementById("standardDeduction").innerHTML = "- Standard Duduction of $" + parseFloat(standardDeduction[filingStatus]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " = $" + parseFloat(preTaxIncome).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 function taxBracketCalculation() {
@@ -125,27 +125,27 @@ function taxBracketCalculation() {
 
 function updateBrackets() {
     document.getElementById("breakpointTier1").innerHTML = "$0 - $" + taxBreakpoints[filingStatus][0];
-    document.getElementById("breakpointTier2").innerHTML = "$" + taxBreakpoints[filingStatus][0] + " - $" + taxBreakpoints[filingStatus][1];
-    document.getElementById("breakpointTier3").innerHTML = "$" + taxBreakpoints[filingStatus][1] + " - $" + taxBreakpoints[filingStatus][2];
-    document.getElementById("breakpointTier4").innerHTML = "$" + taxBreakpoints[filingStatus][2] + " - $" + taxBreakpoints[filingStatus][3];
-    document.getElementById("breakpointTier5").innerHTML = "$" + taxBreakpoints[filingStatus][3] + " - $" + taxBreakpoints[filingStatus][4];
-    document.getElementById("breakpointTier6").innerHTML = "$" + taxBreakpoints[filingStatus][4] + " - $" + taxBreakpoints[filingStatus][5];
-    document.getElementById("breakpointTier7").innerHTML = "$" + taxBreakpoints[filingStatus][5] + " or more";
+    document.getElementById("breakpointTier2").innerHTML = "$" + (taxBreakpoints[filingStatus][0]+1).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + taxBreakpoints[filingStatus][1];
+    document.getElementById("breakpointTier3").innerHTML = "$" + (taxBreakpoints[filingStatus][1]+1).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + taxBreakpoints[filingStatus][2];
+    document.getElementById("breakpointTier4").innerHTML = "$" + (taxBreakpoints[filingStatus][2]+1).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + taxBreakpoints[filingStatus][3];
+    document.getElementById("breakpointTier5").innerHTML = "$" + (taxBreakpoints[filingStatus][3]+1).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + taxBreakpoints[filingStatus][4];
+    document.getElementById("breakpointTier6").innerHTML = "$" + (taxBreakpoints[filingStatus][4]+1).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + taxBreakpoints[filingStatus][5];
+    document.getElementById("breakpointTier7").innerHTML = "$" + (taxBreakpoints[filingStatus][5]+1).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " or more";
     
-    document.getElementById("incomeAmount1").innerHTML = "$" + parseFloat(incomeTierAmount[0]).toFixed(2);
-    document.getElementById("incomeAmount2").innerHTML = "$" + parseFloat(incomeTierAmount[1]).toFixed(2);
-    document.getElementById("incomeAmount3").innerHTML = "$" + parseFloat(incomeTierAmount[2]).toFixed(2);
-    document.getElementById("incomeAmount4").innerHTML = "$" + parseFloat(incomeTierAmount[3]).toFixed(2);
-    document.getElementById("incomeAmount5").innerHTML = "$" + parseFloat(incomeTierAmount[4]).toFixed(2);
-    document.getElementById("incomeAmount6").innerHTML = "$" + parseFloat(incomeTierAmount[5]).toFixed(2);
-    document.getElementById("incomeAmount7").innerHTML = "$" + parseFloat(incomeTierAmount[6]).toFixed(2);
+    document.getElementById("incomeAmount1").innerHTML = "$" + parseFloat(incomeTierAmount[0]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("incomeAmount2").innerHTML = "$" + parseFloat(incomeTierAmount[1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("incomeAmount3").innerHTML = "$" + parseFloat(incomeTierAmount[2]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("incomeAmount4").innerHTML = "$" + parseFloat(incomeTierAmount[3]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("incomeAmount5").innerHTML = "$" + parseFloat(incomeTierAmount[4]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("incomeAmount6").innerHTML = "$" + parseFloat(incomeTierAmount[5]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("incomeAmount7").innerHTML = "$" + parseFloat(incomeTierAmount[6]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     
-    document.getElementById("taxAmount1").innerHTML = "$" + parseFloat(taxTierAmount[0]).toFixed(2);
-    document.getElementById("taxAmount2").innerHTML = "$" + parseFloat(taxTierAmount[1]).toFixed(2);
-    document.getElementById("taxAmount3").innerHTML = "$" + parseFloat(taxTierAmount[2]).toFixed(2);
-    document.getElementById("taxAmount4").innerHTML = "$" + parseFloat(taxTierAmount[3]).toFixed(2);
-    document.getElementById("taxAmount5").innerHTML = "$" + parseFloat(taxTierAmount[4]).toFixed(2);
-    document.getElementById("taxAmount6").innerHTML = "$" + parseFloat(taxTierAmount[5]).toFixed(2);
-    document.getElementById("taxAmount7").innerHTML = "$" + parseFloat(taxTierAmount[6]).toFixed(2);
-    document.getElementById("taxResultTotal").innerHTML = "You will owe $" + parseFloat(taxAmount).toFixed(2) + " in taxes. Which is $" + parseFloat(taxAmount/12).toFixed(2) + " a month."
+    document.getElementById("taxAmount1").innerHTML = "$" + parseFloat(taxTierAmount[0]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("taxAmount2").innerHTML = "$" + parseFloat(taxTierAmount[1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("taxAmount3").innerHTML = "$" + parseFloat(taxTierAmount[2]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("taxAmount4").innerHTML = "$" + parseFloat(taxTierAmount[3]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("taxAmount5").innerHTML = "$" + parseFloat(taxTierAmount[4]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("taxAmount6").innerHTML = "$" + parseFloat(taxTierAmount[5]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("taxAmount7").innerHTML = "$" + parseFloat(taxTierAmount[6]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("taxResultTotal").innerHTML = "You will owe $" + parseFloat(taxAmount).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " in taxes. Which is $" + parseFloat(taxAmount/12).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " a month."
 }

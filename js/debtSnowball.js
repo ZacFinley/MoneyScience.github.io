@@ -31,7 +31,7 @@ function calculateMinimumPaymentTotal() {
         minimumPaymentsTotal += debtList[i][3];
     }
     aboveMinumumPaymentsAmount = monthlyDebtBudget - minimumPaymentsTotal;
-    document.getElementById("nonMinimumPayment").innerHTML = "You have $" + parseFloat(aboveMinumumPaymentsAmount).toFixed(2) + " above your minimum payments to paydown your debts";
+    document.getElementById("nonMinimumPayment").innerHTML = "You have $" + parseFloat(aboveMinumumPaymentsAmount).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " above your minimum payments to paydown your debts";
 }
 
 function makeListOutput() {
@@ -53,7 +53,7 @@ function createNewDebtCard(name, balance, rate, payment, previousPayment) {
     else {
         monthsToPayoff = calculatePayoffMonths(balance, rate, payment, (previousPayment + aboveMinumumPaymentsAmount));
     }
-    document.getElementById("debtList").innerHTML += "<div class='card'>Name: " + name + "<br>Balance: $" + balance + "<br>Rate: " + rate + "%<br>Minimum Payment: $" + payment + "<br>Snowball Payment: $" + parseFloat(snowballPayment).toFixed(2) + "<br>Months to Payoff: " + monthsToPayoff + "</div>";
+    document.getElementById("debtList").innerHTML += "<div class='card'>Name: " + name + "<br>Balance: $" + balance + "<br>Rate: " + rate + "%<br>Minimum Payment: $" + payment + "<br>Snowball Payment: $" + parseFloat(snowballPayment).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "<br>Months to Payoff: " + monthsToPayoff + "</div>";
 }
 
 function calculatePayoffMonths(balance, rate, minPayment, extraPayment) {

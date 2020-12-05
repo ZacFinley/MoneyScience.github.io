@@ -64,7 +64,6 @@ function calculateMonthlyValues() {
     else {
         tempMonth++;
     }
-    console.log(tempNetWorth);
     for (var i = 0; i < time; i++) {
         valueChartRow = [];
         valueChartRow.push(tempYear);
@@ -113,14 +112,14 @@ function getMonthName(num) {
 function updateMonthlyOutput() {
     document.getElementById("resultCard").innerHTML = "<tr><th>Year</th><th>Month</th><th>Start Net Worth</th><th>Increase</th><th>End Net Worth</th></tr>";
     for (var j = 0; j < valuesChart.length; j++){
-        document.getElementById("resultCard").innerHTML += "<tr><td>" + valuesChart[j][0] + "</td><td>" + getMonthName(valuesChart[j][1]) + "</td><td>$" + parseFloat(valuesChart[j][2]).toFixed(2) + "</td><td>$" + parseFloat(valuesChart[j][3]).toFixed(2) + "</td><td>$" + parseFloat(valuesChart[j][4]).toFixed(2) + "</td></tr>";
+        document.getElementById("resultCard").innerHTML += "<tr><td>" + valuesChart[j][0] + "</td><td>" + getMonthName(valuesChart[j][1]) + "</td><td>$" + parseFloat(valuesChart[j][2]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td>$" + parseFloat(valuesChart[j][3]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td>$" + parseFloat(valuesChart[j][4]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td></tr>";
     }
 }
 
 function updateYearlyOutput() {
     document.getElementById("resultCard").innerHTML = "<tr><th>Year</th><th>Start Net Worth</th><th>Increase</th><th>End Net Worth</th></tr>";
     for (var j = 0; j < valuesChart.length; j++){
-        document.getElementById("resultCard").innerHTML += "<tr><td>" + valuesChart[j][0] + "</td><td>$" + parseFloat(valuesChart[j][1]).toFixed(2) + "</td><td>$" + parseFloat(valuesChart[j][2]).toFixed(2) + "</td><td>$" + parseFloat(valuesChart[j][3]).toFixed(2) + "</td></tr>";
+        document.getElementById("resultCard").innerHTML += "<tr><td>" + valuesChart[j][0] + "</td><td>$" + parseFloat(valuesChart[j][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td>$" + parseFloat(valuesChart[j][2]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td>$" + parseFloat(valuesChart[j][3]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td></tr>";
     }
 }
 

@@ -38,8 +38,24 @@
             </div>
         </div>
         <div class="card">
-            Years For Growth
-            <input id="yearsGrowthInput" type="number" value=1 min="0" onchange="updateYears()"></input>
+            <div class="netWorthHeader">
+                <div class="sideMargin yearGrowth">
+                    Years For Growth
+                    <input id="yearsGrowthInput" type="number" value=1 min="0" onchange="updateYears()"></input>
+                </div>
+                <div class="sideMargin">
+                    <div>Interest Only</div>
+                    <div id="interestOnly">$0.00</div>
+                </div>
+                <div class="sideMargin">
+                    <div>Interest + Contribution</div>
+                    <div id="interestContribution">$0.00</div>
+                </div>
+                <div class="sideMargin">
+                    <div>Interest + Contribution + Match</div>
+                    <div id="interestContributionMatch">$0.00</div>
+                </div>
+            </div>
             <div id="curve_chart" style="width: 1100px; height: 500px"></div>
         </div>
         <div id="accountList">

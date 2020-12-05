@@ -115,6 +115,9 @@ function calculateMasterBalances() {
             }
         }
     }
+    document.getElementById("interestOnly").innerHTML = "$" + (masterAccountBalances[0][masterAccountBalances[0].length-1].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+    document.getElementById("interestContribution").innerHTML = "$" + (masterAccountBalances[1][masterAccountBalances[0].length-1].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+    document.getElementById("interestContributionMatch").innerHTML = "$" + (masterAccountBalances[2][masterAccountBalances[0].length-1].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 }
 
 function getTotalChartArray() {
@@ -136,10 +139,10 @@ function makeListOfAccounts() {
     document.getElementById("accountList").innerHTML = '';
     for (var i = 0; i < accounts.length; i++) {
         var accountNameDisplay = '<div class="listElement">' + accounts[i][0] + '</div>';
-        var currentBalanceDisplay = '<div class="listElement">Starting Balance<br>$' + accounts[i][1] + '</div>';
+        var currentBalanceDisplay = '<div class="listElement">Starting Balance<br>$' + (accounts[i][1].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')) + '</div>';
         var annualInterestDisplay = '<div class="listElement">Annual Interest<br>' + (accounts[i][2] * 100) + '%</div>';
-        var monthlyContributionDisplay = '<div class="listElement">Monthly Contribution<br>$' + (accounts[i][3] / 12) + '</div>';
-        var employerMatchDisplay = '<div class="listElement">Monthly Match<br>$' + (accounts[i][4] / 12) + '</div>';
+        var monthlyContributionDisplay = '<div class="listElement">Monthly Contribution<br>$' + ((accounts[i][3] / 12).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')) + '</div>';
+        var employerMatchDisplay = '<div class="listElement">Monthly Match<br>$' + ((accounts[i][4] / 12).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')) + '</div>';
         var deleteAccountBtn = '<button class="deleteButton" onclick="removeAccountInfo(' + i + ')">X</button>';
         document.getElementById("accountList").innerHTML += '<div class="card listOfAccounts">' + accountNameDisplay + currentBalanceDisplay + annualInterestDisplay + monthlyContributionDisplay + employerMatchDisplay + deleteAccountBtn + '</div>';
     }

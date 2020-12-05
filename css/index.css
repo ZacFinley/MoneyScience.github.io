@@ -39,3 +39,17 @@ body {
 .deleteButton:hover {
     background-color: #a30000;
 }
+
+.netWorthHeader {
+    margin: 5px;
+    border: 1px solid black;
+    display: flex;
+}
+
+.yearGrowth {
+    display: grid;
+}
+
+.sideMargin {
+    margin: 0px 50px;
+}

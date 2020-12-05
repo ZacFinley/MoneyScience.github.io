@@ -84,12 +84,12 @@ function updateIncomeStatement() {
     // Income line items
     if (income.length > 0){
         for (var i = 0; i < income.length; i++) {
-            document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>" + income[i][0] + "</td><td>$" + parseFloat(income[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeIncome(" + i + ")'>X</button></td></tr>";
+            document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>" + income[i][0] + "</td><td>$" + parseFloat(income[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeIncome(" + i + ")'>X</button></td></tr>";
         }
     }
     
     // Total income
-    document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>Total Income:</td><td></td><td>$" + parseFloat(incomeTotal).toFixed(2) + "</td></tr>";
+    document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>Total Income:</td><td></td><td>$" + parseFloat(incomeTotal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td></tr>";
     
     // Expense header
     document.getElementById("incomeStatement").innerHTML += "<tr><td>Expenses:</td></tr>";
@@ -97,15 +97,15 @@ function updateIncomeStatement() {
     // Expense line items
     if (expenses.length > 0){
         for (var i = 0; i < expenses.length; i++) {
-            document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>" + expenses[i][0] + "</td><td>$" + parseFloat(expenses[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeExpense(" + i + ")'>X</button></td></tr>";
+            document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>" + expenses[i][0] + "</td><td>$" + parseFloat(expenses[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeExpense(" + i + ")'>X</button></td></tr>";
         }
     }
     
     // Total expenses
-    document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>Total Expenses:</td><td></td><td>$" + parseFloat(expenseTotal).toFixed(2) + "</td></tr>";
+    document.getElementById("incomeStatement").innerHTML += "<tr><td></td><td>Total Expenses:</td><td></td><td>$" + parseFloat(expenseTotal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td></tr>";
     
     // Net Income
-    document.getElementById("incomeStatement").innerHTML += "<tr><td class='font30Bold'>Net Income:</td><td></td><td></td><td></td><td class='font30Bold'>$" + parseFloat(netIncome).toFixed(2) + "</td></tr>";
+    document.getElementById("incomeStatement").innerHTML += "<tr><td class='font30Bold'>Net Income:</td><td></td><td></td><td></td><td class='font30Bold'>$" + parseFloat(netIncome).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td></tr>";
     
     // Savings header
     document.getElementById("savingsStatement").innerHTML = "<tr><td>Savings:</td></tr>";
@@ -113,11 +113,11 @@ function updateIncomeStatement() {
     // Savings line items
     if (savings.length > 0){
         for (var i = 0; i < savings.length; i++) {
-            document.getElementById("savingsStatement").innerHTML += "<tr><td></td><td>" + savings[i][0] + "</td><td>$" + parseFloat(savings[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeSavings(" + i + ")'>X</button></td></tr>";
+            document.getElementById("savingsStatement").innerHTML += "<tr><td></td><td>" + savings[i][0] + "</td><td>$" + parseFloat(savings[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeSavings(" + i + ")'>X</button></td></tr>";
         }
     }
     // Total savings
-    document.getElementById("savingsStatement").innerHTML += "<tr><td></td><td>Total Savings:</td><td></td><td>$" + parseFloat(savingsTotal).toFixed(2) + "</td></tr>";
+    document.getElementById("savingsStatement").innerHTML += "<tr><td></td><td>Total Savings:</td><td></td><td>$" + parseFloat(savingsTotal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td></tr>";
     
     // Investments header
     document.getElementById("investmentsStatement").innerHTML = "<tr><td>Investments:</td></tr>";
@@ -125,18 +125,18 @@ function updateIncomeStatement() {
     // Investments line items
     if (investments.length > 0){
         for (var i = 0; i < investments.length; i++) {
-            document.getElementById("investmentsStatement").innerHTML += "<tr><td></td><td>" + investments[i][0] + "</td><td>$" + parseFloat(investments[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeInvestments(" + i + ")'>X</button></td></tr>";
+            document.getElementById("investmentsStatement").innerHTML += "<tr><td></td><td>" + investments[i][0] + "</td><td>$" + parseFloat(investments[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeInvestments(" + i + ")'>X</button></td></tr>";
         }
     }
     // Total Investments
-    document.getElementById("investmentsStatement").innerHTML += "<tr><td></td><td>Total Investments:</td><td></td><td>$" + parseFloat(investmentsTotal).toFixed(2) + "</td></tr>";
+    document.getElementById("investmentsStatement").innerHTML += "<tr><td></td><td>Total Investments:</td><td></td><td>$" + parseFloat(investmentsTotal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td></tr>";
     
     // Remaining Investments
     if (((netIncome - savingsTotal - investmentsTotal) > 0) || ((netIncome - savingsTotal - investmentsTotal) < 0)) {
         if (document.getElementById("rightWrapper").childElementCount === 4) {
             document.getElementById("rightWrapper").removeChild(document.getElementById("rightWrapper").lastChild);
         }
-        document.getElementById("rightWrapper").innerHTML += "<div class='card remainingNetIncome'><table id='investmentsStatement' class='font20'><tr><td>Remaining Net Income:</td><td>$" + parseFloat(netIncome - savingsTotal - investmentsTotal).toFixed(2) + "</td></tr></table></div>";
+        document.getElementById("rightWrapper").innerHTML += "<div class='card remainingNetIncome'><table id='investmentsStatement' class='font20'><tr><td>Remaining Net Income:</td><td>$" + parseFloat(netIncome - savingsTotal - investmentsTotal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td></tr></table></div>";
     }
     else {
         if (document.getElementById("rightWrapper").childElementCount === 4) {
@@ -230,35 +230,35 @@ function updateRatios() {
 }
 
 function savingsRatio() {
-    document.getElementById("savingsRatio").innerHTML = ("Savings Rate: " + parseFloat((savingsTotal/incomeTotal)*100).toFixed(2) + "%");
+    document.getElementById("savingsRatio").innerHTML = ("Savings Rate: " + parseFloat((savingsTotal/incomeTotal)*100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%");
 }
 
 function investmentsRatio() {
-    document.getElementById("investmentsRatio").innerHTML = ("Investments Rate: " + parseFloat((investmentsTotal/incomeTotal)*100).toFixed(2) + "%");
+    document.getElementById("investmentsRatio").innerHTML = ("Investments Rate: " + parseFloat((investmentsTotal/incomeTotal)*100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%");
 }
 
 function financialFreedom() {
     if (isNaN((rentDividend)/expenseTotal)){
-        document.getElementById("financialFreedom").innerHTML = ("Financial Freedom Completion: " + parseFloat(0.00).toFixed(2) + "%");
+        document.getElementById("financialFreedom").innerHTML = ("Financial Freedom Completion: " + parseFloat(0.00).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%");
     }
     else if (((rentDividend)/expenseTotal) == Number.POSITIVE_INFINITY || ((rentDividend)/expenseTotal) == Number.NEGATIVE_INFINITY) {
-        document.getElementById("financialFreedom").innerHTML = ("Financial Freedom Completion: " + parseFloat(100.00).toFixed(2) + "%");
+        document.getElementById("financialFreedom").innerHTML = ("Financial Freedom Completion: " + parseFloat(100.00).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%");
     }
     else {
-        document.getElementById("financialFreedom").innerHTML = ("Financial Freedom Completion: " + parseFloat(((rentDividend)/expenseTotal)*100).toFixed(2) + "%");
+        document.getElementById("financialFreedom").innerHTML = ("Financial Freedom Completion: " + parseFloat(((rentDividend)/expenseTotal)*100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%");
     }
 }
 
 function maximumHousingBudget() {
-    document.getElementById("maximumHousingBudget").innerHTML = ("Maximum Monthly Housing Budget: $" + parseFloat((incomeTotal - taxes)/4).toFixed(2));
+    document.getElementById("maximumHousingBudget").innerHTML = ("Maximum Monthly Housing Budget: $" + parseFloat((incomeTotal - taxes)/4).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 }
 
 function lifeInsuranceValue() {
-    document.getElementById("lifeInsuranceFaceValue").innerHTML = ("Life Insurance Face Value Minimum: $" + parseFloat(incomeTotal*144).toFixed(2));
+    document.getElementById("lifeInsuranceFaceValue").innerHTML = ("Life Insurance Face Value Minimum: $" + parseFloat(incomeTotal*144).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 }
 
 function emergencyFundMinimum() {
-    document.getElementById("emergencyFundMinimum").innerHTML = ("Emergency Fund Minimum (3 - 6 months of expenses): $" + parseFloat(expenseTotal*3).toFixed(2) + " - $" + parseFloat(expenseTotal*6).toFixed(2));
+    document.getElementById("emergencyFundMinimum").innerHTML = ("Emergency Fund Minimum (3 - 6 months of expenses): $" + parseFloat(expenseTotal*3).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + parseFloat(expenseTotal*6).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
 }
 
 function incomePieChartUpdate() {
@@ -279,7 +279,7 @@ function incomePieChartUpdate() {
             incomePieChartString += ("," + colorsArray[j%(colorsArray.length-1)] + " " + dataPoints[j-1] + "deg " + dataPoints[j] + "deg");
         }
         
-        document.getElementById("incomeCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (colorsArray[j%(colorsArray.length-1)]) + ";width:15px;'></td><td style='width:135px;'>" + income[j][0] + "</td><td>" + parseFloat(categoryPercentages[j]*100).toFixed(2) + "%</td></tr>");
+        document.getElementById("incomeCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (colorsArray[j%(colorsArray.length-1)]) + ";width:15px;'></td><td style='width:135px;'>" + income[j][0] + "</td><td>" + parseFloat(categoryPercentages[j]*100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%</td></tr>");
     }
     incomePieChartString += (")");
     document.getElementById("incomePieChart").style["background"] = incomePieChartString;
@@ -308,7 +308,7 @@ function outflowPieChartUpdate() {
             dataPoints.push(parseFloat(categoryPercentages[i]*360) + dataPoints[i-1]);
             outFlowPieChartString += ("," + expensesColorsArray[i%(expensesColorsArray.length)] + " " + dataPoints[i-1] + "deg " + dataPoints[i] + "deg");
         }
-        document.getElementById("expensesCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (expensesColorsArray[i%(expensesColorsArray.length)]) + ";width:15px;'></td><td style='width:137px;'>" + expenses[i][0] + "</td><td>" + parseFloat(categoryPercentages[i]*100).toFixed(2) + "%</td></tr>");
+        document.getElementById("expensesCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (expensesColorsArray[i%(expensesColorsArray.length)]) + ";width:15px;'></td><td style='width:137px;'>" + expenses[i][0] + "</td><td>" + parseFloat(categoryPercentages[i]*100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%</td></tr>");
     }
 
     //savings
@@ -324,7 +324,7 @@ function outflowPieChartUpdate() {
             outFlowPieChartString += ("," + savingsColorsArray[j%(savingsColorsArray.length)] + " " + dataPoints[jBaseline-1] + "deg " + dataPoints[jBaseline] + "deg");
         }
         if (parseFloat(categoryPercentages[jBaseline]*100).toFixed(2) !== "0.00") {
-            document.getElementById("savingsCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (savingsColorsArray[j%(savingsColorsArray.length)]) + ";width:15px;'></td><td style='width:135px;'>" + savings[j][0] + "</td><td>" + parseFloat(categoryPercentages[jBaseline]*100).toFixed(2) + "%</td></tr>");
+            document.getElementById("savingsCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (savingsColorsArray[j%(savingsColorsArray.length)]) + ";width:15px;'></td><td style='width:135px;'>" + savings[j][0] + "</td><td>" + parseFloat(categoryPercentages[jBaseline]*100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%</td></tr>");
         }
     }
     //investments
@@ -340,7 +340,7 @@ function outflowPieChartUpdate() {
             outFlowPieChartString += ("," + investmentsColorsArray[k%(investmentsColorsArray.length)] + " " + dataPoints[kBaseline-1] + "deg " + dataPoints[kBaseline] + "deg");
         }
         if (parseFloat(categoryPercentages[i + expenses.length]*100).toFixed(2) !== "0.00") {
-            document.getElementById("investmentsCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (investmentsColorsArray[k%(investmentsColorsArray.length)]) + ";width:15px;'></td><td style='width:179px;'>" + investments[k][0] + "</td><td>" + parseFloat(categoryPercentages[kBaseline]*100).toFixed(2) + "%</td></tr>");
+            document.getElementById("investmentsCategoryBreakdownTable").innerHTML += ("<tr><td style='background-color:" + (investmentsColorsArray[k%(investmentsColorsArray.length)]) + ";width:15px;'></td><td style='width:179px;'>" + investments[k][0] + "</td><td>" + parseFloat(categoryPercentages[kBaseline]*100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%</td></tr>");
         }
     }
     if (expenses.length > 0 || savings.length > 0 || investments.length > 0) {
