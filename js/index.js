@@ -115,9 +115,14 @@ function calculateMasterBalances() {
             }
         }
     }
-    document.getElementById("interestOnly").innerHTML = "$" + (masterAccountBalances[0][masterAccountBalances[0].length-1].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
-    document.getElementById("interestContribution").innerHTML = "$" + (masterAccountBalances[1][masterAccountBalances[0].length-1].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
-    document.getElementById("interestContributionMatch").innerHTML = "$" + (masterAccountBalances[2][masterAccountBalances[0].length-1].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+    if (accountBalances.length === 0){
+        masterAccountBalances = [];
+    }
+    if (masterAccountBalances.length > 1) {
+        document.getElementById("interestOnly").innerHTML = "$" + (masterAccountBalances[0][masterAccountBalances[0].length-1].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+        document.getElementById("interestContribution").innerHTML = "$" + (masterAccountBalances[1][masterAccountBalances[0].length-1].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+        document.getElementById("interestContributionMatch").innerHTML = "$" + (masterAccountBalances[2][masterAccountBalances[0].length-1].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+    }
 }
 
 function getTotalChartArray() {
