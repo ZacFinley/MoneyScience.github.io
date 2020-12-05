@@ -21,7 +21,7 @@ function updateInvestmentPrice(accountId, investmentId) {
 
 function updateInvestmentCurrentPrice(accountId, investmentId) {
     accounts[accountId][investmentId][3] = accounts[accountId][investmentId][1] * accounts[accountId][investmentId][2];
-    document.getElementById("a" + accountId + "i" + investmentId + "CurrentTotal").innerHTML = ("$" + parseFloat(accounts[accountId][investmentId][3]).toFixed(2));
+    document.getElementById("a" + accountId + "i" + investmentId + "CurrentTotal").innerHTML = ("$" + parseFloat(accounts[accountId][investmentId][3]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
     updateInvestmentProjectedPrice(accountId, investmentId);
     updateAccountTotals(accountId);
     updateMasterTotals();
@@ -35,8 +35,8 @@ function updateInvestmentAdjustment(accountId, investmentId) {
 function updateInvestmentProjectedPrice(accountId, investmentId) {
     accounts[accountId][investmentId][5] = accounts[accountId][investmentId][2] * (1 + (accounts[accountId][investmentId][4]/100));
     accounts[accountId][investmentId][6] = accounts[accountId][investmentId][1] * accounts[accountId][investmentId][5];
-    document.getElementById("a" + accountId + "i" + investmentId + "ProjectedPrice").innerHTML = ("$" + parseFloat(accounts[accountId][investmentId][5]).toFixed(2));
-    document.getElementById("a" + accountId + "i" + investmentId + "ProjectedTotal").innerHTML = ("$" + parseFloat(accounts[accountId][investmentId][6]).toFixed(2));
+    document.getElementById("a" + accountId + "i" + investmentId + "ProjectedPrice").innerHTML = ("$" + parseFloat(accounts[accountId][investmentId][5]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+    document.getElementById("a" + accountId + "i" + investmentId + "ProjectedTotal").innerHTML = ("$" + parseFloat(accounts[accountId][investmentId][6]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
     updateAccountTotals(accountId);
     updateMasterTotals();
 }
@@ -48,7 +48,7 @@ function updateAccountTotals(accountId) {
         currentTotal += accounts[accountId][i][3];
         projectedTotal += accounts[accountId][i][6];
     }
-    document.getElementById("account"+accountId+"Totals").innerHTML = "Account Totals - Current: $" + parseFloat(currentTotal).toFixed(2) + "    Projected: $" + parseFloat(projectedTotal).toFixed(2);
+    document.getElementById("account"+accountId+"Totals").innerHTML = "Account Totals - Current: $" + parseFloat(currentTotal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "    Projected: $" + parseFloat(projectedTotal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 function addAccount() {
@@ -65,5 +65,5 @@ function updateMasterTotals() {
             tempProjected += accounts[i][j][6];
         }
     }
-    document.getElementById("masterTotals").innerHTML = "Current: $" + parseFloat(tempCurrent).toFixed(2) + " Projected: $" + parseFloat(tempProjected).toFixed(2);
+    document.getElementById("masterTotals").innerHTML = "Current: $" + parseFloat(tempCurrent).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " Projected: $" + parseFloat(tempProjected).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }

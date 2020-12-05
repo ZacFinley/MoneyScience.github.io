@@ -111,25 +111,25 @@ function updateAssets() {
     if (assets.length > 0) {
         for (var i = 0; i < assets.length; i++) {
             if (assets[i][2] === "Cash/Cash Equivalent") {
-                cashList += "<tr><td>Cash/Cash Equivalent</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeAsset(" + i + ")'>X</button></td></tr>";
+                cashList += "<tr><td>Cash/Cash Equivalent</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeAsset(" + i + ")'>X</button></td></tr>";
             }
             else if (assets[i][2] === "Real Estate") {
-                realEstateList += "<tr><td>Real Estate</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeAsset(" + i + ")'>X</button></td></tr>";
+                realEstateList += "<tr><td>Real Estate</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeAsset(" + i + ")'>X</button></td></tr>";
             }
             else if (assets[i][2] === "Retirement") {
-                retirementList += "<tr><td>Retirement</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeAsset(" + i + ")'>X</button></td></tr>";
+                retirementList += "<tr><td>Retirement</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeAsset(" + i + ")'>X</button></td></tr>";
                 retirementTotal += assets[i][1];
                 updateRetireToday();
             }
             else if (assets[i][2] === "Individual Investing") {
-                individualInvestingList += "<tr><td>Individual Investing</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeAsset(" + i + ")'>X</button></td></tr>";
+                individualInvestingList += "<tr><td>Individual Investing</td><td>" + assets[i][0] + "</td><td>$" + parseFloat(assets[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeAsset(" + i + ")'>X</button></td></tr>";
                 individualInvestmentsTotal += assets[i][1];
             }
 
         }
     }
     document.getElementById("assetsTable").innerHTML += (cashList + realEstateList + retirementList + individualInvestingList);
-    document.getElementById("assetsTable").innerHTML += "<tr><td></td><td>Total Assets:</td><td></td><td>$" + parseFloat(assetTotal).toFixed(2) + "</td></tr>";
+    document.getElementById("assetsTable").innerHTML += "<tr><td></td><td>Total Assets:</td><td></td><td>$" + parseFloat(assetTotal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td></tr>";
     updateInvestAssetRatio();
 }
 
@@ -144,19 +144,19 @@ function updateLiabilites() {
     if (liabilities.length > 0) {
         for (var i = 0; i < liabilities.length; i++) {
             if (liabilities[i][2] === "Mortgage") {
-                mortgageList += "<tr><td>Mortgage</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
+                mortgageList += "<tr><td>Mortgage</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
             }
             else if (liabilities[i][2] === "Car") {
-                carList += "<tr><td>Car</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
+                carList += "<tr><td>Car</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
             }
             else if (liabilities[i][2] === "Credit Cards") {
-                creditCardList += "<tr><td>Credit Cards</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
+                creditCardList += "<tr><td>Credit Cards</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
             }
             else if (liabilities[i][2] === "Personal Loans") {
-                studentLoanList += "<tr><td>Personal Loans</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
+                studentLoanList += "<tr><td>Personal Loans</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
             }
             else if (liabilities[i][2] === "Student Loans") {
-                studentLoanList += "<tr><td>Student Loans</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2) + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
+                studentLoanList += "<tr><td>Student Loans</td><td>" + liabilities[i][0] + "</td><td>$" + parseFloat(liabilities[i][1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td><td class='remove'></td><td><button class='deleteButton' onclick='removeLiability(" + i + ")'>X</button></td></tr>";
             }
             
         }
@@ -164,12 +164,12 @@ function updateLiabilites() {
     
     document.getElementById("liabilitiesTable").innerHTML += (mortgageList + carList + creditCardList + personalLoanList + studentLoanList);
     
-    document.getElementById("liabilitiesTable").innerHTML += "<tr><td></td><td>Total Liabilities:</td><td></td><td>$" + parseFloat(liabilitiesTotal).toFixed(2) + "</td></tr>";
+    document.getElementById("liabilitiesTable").innerHTML += "<tr><td></td><td>Total Liabilities:</td><td></td><td>$" + parseFloat(liabilitiesTotal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</td></tr>";
 }
 
 function updateNetWorth() {
-    document.getElementById("netWorth").innerHTML = "Net Worth: $" + parseFloat(netWorth).toFixed(2);
-    document.getElementById("currentNetWorth").innerHTML = "Current Net Worth: $" + parseFloat(netWorth).toFixed(2);
+    document.getElementById("netWorth").innerHTML = "Net Worth: $" + parseFloat(netWorth).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("currentNetWorth").innerHTML = "Current Net Worth: $" + parseFloat(netWorth).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     updateNetWorthChange();
     updateBenchmarkNetWorth();
     updateDebtAssetRatio();
@@ -204,7 +204,7 @@ function updateNetWorthChange() {
     else {
         document.getElementById("netWorthChange").innerHTML = "Your net worth " + increasedDecreased;
     }
-    document.getElementById("netWorthChange").innerHTML = "Your net worth " + increasedDecreased + " by $" + parseFloat(netWorthChange).toFixed(2) + " which is " + increaseDecrease + " of " + parseFloat(netWorthChangePercent).toFixed(2) + "%";
+    document.getElementById("netWorthChange").innerHTML = "Your net worth " + increasedDecreased + " by $" + parseFloat(netWorthChange).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " which is " + increaseDecrease + " of " + parseFloat(netWorthChangePercent).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%";
 }
 
 function updateAge() {
@@ -220,7 +220,7 @@ function updatePreTaxIncome() {
 }
 
 function updateBenchmarkNetWorth() {
-    var benchmarkNetWorth = parseFloat((age * preTaxIncome)/10).toFixed(2);
+    var benchmarkNetWorth = parseFloat((age * preTaxIncome)/10).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     document.getElementById("benchmarkNetWorth").innerHTML = "Benchmark Net Worth: $" + benchmarkNetWorth;
     
     if (netWorth < (benchmarkNetWorth/2)) {
@@ -235,11 +235,11 @@ function updateBenchmarkNetWorth() {
 }
 
 function updateDebtAssetRatio() {
-    document.getElementById("debtAssetRatio").innerHTML = "Debt/Assets: " + parseFloat((liabilitiesTotal / assetTotal) * 100).toFixed(2) + "%";
+    document.getElementById("debtAssetRatio").innerHTML = "Debt/Assets: " + parseFloat((liabilitiesTotal / assetTotal) * 100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%";
 }
 
 function updateInvestAssetRatio() {
-    document.getElementById("investedOfAssets").innerHTML = "Invested/Assets: " + parseFloat(((retirementTotal + individualInvestmentsTotal) / assetTotal) * 100).toFixed(2) + "%";
+    document.getElementById("investedOfAssets").innerHTML = "Invested/Assets: " + parseFloat(((retirementTotal + individualInvestmentsTotal) / assetTotal) * 100).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "%";
 }
 
 function updateRetirementAge() {
@@ -254,15 +254,15 @@ function updateRetirementAmount() {
 }
 
 function updateRetirementGoalResults() {
-    document.getElementById("retirementGoalResults").innerHTML = "which means I have " + (retirementAge - age) + " year(s) to earn $" + parseFloat(retirementAmount - retirementTotal).toFixed(2) + " which is an average of $" + (parseFloat((retirementAmount - retirementTotal)/(retirementAge - age)).toFixed(2)) + " per year.";
+    document.getElementById("retirementGoalResults").innerHTML = "which means I have " + (retirementAge - age) + " year(s) to earn $" + parseFloat(retirementAmount - retirementTotal).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " which is an average of $" + (parseFloat((retirementAmount - retirementTotal)/(retirementAge - age)).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')) + " per year.";
 }
 
 function updateFutureValue() {
     var interest = document.getElementById("futureValueInterestInput").value/100;
-    document.getElementById("futureValueResult").innerHTML = "$" + parseFloat(1 * Math.pow((1+interest),(retirementAge-age))).toFixed(2);
+    document.getElementById("futureValueResult").innerHTML = "$" + parseFloat(1 * Math.pow((1+interest),(retirementAge-age))).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 }
 
 function updateRetireToday() {
     var fivePercentAnnual = retirementTotal*.05;
-    document.getElementById("retireToday").innerHTML = "If I were to retire today I could withdraw $" + (parseFloat(fivePercentAnnual/12).toFixed(2)) + " from my retirement accounts which is 5% of the account a month or $" + (parseFloat(fivePercentAnnual).toFixed(2)) + " a year.";
+    document.getElementById("retireToday").innerHTML = "If I were to retire today I could withdraw $" + (parseFloat(fivePercentAnnual/12).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')) + " from my retirement accounts which is 5% of the account a month or $" + (parseFloat(fivePercentAnnual).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')) + " a year.";
 }

@@ -13,9 +13,4 @@ Mobile
 - Under, average, above accumilators of wealth fix (average is set too low I think)
 -new name for site (look for domain)
     
-- Edit entries
-    -homepage
-    -income statement
-    -balance sheet
-    
 -Homepage only show the contribution and match if they differ from the interest only
