@@ -124,13 +124,13 @@ function taxBracketCalculation() {
 }
 
 function updateBrackets() {
-    document.getElementById("breakpointTier1").innerHTML = "$0 - $" + taxBreakpoints[filingStatus][0];
-    document.getElementById("breakpointTier2").innerHTML = "$" + (taxBreakpoints[filingStatus][0]+1).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + taxBreakpoints[filingStatus][1];
-    document.getElementById("breakpointTier3").innerHTML = "$" + (taxBreakpoints[filingStatus][1]+1).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + taxBreakpoints[filingStatus][2];
-    document.getElementById("breakpointTier4").innerHTML = "$" + (taxBreakpoints[filingStatus][2]+1).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + taxBreakpoints[filingStatus][3];
-    document.getElementById("breakpointTier5").innerHTML = "$" + (taxBreakpoints[filingStatus][3]+1).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + taxBreakpoints[filingStatus][4];
-    document.getElementById("breakpointTier6").innerHTML = "$" + (taxBreakpoints[filingStatus][4]+1).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + taxBreakpoints[filingStatus][5];
-    document.getElementById("breakpointTier7").innerHTML = "$" + (taxBreakpoints[filingStatus][5]+1).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " or more";
+    document.getElementById("breakpointTier1").innerHTML = "$0 - $" + ((taxBreakpoints[filingStatus][0]).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("breakpointTier2").innerHTML = "$" + ((taxBreakpoints[filingStatus][0]+1).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + ((taxBreakpoints[filingStatus][1]).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("breakpointTier3").innerHTML = "$" + ((taxBreakpoints[filingStatus][1]+1).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + ((taxBreakpoints[filingStatus][2]).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("breakpointTier4").innerHTML = "$" + ((taxBreakpoints[filingStatus][2]+1).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + ((taxBreakpoints[filingStatus][3]).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("breakpointTier5").innerHTML = "$" + ((taxBreakpoints[filingStatus][3]+1).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + ((taxBreakpoints[filingStatus][4]).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("breakpointTier6").innerHTML = "$" + ((taxBreakpoints[filingStatus][4]+1).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " - $" + ((taxBreakpoints[filingStatus][5]).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("breakpointTier7").innerHTML = "$" + ((taxBreakpoints[filingStatus][5]+1).toString()).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " or more";
     
     document.getElementById("incomeAmount1").innerHTML = "$" + parseFloat(incomeTierAmount[0]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     document.getElementById("incomeAmount2").innerHTML = "$" + parseFloat(incomeTierAmount[1]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
