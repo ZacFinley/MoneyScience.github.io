@@ -14,3 +14,7 @@ Mobile
 -new name for site (look for domain)
     
 -Homepage only show the contribution and match if they differ from the interest only
+
+- Editable account cards on homepage
+
+

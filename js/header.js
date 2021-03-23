@@ -18,6 +18,7 @@ function siteNavigation() {
                           "Net Worth Growth",
                           "Debt Snowball",
                           "Investment Projections",
+                          "Share Purchase",
                           "Money Articles"];
     var navigationPath = ["index",
                           "pathToWealth",
@@ -28,6 +29,7 @@ function siteNavigation() {
                           "netWorthGrowth",
                           "debtSnowball",
                           "investmentProjections",
+                          "sharePurchase",
                           "moneyArticles"];
     var header = "<div class='navigationList'>";
     for (var i = 0; i < navigationList.length; i++){
