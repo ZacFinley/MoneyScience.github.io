@@ -7,8 +7,6 @@ TODO:
 
 Mobile
     -pages
-    
--Path to wealth NaN issue when Mortgage payment calc has been done and reset is click then live month
 
 - Under, average, above accumilators of wealth fix (average is set too low I think)
 -new name for site (look for domain)
@@ -18,3 +16,5 @@ Mobile
 - Editable account cards on homepage
 
 
+Later
+stock price percentage to dividend amount
