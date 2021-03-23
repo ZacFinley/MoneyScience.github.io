@@ -15,6 +15,9 @@ Mobile
 
 - Editable account cards on homepage
 
+Path to Wealth
+- reset needs finishing
+- random needs implementing
 
 Later
 stock price percentage to dividend amount
