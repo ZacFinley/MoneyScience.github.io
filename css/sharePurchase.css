@@ -1,0 +1,35 @@
+.description {
+    text-align: center;
+}
+
+.accountSummary {
+    border: 2px solid #800000;
+    margin: 5px 200px;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 30px;
+}
+
+.investmentCard {
+    width: 200px;
+}
+
+#accountCardsWrapper {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.blockDisplay {
+    display: block;
+}
+
+.inline {
+    display: inline;
+}
+
+.investmentBreakdown {
+    border: 1px solid #800000;
+    padding: 5px;
+    text-align: center;
+}
+

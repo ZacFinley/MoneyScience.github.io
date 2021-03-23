@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <title>Money Science</title>
+        <script src="../js/header.js"></script>
+        <script src="../js/sharePurchase.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/global.css">
+        <link rel="stylesheet" type="text/css" href="../css/sharePurchase.css">
+        <link rel="stylesheet" type="text/css" href="../css/header.css">
+        <link rel="stylesheet" type="text/css" href="../css/footer.css">
+    </head>
+    <body>
+        <div id="header"></div>
+        <h2 class="subHeader">Share Purchase</h2>
+        <p class="description">
+            So you have money sitting in your investment account?<br>
+            You are trying to decide what, when and at which price to buy.<br>
+            Plug in the investments you are thinking of to help create your plan.
+        </p>
+        <div class="accountSummary">
+            <div id="accountTotal">Account Total: $0.00</div>
+            <div id="investedTotal">Invested Total: $0.00</div>
+            <div id="cashTotal">Cash Total: $0.00</div>
+        </div>
+        <div id="accountCardsWrapper">
+            <div class="card investmentCard">
+                <div class="blockDisplay">
+                    <div>Ticker:</div>
+                    <input id="tickerInput0" onchange="updateTickerSharesPrice(0)"></input>
+                </div>
+                <div class="blockDisplay">
+                    <div>Shares Owned:</div>
+                    <input id="sharesOwnedInput0" type="Number" min="0" value="0.00" onchange="updateTickerSharesPrice(0)"></input>
+                </div>
+                <div class="blockDisplay">
+                    <div>Share Price:</div>
+                    $<input id="sharePriceInput0" type="Number" min="0" value="0.00" onchange="updateTickerSharesPrice(0)"></input>
+                </div>
+                <div class="blockDisplay">
+                    <div id="accountTotalValue0">Total Value: $0.00</div>
+                </div>
+                <div class="blockDisplay">
+                    <div id="accountPercent0">0.00%</div>
+                </div>
+                <div class="investmentBreakdown">
+                    <div class="blockDisplay">
+                        <div>To Invest:</div>
+                        $<input type="Number" min="0" value="0.00"></input>
+                    </div>
+                    <div>-2%: <div class="inline">0 </div>@ $<div class="inline" id="twoPercent0">0.00</div></div>
+                    <div>-5%: <div class="inline">0 </div>@ $<div class="inline" id="fivePercent0">0.00</div></div>
+                    <div>-7%: <div class="inline">0 </div>@ $<div class="inline" id="sevenPercent0">0.00</div></div>
+                    <div>-10%: <div class="inline">0 </div>@ $<div class="inline" id="tenPercent0">0.00</div></div>
+                    <div class="spacer"></div>
+                    <div></div>
+                </div>
+            </div>
+            <button onclick="addFund()">Add Fund</button>
+        </div>
+        <div id="footer"></div>
+    </body>
+</html>
