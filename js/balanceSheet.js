@@ -220,13 +220,14 @@ function updatePreTaxIncome() {
 }
 
 function updateBenchmarkNetWorth() {
-    var benchmarkNetWorth = parseFloat((age * preTaxIncome)/10).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    document.getElementById("benchmarkNetWorth").innerHTML = "Benchmark Net Worth: $" + benchmarkNetWorth;
-    
+    var benchmarkNetWorth = parseFloat((age * preTaxIncome)/10);
+    var benchmarkNetWorthToShow = benchmarkNetWorth.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    document.getElementById("benchmarkNetWorth").innerHTML = "Benchmark Net Worth: $" + benchmarkNetWorthToShow;
+
     if (netWorth < (benchmarkNetWorth/2)) {
         document.getElementById("benchmarkNetWorth").innerHTML += ". Under accumulators of wealth (UAWs) are those whose real net worth is less than one-half of their expected net worth."
     }
-    else if (netWorth <= benchmarkNetWorth) {
+    else if (netWorth < (benchmarkNetWorth*2)) {
         document.getElementById("benchmarkNetWorth").innerHTML += ". Average accumulators of wealth (AAW) are on par with their expected net worth."
     }
     else {

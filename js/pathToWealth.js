@@ -58,6 +58,22 @@ var totalGivingPayment = 0;
 
 var netWorth = 0;
 
+function resetInputs() {
+    document.getElementById("monthlySalary").value = monthlySalary;
+    document.getElementById("monthlyRentalProfit").value = monthlyRentalProfit;
+    document.getElementById("monthlyGiving").value = monthlyGiving;
+    document.getElementById("monthlyRent").value = monthlyRent;
+    document.getElementById("monthlyMortgage").value = monthlyMortgage;
+    document.getElementById("monthlyUtilities").value = monthlyUtilities;
+    document.getElementById("monthlyFood").value = monthlyFood;
+    document.getElementById("monthlyTransportation").value = monthlyTransportation;
+    document.getElementById("monthlyInternet").value = monthlyInternet;
+    document.getElementById("monthlyPhone").value = monthlyPhone;
+    document.getElementById("monthlyDebt").value = monthlyDebt;
+    document.getElementById("monthlyRetirement").value = monthlyRetirement;
+    document.getElementById("monthlyIndividualInvesting").value = monthlyIndividualInvesting;
+    document.getElementById("monthlySavings").value = monthlySavings;
+}
 
 function reset() {
     // Timeline
@@ -115,6 +131,7 @@ function reset() {
     updateTotalAmounts();
     updateMortgagePayment();
     updateDebtPayment();
+    resetInputs();
 }
 
 function addMonth() {
