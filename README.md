@@ -5,10 +5,6 @@ Money Science website that will teach people about money in our society and how 
 TODO:
 - debt snowball sort on interest rate if balance is the same
 
--Homepage only show the contribution and match if they differ from the interest only
-
-- Editable account cards on homepage
-
 Mobile
     -pages
 

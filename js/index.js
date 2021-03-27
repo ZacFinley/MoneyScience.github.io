@@ -1,9 +1,13 @@
+// .replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 google.charts.load('current', {'packages':['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 var accounts = [];
 var accountBalances = [];
 var masterAccountBalances = [];
 var years = 1;
+
+var hasContributionValue = false;
+var hasMatchValue = false;
 
 function drawChart() {
     var data = google.visualization.arrayToDataTable(getTotalChartArray());
@@ -32,6 +36,12 @@ function addAccountInfo() {
                    parseFloat(document.getElementById("monthlyContributionInput").value * 12),
                    parseFloat(document.getElementById("employerMatchInput").value * 12)
                    ];
+    if (account[3] > 0) {
+        hasContributionValue = true;
+    }
+    if (account[4] > 0) {
+        hasMatchValue = true;
+    }
     accounts.push(account);
     calculateAccountBalances();
 }
@@ -126,29 +136,99 @@ function calculateMasterBalances() {
 }
 
 function getTotalChartArray() {
-    var chart = [
-                 ['Year','Interest Only','Interest + Contribution','Interest + Contrib. + Match']
-                 ];
-    if (accountBalances.length > 0){
-        for (var i = 0; i < masterAccountBalances[0].length; i++) {
-            chart.push (['',masterAccountBalances[0][i],masterAccountBalances[1][i],masterAccountBalances[2][i]]);
+    if (hasMatchValue && hasContributionValue) {
+        var chart = [
+                     ['Year','Interest Only','Interest + Contribution','Interest + Contrib. + Match']
+                     ];
+        if (accountBalances.length > 0){
+            for (var i = 0; i < masterAccountBalances[0].length; i++) {
+                chart.push (['',masterAccountBalances[0][i],masterAccountBalances[1][i],masterAccountBalances[2][i]]);
+            }
         }
+        else {
+            chart.push(['',0,0,0]);
+        }
+        return chart;
+    }
+    else if (!hasMatchValue && hasContributionValue) {
+        var chart = [
+                     ['Year','Interest Only','Interest + Contribution']
+                     ];
+        if (accountBalances.length > 0){
+            for (var i = 0; i < masterAccountBalances[0].length; i++) {
+                chart.push (['',masterAccountBalances[0][i],masterAccountBalances[1][i]]);
+            }
+        }
+        else {
+            chart.push(['',0,0]);
+        }
+        return chart;
+        
+    }
+    else if (hasMatchValue && !hasContributionValue) {
+        var chart = [
+                     ['Year','Interest Only','Interest + Contrib. + Match']
+                     ];
+        if (accountBalances.length > 0){
+            for (var i = 0; i < masterAccountBalances[0].length; i++) {
+                chart.push (['',masterAccountBalances[0][i],masterAccountBalances[2][i]]);
+            }
+        }
+        else {
+            chart.push(['',0,0]);
+        }
+        return chart;
     }
     else {
-        chart.push(['',0,0,0]);
+        var chart = [
+                     ['Year','Interest Only']
+                     ];
+        if (accountBalances.length > 0){
+            for (var i = 0; i < masterAccountBalances[0].length; i++) {
+                chart.push (['',masterAccountBalances[0][i]]);
+            }
+        }
+        else {
+            chart.push(['',0]);
+        }
+        return chart;
     }
-    return chart;
+    
 }
 
 function makeListOfAccounts() {
     document.getElementById("accountList").innerHTML = '';
     for (var i = 0; i < accounts.length; i++) {
-        var accountNameDisplay = '<div class="listElement">' + accounts[i][0] + '</div>';
-        var currentBalanceDisplay = '<div class="listElement">Starting Balance<br>$' + (accounts[i][1].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')) + '</div>';
-        var annualInterestDisplay = '<div class="listElement">Annual Interest<br>' + (accounts[i][2] * 100) + '%</div>';
-        var monthlyContributionDisplay = '<div class="listElement">Monthly Contribution<br>$' + ((accounts[i][3] / 12).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')) + '</div>';
-        var employerMatchDisplay = '<div class="listElement">Monthly Match<br>$' + ((accounts[i][4] / 12).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',')) + '</div>';
+        var accountNameDisplay = '<div class="listElement">Account Name<input id="accountName' + i + '" onChange="cardUpdate('+i+',0)" value="' + accounts[i][0] + '"></input></div>';
+        var currentBalanceDisplay = '<div class="listElement">Starting Balance ($)<input id="accountBalance' + i + '" onChange="cardUpdate('+i+',1)" value=' + parseFloat(accounts[i][1].toFixed(2)) + ' type="number"></input></div>';
+        var annualInterestDisplay = '<div class="listElement">Annual Interest (%)<input id="accountInterest' + i + '" onChange="cardUpdate('+i+',2)" value=' + parseFloat(accounts[i][2] * 100) + ' type="number"></input></div>';
+        var monthlyContributionDisplay = '<div class="listElement">Monthly Contribution ($)<input id="accountContribution' + i + '" onChange="cardUpdate('+i+',3)" value=' + (parseFloat(accounts[i][3] / 12).toFixed(2)) + ' type="number"></input></div>';
+        var employerMatchDisplay = '<div class="listElement">Monthly Match ($)<input id="accountEmpMatch' + i + '" onChange="cardUpdate('+i+',4)" value=' + (parseFloat(accounts[i][4] / 12).toFixed(2)) + ' type="number"></input></div>';
         var deleteAccountBtn = '<button class="deleteButton" onclick="removeAccountInfo(' + i + ')">X</button>';
         document.getElementById("accountList").innerHTML += '<div class="card listOfAccounts">' + accountNameDisplay + currentBalanceDisplay + annualInterestDisplay + monthlyContributionDisplay + employerMatchDisplay + deleteAccountBtn + '</div>';
     }
+}
+
+function cardUpdate(listNumber, fieldNumber) {
+    // fieldNumber 0 = accountName 1 = accountBalance 2 = accountInterest 3 = accountContribution 4 = accountEmpMatch
+    switch (fieldNumber) {
+        case 0:
+            accounts[listNumber][fieldNumber] = document.getElementById("accountName" + listNumber).value;
+            break;
+        case 1:
+            accounts[listNumber][fieldNumber] = parseFloat(document.getElementById("accountBalance" + listNumber).value);
+            break;
+        case 2:
+            accounts[listNumber][fieldNumber] = parseFloat(document.getElementById("accountInterest" + listNumber).value)/100;
+            break;
+        case 3:
+            accounts[listNumber][fieldNumber] = parseFloat(document.getElementById("accountContribution" + listNumber).value)*12;
+            break;
+        case 4:
+            accounts[listNumber][fieldNumber] = parseFloat(document.getElementById("accountEmpMatch" + listNumber).value)*12;
+            break;
+        default:
+            console.log("error in card update");
+    }
+    calculateAccountBalances();
 }

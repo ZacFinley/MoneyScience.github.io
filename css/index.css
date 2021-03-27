@@ -21,6 +21,7 @@ body {
 .listElement {
     margin: 0 auto;
     text-align: center;
+    display: grid;
 }
 
 .deleteButton {
