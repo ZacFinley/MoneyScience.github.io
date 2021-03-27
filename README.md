@@ -19,3 +19,6 @@ Path to Wealth
 
 Later
 stock price percentage to dividend amount
+
+Share Purchase
+    -add funds and integrate share breakdown for "to invest"
