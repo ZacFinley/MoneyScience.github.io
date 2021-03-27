@@ -90,8 +90,8 @@ function updateInterestInputs() {
 
 function randomizeInputs() {
     // Timeline
-    var ageMonths = (Math.random() * 100) % 12;
-    var ageYears = (Math.random() * 100);
+    ageMonths = Math.floor((Math.random() * 100) % 12);
+    ageYears = Math.floor(Math.random() * 100);
     document.getElementById("ageYears").value = ageYears;
     document.getElementById("ageMonths").value = ageMonths;
     // Inputs
@@ -110,6 +110,16 @@ function randomizeInputs() {
     monthlyIndividualInvesting = 0;
     monthlySavings = 0;
     updateInputs();
+    // Interest
+    totalRemainingMortgageInterest = Math.floor((Math.random() * 100))/20;
+    totalRemainingDebtInterest = Math.floor((Math.random() * 100))/10;
+    totalRetirementInterest = Math.floor((Math.random() * 100))/10;
+    totalIndividualInvestingInterest = Math.floor((Math.random() * 100))/10;
+    primaryHouseInterest = 3 + (Math.floor((Math.random() * 10))/10);
+    rentalInterest = 3 + (Math.floor((Math.random() * 10))/10);
+    totalSavingsInterest = Math.floor((Math.random()*100))/100;
+    totalGivingInterest = Math.floor((Math.random() * 100))/10;
+    updateInterestInputs();
 }
 
 function reset() {
