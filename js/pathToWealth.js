@@ -1,3 +1,6 @@
+// Flags
+var lastNetWorth = 0;
+
 // Timeline
 var simulatedMonths = 0;
 var simulatedYears = 0;
@@ -45,7 +48,6 @@ var totalIndividualInvestingInterest = 0;
 var primaryHouseInterest = 0;
 var rentalInterest = 0;
 var totalSavingsInterest = 0;
-
 var totalGivingInterest = 0;
     // Term
 var totalRemainingMortgageTerm = 0;
@@ -58,7 +60,7 @@ var totalGivingPayment = 0;
 
 var netWorth = 0;
 
-function resetInputs() {
+function updateInputs() {
     document.getElementById("monthlySalary").value = monthlySalary;
     document.getElementById("monthlyRentalProfit").value = monthlyRentalProfit;
     document.getElementById("monthlyGiving").value = monthlyGiving;
@@ -75,7 +77,44 @@ function resetInputs() {
     document.getElementById("monthlySavings").value = monthlySavings;
 }
 
+function updateInterestInputs() {
+    document.getElementById("remainingMortgageInterest").value = totalRemainingMortgageInterest;
+    document.getElementById("remainingDebtInterest").value = totalRemainingDebtInterest;
+    document.getElementById("totalRetirementInterest").value = totalRetirementInterest;
+    document.getElementById("totalIndividualInvestingInterest").value = totalIndividualInvestingInterest;
+    document.getElementById("primaryHouseEquityInterest").value = primaryHouseInterest;
+    document.getElementById("totalRentalEquityInterest").value = rentalInterest;
+    document.getElementById("totalSavingsInterest").value = totalSavingsInterest;
+    document.getElementById("totalGivingInterest").value = totalGivingInterest;
+}
+
+function randomizeInputs() {
+    // Timeline
+    var ageMonths = (Math.random() * 100) % 12;
+    var ageYears = (Math.random() * 100);
+    document.getElementById("ageYears").value = ageYears;
+    document.getElementById("ageMonths").value = ageMonths;
+    // Inputs
+    monthlySalary = parseFloat((Math.random() * 10000).toFixed(2));
+//    monthlyRentalProfit = 0;
+//    monthlyGiving = 0;
+    monthlyRent = parseFloat((monthlySalary * .25).toFixed(2));
+//    monthlyMortgage = 0;
+    monthlyUtilities = 0;
+    monthlyFood = 0;
+    monthlyTransportation = 0;
+    monthlyInternet = 0;
+    monthlyPhone = 0;
+    monthlyDebt = 0;
+    monthlyRetirement = parseFloat((monthlySalary * .15).toFixed(2));
+    monthlyIndividualInvesting = 0;
+    monthlySavings = 0;
+    updateInputs();
+}
+
 function reset() {
+    // Flags
+    lastNetWorth = 0;
     // Timeline
     simulatedMonths = 0;
     simulatedYears = 0;
@@ -131,7 +170,8 @@ function reset() {
     updateTotalAmounts();
     updateMortgagePayment();
     updateDebtPayment();
-    resetInputs();
+    updateInputs();
+    updateInterestInputs();
 }
 
 function addMonth() {
@@ -357,6 +397,13 @@ function adjustAccounts() {
 
 function updateNetWorth() {
     netWorth = totalRetirement + totalIndividualInvesting + primaryHouseEquity + rentalEquity + totalSavings - totalRemainingMortgage - totalRemainingDebt;
+    if ((netWorth >= 1000000) && (lastNetWorth < 1000000)) {
+        alert("You are a millionaire! Net Worth: " + Number(netWorth).toLocaleString('en-US', {style: 'currency',currency: 'USD'}));
+    }
+    if ((netWorth >= 1000000000) && (lastNetWorth < 1000000000)) {
+        alert("You are a billionaire! Net Worth: " + Number(netWorth).toLocaleString('en-US', {style: 'currency',currency: 'USD'}));
+    }
+    lastNetWorth = netWorth;
     updateTotalAmounts();
 }
 
