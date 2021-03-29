@@ -15,7 +15,7 @@
             In a debt snowball you list your debts from smallest to largest by remaining balance.<br>
             This will list your debts in snowball order and calculate the months to payoff each.<br>
         </p>
-        <div class="wrapper">
+        <div class="wrapper" id="addAccountAdder">
             <div class="card">
                 Total Monthly Debt Budget
                 $<input id="monthlyDebtBudgetInput" type="number" value=0.00 onchange="updateTotalMonthlyDebtBudget()"></input>
@@ -25,11 +25,11 @@
                 Loan Name
                 <input id="loanNameInput"></input>
                 Loan Balance
-                $<input id="loanBalanceInput" type="number" value=0.00></input>
+                $<input id="loanBalanceInput" type="number" value="0.00"></input>
                 Loan Interest rate
-                <input id="loanInterestInput" type="number" value=0.00>%</input>
+                <input id="loanInterestInput" type="number" value="0.00">%</input>
                 Minimum Payment
-                $<input id="loanPaymentInput" type="number" value=0.00></input>
+                $<input id="loanPaymentInput" type="number" value="0.00"></input>
                 <button class="mainButton" onclick="addToDebtList()">Add</button>
             </div>
             <div id="debtList">

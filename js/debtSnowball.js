@@ -5,9 +5,15 @@ var minimumPaymentsTotal = 0.00;
 var aboveMinumumPaymentsAmount = 0.00;
 
 function updateTotalMonthlyDebtBudget() {
-    monthlyDebtBudget = parseFloat(document.getElementById("monthlyDebtBudgetInput").value);
-    calculateMinimumPaymentTotal();
-    makeListOutput();
+    if (document.getElementById("monthlyDebtBudgetInput").value >= minimumPaymentsTotal) {
+        monthlyDebtBudget = parseFloat(document.getElementById("monthlyDebtBudgetInput").value);
+        calculateMinimumPaymentTotal();
+        makeListOutput();
+    }
+    else {
+        alert("Must enter a number larger than your currenct budget of $" + parseFloat(monthlyDebtBudget).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ','));
+        document.getElementById("monthlyDebtBudgetInput").value = parseFloat(monthlyDebtBudget.toFixed(2));
+    }
 }
 
 function addToDebtList() {
@@ -19,8 +25,13 @@ function addToDebtList() {
     debtListRow.push(parseFloat(document.getElementById("loanPaymentInput").value));
     debtList.push(debtListRow);
     debtList = debtList.sort(function(a,b) {
-                   return a[1] - b[1];
-                   });
+                             return b[2] - a[2];
+                             });
+    debtList = debtList.sort(function(a,b) {
+                    return a[1] - b[1];
+                });
+    monthlyDebtBudget += parseFloat(document.getElementById("loanPaymentInput").value);
+    document.getElementById("monthlyDebtBudgetInput").value = parseFloat(monthlyDebtBudget.toFixed(2));
     calculateMinimumPaymentTotal();
     makeListOutput();
 }
@@ -53,7 +64,7 @@ function createNewDebtCard(name, balance, rate, payment, previousPayment) {
     else {
         monthsToPayoff = calculatePayoffMonths(balance, rate, payment, (previousPayment + aboveMinumumPaymentsAmount));
     }
-    document.getElementById("debtList").innerHTML += "<div class='card'>Name: " + name + "<br>Balance: $" + balance + "<br>Rate: " + rate + "%<br>Minimum Payment: $" + payment + "<br>Snowball Payment: $" + parseFloat(snowballPayment).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "<br>Months to Payoff: " + monthsToPayoff + "</div>";
+    document.getElementById("debtList").innerHTML += "<div class='card'>Name: " + name + "<br>Balance: $" + parseFloat(balance).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "<br>Rate: " + rate + "%<br>Minimum Payment: $" + parseFloat(payment).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "<br>Snowball Payment: $" + parseFloat(snowballPayment).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "<br>Months to Payoff: " + monthsToPayoff + "</div>";
 }
 
 function calculatePayoffMonths(balance, rate, minPayment, extraPayment) {
