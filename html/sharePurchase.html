@@ -21,6 +21,9 @@
             <div id="investedTotal">Invested Total: $0.00</div>
             <div id="cashTotal">Cash Total: $0.00</div>
         </div>
+        <div class="buttonWrapper">
+            <button class="mainButton fullWidth" onclick="addFund()">Add Fund</button>
+        </div>
         <div id="accountCardsWrapper">
             <div class="card investmentCard">
                 <div class="blockDisplay">
@@ -44,17 +47,16 @@
                 <div class="investmentBreakdown">
                     <div class="blockDisplay">
                         <div>To Invest:</div>
-                        $<input type="Number" min="0" value="0.00"></input>
+                        $<input id="accountToInvest0" type="Number" min="0" value="0.00" onChange="updateTickerSharesPrice(0)"></input>
                     </div>
-                    <div>-2%: <div class="inline">0 </div>@ $<div class="inline" id="twoPercent0">0.00</div></div>
-                    <div>-5%: <div class="inline">0 </div>@ $<div class="inline" id="fivePercent0">0.00</div></div>
-                    <div>-7%: <div class="inline">0 </div>@ $<div class="inline" id="sevenPercent0">0.00</div></div>
-                    <div>-10%: <div class="inline">0 </div>@ $<div class="inline" id="tenPercent0">0.00</div></div>
+                    <div>-2%: <div class="inline" id="twoPercentShares0">0 </div>@ $<div class="inline" id="twoPercent0">0.00</div></div>
+                    <div>-5%: <div class="inline" id="fivePercentShares0">0 </div>@ $<div class="inline" id="fivePercent0">0.00</div></div>
+                    <div>-7%: <div class="inline" id="sevenPercentShares0">0 </div>@ $<div class="inline" id="sevenPercent0">0.00</div></div>
+                    <div>-10%: <div class="inline" id="tenPercentShares0">0 </div>@ $<div class="inline" id="tenPercent0">0.00</div></div>
                     <div class="spacer"></div>
                     <div></div>
                 </div>
             </div>
-            <button onclick="addFund()">Add Fund</button>
         </div>
         <div id="footer"></div>
     </body>

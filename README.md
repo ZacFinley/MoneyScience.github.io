@@ -13,8 +13,5 @@ Mobile
 
 Add a disclaimer that this is for educational purposes and it can only be as accurate as the information put in.
 
-Share Purchase
-    -add funds and integrate share breakdown for "to invest"
-
 Later
 stock price percentage to dividend amount
