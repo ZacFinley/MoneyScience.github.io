@@ -3,6 +3,7 @@
         <title>Money Science</title>
         <script src="../js/header.js"></script>
         <script src="../js/moneyArticles.js"></script>
+        <script src="../js/articles.js"></script>
         <link rel="stylesheet" type="text/css" href="../css/global.css">
         <link rel="stylesheet" type="text/css" href="../css/moneyArticles.css">
         <link rel="stylesheet" type="text/css" href="../css/header.css">
@@ -11,9 +12,18 @@
     <body>
         <div id="header"></div>
         <h2 class="subHeader">Money Articles</h2>
-        <div id="articleWrapper"></div>
-        <!-- <script>getArticles();</script> -->
-        <div class='articleCard' styles="display:none;">
+        <div class="wrapper">
+            <div id="articleList">
+                <div class="articleListItem" onClick="getArticle(0)">
+                    Financial Freedom
+                </div>
+                <div class="articleListItem" onClick="getArticle(1)">
+                    Luxury
+                </div>
+            </div>
+            <div id="articleWrapper"></div>
+            <script>getArticle(0);</script>
+            </div>
         </div>
         <div id="footer"></div>
     </body>
