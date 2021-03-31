@@ -1,7 +1,8 @@
 .articleCard {
     box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     margin: 10px 40px;
-    padding: 15px;
+    padding: 15px 25px;
+    font-family: Helvetica;
 }
 
 .wrapper {
@@ -23,6 +24,19 @@
     cursor: pointer;
     text-align: center;
     margin: 5px 0px;
+    font-size: 18px;
+}
+
+.articleListItem:hover {
+    color: #ffffff;
+    background-color: #800000;
+}
+
+.articleHeader {
+    font-size: 20px;
+    text-decoration: underline;
+    text-align: center;
+    padding-bottom: 10px;
 }
 
 
