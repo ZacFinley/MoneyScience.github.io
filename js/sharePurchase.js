@@ -24,13 +24,6 @@ function updateTickerSharesPrice(index) {
     updateCardOutput(index);
     
     
-    for (var i = 0; i < funds.length; i++) {
-        var percent = (funds[i][3] / (totalInvested + totalCash)) * 100;
-        if (isNaN(percent)) {
-            percent = 0;
-        }
-        document.getElementById("accountPercent" + i).innerHTML = percent.toFixed(2) + "%";
-    }
     funds[index][5] = funds[index][2] * .98;
     document.getElementById("twoPercent" + index).innerHTML = funds[index][5].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     funds[index][6] = funds[index][2] * .95;
@@ -41,6 +34,14 @@ function updateTickerSharesPrice(index) {
     document.getElementById("tenPercent" + index).innerHTML = funds[index][8].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     updateToInvestValue(index);
     calculateTotalInvestedAmount();
+    
+    for (var i = 0; i < funds.length; i++) {
+        var percent = (funds[i][3] / (totalInvested + totalCash)) * 100;
+        if (isNaN(percent)) {
+            percent = 0;
+        }
+        document.getElementById("accountPercent" + i).innerHTML = percent.toFixed(2) + "%";
+    }
 }
 
 function updateCardOutput(index) {
