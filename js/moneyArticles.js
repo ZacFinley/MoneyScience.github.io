@@ -4,7 +4,9 @@ var linkDescription = ["Confused about how to handle money? Not sure where you a
 function getArticleList() {
     document.getElementById("articleList").innerHTML = '';
     for (var i = 0; i < articleData.length; i++){
-        document.getElementById("articleList").innerHTML += "<div class='articleListItem' onClick='getArticle(" + i + ")'>" + articleData[i].title + "</div>";
+        if (articleData[i].publish) {
+            document.getElementById("articleList").innerHTML += "<div class='articleListItem' onClick='getArticle(" + i + ")'>" + articleData[i].title + "</div>";
+        }
     }
 }
 
