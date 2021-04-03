@@ -37,7 +37,7 @@ const articleData = [
     {
         "title":"Individual Retirement Account (IRA)",
         "publish":true,
-        "body":"Anyone that has a taxable earned income should qualify to invest in an Individual Retirement Account (IRA). There are maximum limits for IRA's that generally change every few years. An IRA is not an investment itself, but a legal classification of money in a specific account that has different tax rules. An IRA can hold many types of investment vehicles in them. Some examples include but are not limited to mutual funds, ETF's, stocks and real estate. When choosing to open an IRA there are two different types.<br><br>Traditional, which means that the money put in the account gets to be deducted from income on income taxes the year the money is placed in the account. The account grows tax deferred. Therefore, no taxes are due until the money is withdrawn. At that point the money invested and the growth is taxable.<br><br>Roth, differs by not giving the tax benefit the year the money is invested. When the money grows tax free. A withdraw will not be taxable since the principal amount was already taxed and the growth is tax free. Investments require due diligence in research before becoming an owner. An investment should be understood and monitored by the owner. Consulting with a financial advisor should leave the owner more educated than before they met with them."
+        "body":"Anyone that has a taxable earned income should qualify to invest in an Individual Retirement Account (IRA). There are maximum limits for IRA's that generally change every few years. An IRA is not an investment itself, but a legal classification of money in a specific account that has different tax rules. An IRA can hold many types of investment vehicles in them. Some examples include but are not limited to mutual funds, ETF's, stocks and real estate. When choosing to open an IRA there are two different types.<br><br>Traditional, which means that the money put in the account gets to be deducted from income on income taxes the year the money is placed in the account. The account grows tax deferred. Therefore, no taxes are due until the money is withdrawn. At that point the money invested and the growth is taxable.<br><br>Roth, differs by not giving the tax benefit the year the money is invested. When the money grows tax free. A withdraw will not be taxable since the principal amount was already taxed and the growth is tax free.<br><br>Investments require due diligence in research before becoming an owner. An investment should be understood and monitored by the owner. Consulting with a financial advisor should leave the owner more educated than before they met with them."
     },
     {
         "title":"Mutual Fund",
@@ -51,6 +51,11 @@ const articleData = [
     },
     {
         "title":"Stock",
+        "publish":false,
+        "body":""
+    },
+    {
+        "title":"Budget",
         "publish":false,
         "body":""
     },
