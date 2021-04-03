@@ -3,13 +3,8 @@ Money Science website that will teach people about money in our society and how 
 
 
 TODO:
-- debt snowball sort on interest rate if balance is the same
-
-Mobile
-    -pages
-    
-    
-    -print screens
+-Mobile pages
+-print screens
 
 -new name for site (look for domain)
 
