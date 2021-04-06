@@ -51,8 +51,8 @@ const articleData = [
     },
     {
         "title":"Stock",
-        "publish":false,
-        "body":""
+        "publish":true,
+        "body":"Ownership of a company is known as shares of stock. The percentage of a comapnies stock an owner owns relates to the assets and profits they share in. A share in a company is also know as a security and is usually sold on an exhange. Transactions of share are regulated by the Securities and Exchange Commission. When listed on an exchange, the company is known as a publiclly traded company. This means anyone can purchase shares. Shares of a privately owned company can also be bought and sold."
     },
     {
         "title":"Budget",
