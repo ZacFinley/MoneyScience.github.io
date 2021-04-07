@@ -8,10 +8,6 @@ TODO:
 
 -new name for site (look for domain)
 
-Add a disclaimer that this is for educational purposes and it can only be as accurate as the information put in.
-
-- finish started articles
-    - add ability to have a date for future publishing of articles (write it and add it to site now but it wont show until the date listed)
-
 Later
 stock price percentage to dividend amount
+Add a disclaimer modal
