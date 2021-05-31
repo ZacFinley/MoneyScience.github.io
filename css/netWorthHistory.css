@@ -1,0 +1,26 @@
+body {
+    font-family: "Times New Roman";
+}
+
+.description {
+    text-align: center;
+}
+
+.netWorthHeader {
+    margin: 5px;
+    border: 1px solid black;
+    display: flex;
+}
+
+.sideMargin {
+    margin: 0px 50px;
+}
+
+td > input {
+    width: 68px;
+}
+
+td {
+    text-align: center;
+}
+

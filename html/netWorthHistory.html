@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <title>Net Worth History</title>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="../js/header.js"></script>
+        <script src="../js/netWorthHistory.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/global.css">
+        <link rel="stylesheet" type="text/css" href="../css/netWorthHistory.css">
+        <link rel="stylesheet" type="text/css" href="../css/header.css">
+        <link rel="stylesheet" type="text/css" href="../css/footer.css">
+    </head>
+    <body>
+        <div id="header"></div>
+        <h2 class="subHeader">Net Worth History</h2>
+        <p class="description">
+        You have been tracking your progress all year.<br>
+        Now you want to see a graph of all your hard work.<br>
+        Enter in all the balances from your accounts for each month of the year. You can then see how they grew and how they affected your Net Worth.
+        </p>
+        <div class="card">
+            <div class="netWorthHeader">
+                <div class="sideMargin">
+                    <div>Total Growth ($)</div>
+                    <div id="totalGrowthDollars">$0.00</div>
+                </div>
+                <div class="sideMargin">
+                    <div>Total Growth (%)</div>
+                    <div id="totalGrowthPercent">0.00%</div>
+                </div>
+                <div class="sideMargin">
+                    <div>Average Monthly Growth ($)</div>
+                    <div id="averageMonthlyGrowthDollar">$0.00</div>
+                </div>
+                <div class="sideMargin">
+                    <div>Average Monthly Growth (%)</div>
+                    <div id="averageMonthlyGrowthPercent">0.00%</div>
+                </div>
+            </div>
+            <div id="curve_chart" style="width: 1100px; height: 500px"></div>
+        </div>
+        <div id="inputAccounts" class="card">
+            <table id="inputTable">
+                <tr>
+                    <td>
+                        Account Name
+                    </td>
+                    <td>
+                        Start
+                    </td>
+                    <td>
+                        Jan
+                    </td>
+                    <td>
+                        Feb
+                    </td>
+                    <td>
+                        Mar
+                    </td>
+                    <td>
+                        Apr
+                    </td>
+                    <td>
+                        May
+                    </td>
+                    <td>
+                        Jun
+                    </td>
+                    <td>
+                        Jul
+                    </td>
+                    <td>
+                        Aug
+                    </td>
+                    <td>
+                        Sep
+                    </td>
+                    <td>
+                        Oct
+                    </td>
+                    <td>
+                        Nov
+                    </td>
+                    <td>
+                        Dec
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input id="R1C0" value="New Account" onChange="updateCell(0,2,R1C0)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C1" type="number" value="0.00" onChange="updateCell(1,2,R1C1)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C2" type="number" value="0.00" onChange="updateCell(2,2,R1C2)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C3" type="number" value="0.00" onChange="updateCell(3,2,R1C3)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C4" type="number" value="0.00" onChange="updateCell(4,2,R1C4)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C5" type="number" value="0.00" onChange="updateCell(5,2,R1C5)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C6" type="number" value="0.00" onChange="updateCell(6,2,R1C6)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C7" type="number" value="0.00" onChange="updateCell(7,2,R1C7)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C8" type="number" value="0.00" onChange="updateCell(8,2,R1C8)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C9" type="number" value="0.00" onChange="updateCell(9,2,R1C9)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C10" type="number" value="0.00" onChange="updateCell(10,2,R1C10)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C11" type="number" value="0.00" onChange="updateCell(11,2,R1C11)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C12" type="number" value="0.00" onChange="updateCell(12,2,R1C12)"></input>
+                    </td>
+                    <td>
+                        $<input id="R1C13" type="number" value="0.00" onChange="updateCell(13,2,R1C13)"></input>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Net Worth</td>
+                    <td id="startNetWorth">$0.00</td>
+                    <td id="janNetWorth">$0.00</td>
+                    <td id="febNetWorth">$0.00</td>
+                    <td id="marNetWorth">$0.00</td>
+                    <td id="aprNetWorth">$0.00</td>
+                    <td id="mayNetWorth">$0.00</td>
+                    <td id="junNetWorth">$0.00</td>
+                    <td id="julNetWorth">$0.00</td>
+                    <td id="augNetWorth">$0.00</td>
+                    <td id="sepNetWorth">$0.00</td>
+                    <td id="octNetWorth">$0.00</td>
+                    <td id="novNetWorth">$0.00</td>
+                    <td id="decNetWorth">$0.00</td>
+                </tr>
+            </table>
+            <div class="addAccountWrapper">
+                <button class="mainButton" onClick="addAccount()">Add Account</button>
+            </div>
+        </div>
+        <div id="footer"></div>
+    </body>
+</html>
+
