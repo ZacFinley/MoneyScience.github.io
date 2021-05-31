@@ -18,6 +18,10 @@
     padding: 15px;
 }
 
+.netWorthHistoryCard {
+    margin: 20px 15px;
+}
+
 .mainButton {
     background-color: #5B3758;
     border: none;
