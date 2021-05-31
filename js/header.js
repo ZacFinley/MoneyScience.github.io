@@ -17,6 +17,7 @@ function siteNavigation() {
                           "Debt Snowball",
                           "Investment Projections",
                           "Share Purchase",
+                          "Net Worth History",
                           "Money Articles"];
     var navigationPath = ["index",
                           "pathToWealth",
@@ -26,6 +27,7 @@ function siteNavigation() {
                           "debtSnowball",
                           "investmentProjections",
                           "sharePurchase",
+                          "netWorthHistory",
                           "moneyArticles"];
     var header = "<div class='navigationList'>";
     for (var i = 0; i < navigationList.length; i++){
