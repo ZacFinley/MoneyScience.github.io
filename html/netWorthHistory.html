@@ -41,92 +41,36 @@
         <div id="inputAccounts" class="card netWorthHistoryCard">
             <table id="inputTable">
                 <tr>
-                    <td>
-                        Account Name
-                    </td>
-                    <td>
-                        Start
-                    </td>
-                    <td>
-                        Jan
-                    </td>
-                    <td>
-                        Feb
-                    </td>
-                    <td>
-                        Mar
-                    </td>
-                    <td>
-                        Apr
-                    </td>
-                    <td>
-                        May
-                    </td>
-                    <td>
-                        Jun
-                    </td>
-                    <td>
-                        Jul
-                    </td>
-                    <td>
-                        Aug
-                    </td>
-                    <td>
-                        Sep
-                    </td>
-                    <td>
-                        Oct
-                    </td>
-                    <td>
-                        Nov
-                    </td>
-                    <td>
-                        Dec
-                    </td>
+                    <td>Account Name</td>
+                    <td>Start</td>
+                    <td>Jan</td>
+                    <td>Feb</td>
+                    <td>Mar</td>
+                    <td>Apr</td>
+                    <td>May</td>
+                    <td>Jun</td>
+                    <td>Jul</td>
+                    <td>Aug</td>
+                    <td>Sep</td>
+                    <td>Oct</td>
+                    <td>Nov</td>
+                    <td>Dec</td>
                 </tr>
                 <tr>
-                    <td>
-                        <input id="R1C0" value="New Account" onChange="updateCell(0,2,R1C0)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C1" type="number" value="0.00" onChange="updateCell(1,2,R1C1)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C2" type="number" value="0.00" onChange="updateCell(2,2,R1C2)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C3" type="number" value="0.00" onChange="updateCell(3,2,R1C3)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C4" type="number" value="0.00" onChange="updateCell(4,2,R1C4)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C5" type="number" value="0.00" onChange="updateCell(5,2,R1C5)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C6" type="number" value="0.00" onChange="updateCell(6,2,R1C6)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C7" type="number" value="0.00" onChange="updateCell(7,2,R1C7)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C8" type="number" value="0.00" onChange="updateCell(8,2,R1C8)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C9" type="number" value="0.00" onChange="updateCell(9,2,R1C9)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C10" type="number" value="0.00" onChange="updateCell(10,2,R1C10)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C11" type="number" value="0.00" onChange="updateCell(11,2,R1C11)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C12" type="number" value="0.00" onChange="updateCell(12,2,R1C12)"></input>
-                    </td>
-                    <td>
-                        $<input id="R1C13" type="number" value="0.00" onChange="updateCell(13,2,R1C13)"></input>
-                    </td>
+                    <td><input id="R1C0" value="New Account" onChange="updateCell(0,2,R1C0)"></input></td>
+                    <td>$<input id="R1C1" type="number" value="0.00" onChange="updateCell(1,2,R1C1)"></input></td>
+                    <td>$<input id="R1C2" type="number" value="0.00" onChange="updateCell(2,2,R1C2)"></input></td>
+                    <td>$<input id="R1C3" type="number" value="0.00" onChange="updateCell(3,2,R1C3)"></input></td>
+                    <td>$<input id="R1C4" type="number" value="0.00" onChange="updateCell(4,2,R1C4)"></input></td>
+                    <td>$<input id="R1C5" type="number" value="0.00" onChange="updateCell(5,2,R1C5)"></input></td>
+                    <td>$<input id="R1C6" type="number" value="0.00" onChange="updateCell(6,2,R1C6)"></input></td>
+                    <td>$<input id="R1C7" type="number" value="0.00" onChange="updateCell(7,2,R1C7)"></input></td>
+                    <td>$<input id="R1C8" type="number" value="0.00" onChange="updateCell(8,2,R1C8)"></input></td>
+                    <td>$<input id="R1C9" type="number" value="0.00" onChange="updateCell(9,2,R1C9)"></input></td>
+                    <td>$<input id="R1C10" type="number" value="0.00" onChange="updateCell(10,2,R1C10)"></input></td>
+                    <td>$<input id="R1C11" type="number" value="0.00" onChange="updateCell(11,2,R1C11)"></input></td>
+                    <td>$<input id="R1C12" type="number" value="0.00" onChange="updateCell(12,2,R1C12)"></input></td>
+                    <td>$<input id="R1C13" type="number" value="0.00" onChange="updateCell(13,2,R1C13)"></input></td>
                 </tr>
                 <tr>
                     <td>Net Worth</td>
@@ -145,20 +89,36 @@
                     <td id="decNetWorth">$0.00</td>
                 </tr>
                 <tr>
-                    <td>Growth</td>
-                    <td id='startNetWorthGrowth'></td>
-                    <td id='janNetWorthGrowth'>0.00%</td>
-                    <td id='febNetWorthGrowth'>0.00%</td>
-                    <td id='marNetWorthGrowth'>0.00%</td>
-                    <td id='aprNetWorthGrowth'>0.00%</td>
-                    <td id='mayNetWorthGrowth'>0.00%</td>
-                    <td id='junNetWorthGrowth'>0.00%</td>
-                    <td id='julNetWorthGrowth'>0.00%</td>
-                    <td id='augNetWorthGrowth'>0.00%</td>
-                    <td id='sepNetWorthGrowth'>0.00%</td>
-                    <td id='octNetWorthGrowth'>0.00%</td>
-                    <td id='novNetWorthGrowth'>0.00%</td>
-                    <td id='decNetWorthGrowth'>0.00%</td>
+                    <td>Growth ($)</td>
+                    <td id='startNetWorthGrowthDollar'></td>
+                    <td id='janNetWorthGrowthDollar'>$0.00</td>
+                    <td id='febNetWorthGrowthDollar'>$0.00</td>
+                    <td id='marNetWorthGrowthDollar'>$0.00</td>
+                    <td id='aprNetWorthGrowthDollar'>$0.00</td>
+                    <td id='mayNetWorthGrowthDollar'>$0.00</td>
+                    <td id='junNetWorthGrowthDollar'>$0.00</td>
+                    <td id='julNetWorthGrowthDollar'>$0.00</td>
+                    <td id='augNetWorthGrowthDollar'>$0.00</td>
+                    <td id='sepNetWorthGrowthDollar'>$0.00</td>
+                    <td id='octNetWorthGrowthDollar'>$0.00</td>
+                    <td id='novNetWorthGrowthDollar'>$0.00</td>
+                    <td id='decNetWorthGrowthDollar'>$0.00</td>
+                </tr>
+                <tr>
+                    <td>Growth (%)</td>
+                    <td id='startNetWorthGrowthPercent'></td>
+                    <td id='janNetWorthGrowthPercent'>0.00%</td>
+                    <td id='febNetWorthGrowthPercent'>0.00%</td>
+                    <td id='marNetWorthGrowthPercent'>0.00%</td>
+                    <td id='aprNetWorthGrowthPercent'>0.00%</td>
+                    <td id='mayNetWorthGrowthPercent'>0.00%</td>
+                    <td id='junNetWorthGrowthPercent'>0.00%</td>
+                    <td id='julNetWorthGrowthPercent'>0.00%</td>
+                    <td id='augNetWorthGrowthPercent'>0.00%</td>
+                    <td id='sepNetWorthGrowthPercent'>0.00%</td>
+                    <td id='octNetWorthGrowthPercent'>0.00%</td>
+                    <td id='novNetWorthGrowthPercent'>0.00%</td>
+                    <td id='decNetWorthGrowthPercent'>0.00%</td>
                 </tr>
             </table>
             <div class="addAccountWrapper">
