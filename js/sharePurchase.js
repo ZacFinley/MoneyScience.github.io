@@ -1,13 +1,26 @@
 var funds = [Array(9).fill(0)];
+funds[0][0] = "";
 var totalInvested = 0;
 var totalCash = 0;
 
+var percentArray = [["halfPercentShares", "halfPercent", "0.5",.995],
+                 ["onePercentShares", "onePercent", "1",.99],
+                 ["twoPercentShares", "twoPercent", "2",.98],
+                 ["threePercentShares", "threePercent", "3",.97]];
+
 function addFund() {
     funds.push(Array(9).fill(0));
-    addCard();
+    funds[funds.length-1][0] = "";
+    showCards();
 }
-function addCard() {
-    document.getElementById("accountCardsWrapper").innerHTML += "<div class='card investmentCard'><div class='blockDisplay'><div>Ticker:</div><input id='tickerInput" + (funds.length-1) + "' onchange='updateTickerSharesPrice(" + (funds.length-1) + ")'></input></div><div class='blockDisplay'><div>Shares Owned:</div><input id='sharesOwnedInput" + (funds.length-1) + "' type='Number' min='0' value='0.00' onchange='updateTickerSharesPrice(" + (funds.length-1) + ")'></input></div><div class='blockDisplay'><div>Share Price:</div>$<input id='sharePriceInput" + (funds.length-1) + "' type='Number' min='0' value='0.00' onchange='updateTickerSharesPrice(" + (funds.length-1) + ")'></input></div><div class='blockDisplay'><div id='accountTotalValue" + (funds.length-1) + "'>Total Value: $0.00</div></div><div class='blockDisplay'><div id='accountPercent" + (funds.length-1) + "'>0.00%</div></div><div class='investmentBreakdown'><div class='blockDisplay'><div>To Invest:</div>$<input id='accountToInvest" + (funds.length-1) + "' type='Number' min='0' value='0.00' onChange='updateTickerSharesPrice(" + (funds.length-1) + ")'></input></div><div>-2%: <div class='inline' id='twoPercentShares" + (funds.length-1) + "'>0 </div>@ $<div class='inline' id='twoPercent" + (funds.length-1) + "'>0.00</div></div><div>-5%: <div class='inline' id='fivePercentShares" + (funds.length-1) + "'>0 </div>@ $<div class='inline' id='fivePercent" + (funds.length-1) + "'>0.00</div></div><div>-7%: <div class='inline' id='sevenPercentShares" + (funds.length-1) + "'>0 </div>@ $<div class='inline' id='sevenPercent" + (funds.length-1) + "'>0.00</div></div><div>-10%: <div class='inline' id='tenPercentShares" + (funds.length-1) + "'>0 </div>@ $<div class='inline' id='tenPercent" + (funds.length-1) + "'>0.00</div></div><div class='spacer'></div><div></div></div></div>";
+function showCards() {
+    document.getElementById("accountCardsWrapper").innerHTML = "";
+    for (var i = 0; i < funds.length; i++) {
+        document.getElementById("accountCardsWrapper").innerHTML += "<div class='card investmentCard'><div class='blockDisplay'><div>Ticker:</div><input id='tickerInput" + i + "' onchange='updateTickerSharesPrice(" + i + ")' value='" + funds[i][0] + "'></input></div><div class='blockDisplay'><div>Shares Owned:</div><input id='sharesOwnedInput" + i + "' type='Number' min='0' value='" + funds[i][1] + "' onchange='updateTickerSharesPrice(" + i + ")'></input></div><div class='blockDisplay'><div>Share Price:</div>$<input id='sharePriceInput" + i + "' type='Number' min='0' value='" + parseFloat(funds[i][2].toFixed(2)) + "' onchange='updateTickerSharesPrice(" + i + ")'></input></div><div class='blockDisplay'><div id='accountTotalValue" + i + "'>Total Value: $" + parseFloat(funds[i][3]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</div></div><div class='blockDisplay'><div id='accountPercent" + i + "'>0.00%</div></div><div class='investmentBreakdown'><div class='blockDisplay'><div>To Invest:</div>$<input id='accountToInvest" + i + "' type='Number' min='0' value='" + parseFloat(funds[i][4].toFixed(2)) + "' onChange='updateTickerSharesPrice(" + i + ")'></input></div><div>-" + percentArray[0][2] + "%: <div class='inline' id='" + percentArray[0][0] + i + "'>0 </div>@ $<div class='inline' id='" + percentArray[0][1] + i + "'>" + parseFloat(funds[i][5]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</div></div><div>-" + percentArray[1][2] + "%: <div class='inline' id='" + percentArray[1][0] + i + "'>0 </div>@ $<div class='inline' id='" + percentArray[1][1] + i + "'>" + parseFloat(funds[i][6]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</div></div><div>-" + percentArray[2][2] + "%: <div class='inline' id='" + percentArray[2][0] + i + "'>0 </div>@ $<div class='inline' id='" + percentArray[2][1] + i + "'>" + parseFloat(funds[i][7]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</div></div><div>-" + percentArray[3][2] + "%: <div class='inline' id='" + percentArray[3][0] + i + "'>0 </div>@ $<div class='inline' id='" + percentArray[3][1] + i + "'>" + parseFloat(funds[i][8]).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',') + "</div></div><div class='spacer'></div><div></div></div></div>";
+    }
+    for (var j = 0; j < funds.length; j++) {
+        updateTickerSharesPrice(j);
+    }
 }
 
 function updateTickerSharesPrice(index) {
@@ -24,14 +37,14 @@ function updateTickerSharesPrice(index) {
     updateCardOutput(index);
     
     
-    funds[index][5] = funds[index][2] * .98;
-    document.getElementById("twoPercent" + index).innerHTML = funds[index][5].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    funds[index][6] = funds[index][2] * .95;
-    document.getElementById("fivePercent" + index).innerHTML = funds[index][6].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    funds[index][7] = funds[index][2] * .93;
-    document.getElementById("sevenPercent" + index).innerHTML = funds[index][7].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    funds[index][8] = funds[index][2] * .90;
-    document.getElementById("tenPercent" + index).innerHTML = funds[index][8].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    funds[index][5] = funds[index][2] * percentArray[0][3];
+    document.getElementById(percentArray[0][1] + index).innerHTML = funds[index][5].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    funds[index][6] = funds[index][2] * percentArray[1][3];
+    document.getElementById(percentArray[1][1] + index).innerHTML = funds[index][6].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    funds[index][7] = funds[index][2] * percentArray[2][3];
+    document.getElementById(percentArray[2][1] + index).innerHTML = funds[index][7].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+    funds[index][8] = funds[index][2] * percentArray[3][3];
+    document.getElementById(percentArray[3][1] + index).innerHTML = funds[index][8].toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     updateToInvestValue(index);
     calculateTotalInvestedAmount();
     
@@ -63,15 +76,15 @@ function calculateTotalInvestedAmount() {
 function updateToInvestValue(index) {
     funds[index][4] = parseFloat(document.getElementById("accountToInvest" + index).value);
     if (funds[index][5] > 0) {
-        document.getElementById("twoPercentShares" + index).innerHTML = Math.floor(funds[index][4] / funds[index][5]);
+        document.getElementById(percentArray[0][0] + index).innerHTML = Math.floor(funds[index][4] / funds[index][5]);
     }
     if (funds[index][6] > 0) {
-        document.getElementById("fivePercentShares" + index).innerHTML = Math.floor(funds[index][4] / funds[index][6]);
+        document.getElementById(percentArray[1][0] + index).innerHTML = Math.floor(funds[index][4] / funds[index][6]);
     }
     if (funds[index][7] > 0) {
-        document.getElementById("sevenPercentShares" + index).innerHTML = Math.floor(funds[index][4] / funds[index][7]);
+        document.getElementById(percentArray[2][0] + index).innerHTML = Math.floor(funds[index][4] / funds[index][7]);
     }
     if (funds[index][8] > 0) {
-        document.getElementById("tenPercentShares" + index).innerHTML = Math.floor(funds[index][4] / funds[index][8]);
+        document.getElementById(percentArray[3][0] + index).innerHTML = Math.floor(funds[index][4] / funds[index][8]);
     }
 }
