@@ -25,20 +25,24 @@
         <div class="wrapper">
             <div class="inputs card">
                 <table class="inputsTable">
-                    <tr><td>Salary:</td><td><input id="monthlySalary" type="number" min="0" value="0.00" onchange="updateMonthlySalary()"></input></td></tr>
-                    <tr><td>Rental Profit:</td><td><input id="monthlyRentalProfit" type="number" min="0" value="0.00" onchange="updateMonthlyRentalProfit()"></input></td></tr>
-                    <tr><td>Giving:</td><td><input id="monthlyGiving" type="number" min="0" value="0.00" onchange="updateMonthlyGiving()"></input></td></tr>
-                    <tr><td>Rent:</td><td><input id="monthlyRent" type="number" min="0" value="0.00" onchange="updateMonthlyRent()"></input></td></tr>
-                    <tr><td>Mortgage:</td><td><input id="monthlyMortgage" type="number" min="0" value="0.00" onchange="updateMonthlyMortgage()"></input></td></tr>
-                    <tr><td>Utilities:</td><td><input id="monthlyUtilities" type="number" min="0" value="0.00" onchange="updateMonthlyUtilities()"></input></td></tr>
-                    <tr><td>Food:</td><td><input id="monthlyFood" type="number" min="0" value="0.00" onchange="updateMonthlyFood()"></input></td></tr>
-                    <tr><td>Transportation:</td><td><input id="monthlyTransportation" type="number" min="0" value="0.00" onchange="updateMonthlyTransportation()"></input></td></tr>
-                    <tr><td>Internet:</td><td><input id="monthlyInternet" type="number" min="0" value="0.00" onchange="updateMonthlyInternet()"></input></td></tr>
-                    <tr><td>Phone:</td><td><input id="monthlyPhone" type="number" min="0" value="0.00" onchange="updateMonthlyPhone()"></input></td></tr>
-                    <tr><td>Debt:</td><td><input id="monthlyDebt" type="number" min="0" value="0.00" onchange="updateMonthlyDebt()"></input></td></tr>
-                    <tr><td>Retirement:</td><td><input id="monthlyRetirement" type="number" min="0" value="0.00" onchange="updateMonthlyRetirement()"></input></td></tr>
-                    <tr><td>Individual Investing:</td><td><input id="monthlyIndividualInvesting" type="number" min="0" value="0.00" onchange="updateMonthlyIndividualInvesting()"></input></td></tr>
-                    <tr><td>Savings:</td><td><input id="monthlySavings" type="number" min="0" value="0.00" onchange="updateMonthlySavings()"></input></td></tr>
+                    <tr><td>Salary:</td><td class="topBorderGreen">$<input id="monthlySalary" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlySalary()"></input></td></tr>
+                    <tr><td>Rental Profit:</td><td class="bottomBorderGreen">$<input id="monthlyRentalProfit" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyRentalProfit()"></input></td></tr>
+                    <tr><td>Giving:</td><td class="topBorderBlue bottomBorderBlue">$<input id="monthlyGiving" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyGiving()"></input></td></tr>
+                    <tr><td>Taxes:</td><td class="topBorderRed">$<input id="monthlyTaxes" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyTaxes()"></input></td></tr>
+                    <tr><td>Rent:</td><td>$<input id="monthlyRent" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyRent()"></input></td></tr>
+                    <tr><td>Mortgage:</td><td>$<input id="monthlyMortgage" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyMortgage()"></input></td></tr>
+                    <tr><td>Utilities:</td><td>$<input id="monthlyUtilities" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyUtilities()"></input></td></tr>
+                    <tr><td>Food/Grocery:</td><td>$<input id="monthlyFood" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyFood()"></input></td></tr>
+                    <tr><td>Transportation:</td><td>$<input id="monthlyTransportation" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyTransportation()"></input></td></tr>
+                    <tr><td>Internet:</td><td>$<input id="monthlyInternet" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyInternet()"></input></td></tr>
+                    <tr><td>Phone:</td><td>$<input id="monthlyPhone" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyPhone()"></input></td></tr>
+                    <tr><td>Insurance:</td><td>$<input id="monthlyInsurance" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyInsurance()"></input></td></tr>
+                    <tr><td>Debt:</td><td>$<input id="monthlyDebt" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyDebt()"></input></td></tr>
+                    <tr><td>Other:</td><td class="bottomBorderRed">$<input id="monthlyOther" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyOther()"></input></td></tr>
+                    <tr><td>Retirement:</td><td class="topBorderOrange">$<input id="monthlyRetirement" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyRetirement()"></input></td></tr>
+                    <tr><td>Individual Investing:</td><td>$<input id="monthlyIndividualInvesting" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyIndividualInvesting()"></input></td></tr>
+                    <tr><td>Savings:</td><td>$<input id="monthlySavings" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlySavings()"></input></td></tr>
+                    <tr><td>HSA:</td><td class="bottomBorderOrange">$<input id="monthlyHsa" class="leftInputCard" type="number" min="0" value="0.00" onchange="updateMonthlyHsa()"></input></td></tr>
                 </table>
             </div>
             <div class="totalAmounts card">
@@ -89,20 +93,47 @@
                         <td><input id="totalSavingsBalance" type="number" min="0" value="0.00" onchange="updateTotalSavings()"></input></td>
                         <td><input id="totalSavingsInterest" type="number" min="0" value="0" onchange="updateTotalSavingsInterest()"></input></td>
                     </tr>
+                    <tr>
+                        <td>Total HSA:</td>
+                        <td><input id="totalHsaBalance" type="number" min="0" value="0.00" onchange="updateTotalHsa()"></input></td>
+                        <td><input id="totalHsaInterest" type="number" min="0" value="0" onchange="updateTotalHsaInterest()"></input></td>
+                    </tr>
                 </table>
                 <div class="netWorthWrapper">
                     Net Worth: <div id="netWorth">$0.00</div>
                 </div>
-                <tr>
-                    <td>Giving Fund:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                    <td><input id="totalGivingBalance" type="number" min="0" value="0.00" onchange="updateTotalGiving()"></input></td>
-                    <td><input id="totalGivingInterest" type="number" min="0" value="0" onchange="updateTotalGivingInterest()"></input></td>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                Giving Fund:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input id="totalGivingBalance" type="number" min="0" value="0.00" onchange="updateTotalGiving()"></input>
+                    <input id="totalGivingInterest" type="number" min="0" value="0" onchange="updateTotalGivingInterest()"></input>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                    <td><div id="totalGivingPayment">$0.00</div></td>
-        
-                </tr>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <div id="totalGivingPayment">$0.00</div>
+                <div class="transferWrapper">
+                    <label for="fromAccount">From Account:</label>
+                    <select name="fromAccount" id="fromAccount">
+                        <option value="totalRetirement">Total Retirement</option>
+                        <option value="totalIndividualInvesting">Total Individual Investing</option>
+                        <option value="totalRentalEquity">Total Rental Equity</option>
+                        <option value="totalSavings">Total Savings</option>
+                        <option value="totalHsa">Total HSA</option>
+                    </select>
+                    <label for="toAccount">To Account:</label>
+                    <select name="toAccount" id="toAccount">
+                        <option value="remainingMortgage">Remaining Mortgage</option>
+                        <option value="remainingDebt">Remaining Debt</option>
+                        <option value="totalRetirement">Total Retirement</option>
+                        <option value="totalIndividualInvesting">Total Individual Investing</option>
+                        <option value="primaryHouseEquity">Primary House Equity</option>
+                        <option value="totalRentalEquity">Total Rental Equity</option>
+                        <option value="totalSavings">Total Savings</option>
+                        <option value="totalHsa">Total HSA</option>
+                        <option value="totalGiving">Total Giving</option>
+                    </select>
+                    <label for="transferAmount">Transfer Amount:</label>
+                    <input name="transferAmount" id="transferAmountInput" type="number" min="0" value="0.00"></input>
+                    <button class="mainButton transferButton" onclick="transferMoney()">Transfer</button>
+                </div>
             </div>
         </div>
         <div class="buttonPanel">
