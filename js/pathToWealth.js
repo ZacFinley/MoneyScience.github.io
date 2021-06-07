@@ -593,7 +593,7 @@ function transferMoney() {
             primaryHouseEquity += amount;
             break;
         case "totalRentalEquity":
-            totalRentalEquity += amount;
+            rentalEquity += amount;
             break;
         case "totalSavings":
             totalSavings += amount;
@@ -602,7 +602,7 @@ function transferMoney() {
             totalHsa += amount;
             break;
         case "totalGiving":
-            totalGiving += amount;
+            totalGivingBalance += amount;
             break;
     }
     updateTotalAmounts();

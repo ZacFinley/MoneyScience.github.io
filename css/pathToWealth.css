@@ -48,7 +48,7 @@
 }
 
 .leftInputCard {
-    width: 130px;
+    width: 105px;
 }
 
 .topBorderGreen {
@@ -91,6 +91,10 @@
 
 .transferButton {
     width: 100%;
+}
+
+#transferAmountInput {
+    width: 105px;
 }
 
 @media (max-width: 1200px) {

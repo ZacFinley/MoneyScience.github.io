@@ -8,10 +8,6 @@ TODO:
 
 -new name for site (look for domain)
 
-Allow for adding rows without losing data
-    Investment Projection
-    Share Price
-
 Later
 Printable tracking sheets (debt pay down, savings goals)
 stock price percentage to dividend amount
