@@ -156,7 +156,7 @@ function getTotalChartArray() {
                      ];
         if (accountBalances.length > 0){
             for (var i = 0; i < masterAccountBalances[0].length; i++) {
-                chart.push (['',masterAccountBalances[0][i],masterAccountBalances[1][i]]);
+                chart.push ([i,masterAccountBalances[0][i],masterAccountBalances[1][i]]);
             }
         }
         else {
@@ -171,7 +171,7 @@ function getTotalChartArray() {
                      ];
         if (accountBalances.length > 0){
             for (var i = 0; i < masterAccountBalances[0].length; i++) {
-                chart.push (['',masterAccountBalances[0][i],masterAccountBalances[2][i]]);
+                chart.push ([i,masterAccountBalances[0][i],masterAccountBalances[2][i]]);
             }
         }
         else {
@@ -185,7 +185,7 @@ function getTotalChartArray() {
                      ];
         if (accountBalances.length > 0){
             for (var i = 0; i < masterAccountBalances[0].length; i++) {
-                chart.push (['',masterAccountBalances[0][i]]);
+                chart.push ([i,masterAccountBalances[0][i]]);
             }
         }
         else {
