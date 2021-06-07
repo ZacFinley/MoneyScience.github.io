@@ -13,6 +13,7 @@ Allow for adding rows without losing data
     Share Price
 
 Later
+Printable tracking sheets (debt pay down, savings goals)
 stock price percentage to dividend amount
 Add a disclaimer modal
 Life insurance planner
