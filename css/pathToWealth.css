@@ -42,6 +42,55 @@
 
 .inputsTable {
     margin: 0 auto;
+    &input {
+        width: 130px;
+    }
+}
+
+.leftInputCard {
+    width: 130px;
+}
+
+.topBorderGreen {
+    border-top: 2px solid green;
+}
+
+.bottomBorderGreen {
+    border-bottom: 2px solid green;
+}
+
+.topBorderBlue {
+    border-top: 2px solid blue;
+}
+
+.bottomBorderBlue {
+    border-bottom: 2px solid blue;
+}
+
+.topBorderRed {
+    border-top: 2px solid red;
+}
+
+.bottomBorderRed {
+    border-bottom: 2px solid red;
+}
+
+.topBorderOrange {
+    border-top: 2px solid orange;
+}
+
+.bottomBorderOrange {
+    border-bottom: 2px solid orange;
+}
+
+.transferWrapper {
+    border: 2px solid brown;
+    margin-top: 10%;
+    padding: 5px;
+}
+
+.transferButton {
+    width: 100%;
 }
 
 @media (max-width: 1200px) {
