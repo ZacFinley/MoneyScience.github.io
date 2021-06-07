@@ -9,7 +9,6 @@ TODO:
 -new name for site (look for domain)
 
 Allow for adding rows without losing data
-    Investment Projection
     Share Price
 
 Later
