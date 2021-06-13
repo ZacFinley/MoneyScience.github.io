@@ -8,6 +8,8 @@ TODO:
 
 -new name for site (look for domain)
 
+Resize charts for Ipad and phone
+
 Later
 Printable tracking sheets (debt pay down, savings goals)
 stock price percentage to dividend amount
