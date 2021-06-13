@@ -607,3 +607,9 @@ function transferMoney() {
     }
     updateTotalAmounts();
 }
+
+function updateRentalIncome() {
+    monthlyRentalProfit = rentalEquity * .01;
+    document.getElementById("monthlyRentalProfit").value = monthlyRentalProfit;
+
+}
