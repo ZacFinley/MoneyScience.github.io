@@ -15,8 +15,14 @@ TODO:
 
 Resize charts for Ipad and phone
 
+adsense
+
+https://developers.google.com/search/docs/fundamentals/seo-starter-guide
+
 Later
 Printable tracking sheets (debt pay down, savings goals)
+Savable csv
+Uploadable csv
 stock price percentage to dividend amount
 Add a disclaimer modal
 Life insurance planner
