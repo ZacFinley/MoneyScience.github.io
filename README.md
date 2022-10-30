@@ -4,8 +4,6 @@ Money Science website that will teach people about money in our society and how 
 
 TODO:
 
--Debt Snowball clear input after adding
-
 -Mobile pages
     - Home page: graph
     - Amoritization calc btn
