@@ -5,8 +5,11 @@ Money Science website that will teach people about money in our society and how 
 TODO:
 
 -Mobile pages
+    
     - Home page: graph
+    
     - Amoritization calc btn
+    
     - Net worth history chart add
 
 -print screens
