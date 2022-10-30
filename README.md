@@ -8,7 +8,6 @@ TODO:
 
 -Mobile pages
     - Home page: graph
-    - Path to Wealth: (Age months)
     - Amoritization calc btn
     - Net worth history chart add
 
