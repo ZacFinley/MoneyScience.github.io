@@ -3,12 +3,15 @@ Money Science website that will teach people about money in our society and how 
 
 
 TODO:
+
 -Debt Snowball clear input after adding
+
 -Mobile pages
     - Home page: graph
     - Path to Wealth: (Age months)
     - Amoritization calc btn
     - Net worth history chart add
+
 -print screens
 
 -new name for site (look for domain)
