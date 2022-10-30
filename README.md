@@ -8,8 +8,6 @@ TODO:
     
     - Home page: graph
     
-    - Amoritization calc btn
-    
     - Net worth history chart add
 
 -print screens
