@@ -20,18 +20,17 @@
         </p>
         <div class="wrapper">
             <div class="card">
-                <div>
-                    Loan Amount:
-                    $<input id="loanAmountInput" type="number" value=0.00></input>
-                    <input id="loanInterestInput" type="number" value=0.00>%</input>
-                    <input id="loanDurationInput">year(s)</input>
-                    <button class="mainButton" onclick="updateAll()">Calculate</button>
+                <div class="primaryLoanInfo">
+                    <div class="primaryLoanInfoItem">Loan Amount: $<input id="loanAmountInput" type="number" value=0.00></input></div>
+                    <div class="primaryLoanInfoItem"><input id="loanInterestInput" type="number" value=0.00>%</input></div>
+                    <div class="primaryLoanInfoItem"><input id="loanDurationInput">year(s)</input></div>
                 </div>
-                <div>
-                    Asset Value:
-                    $<input id="assetValueInput" type="number" value=0.00></input>
-                    Extra Payment Amount:
-                    $<input id="extraPaymentAmountInput" type="number" value=0.00></input>
+                <div class="secondaryLoanInfo">
+                    <div class="secondaryLoanInfoItem">Asset Value: $<input id="assetValueInput" type="number" value=0.00></input></div>
+                    <div class="secondaryLoanInfoItem">Extra Payment Amount: $<input id="extraPaymentAmountInput" type="number" value=0.00></input></div>
+                </div>
+                <div class="calculateBtn">
+                    <button class="mainButton" onclick="updateAll()">Calculate</button>
                 </div>
             </div>
             <div id="paymentResult" class="card">

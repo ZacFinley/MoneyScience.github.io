@@ -17,10 +17,12 @@
             Enter your own numbers or have us randomize an experience for you to play out.
         </p>
         <div class="timeline">
-            Simulated Year(s):<div id="simulatedYears">0</div>
-            Simulated Month(s):<div id="simulatedMonths">0</div>
-            Age Year(s):<input id="ageYears" type="number" min="0" value="0" onchange="updateAgeYears()"></input>
-            Age Month(s):<input id="ageMonths" type="number" min="0" value="0" onchange="updateAgeMonths()"></input>
+            <div class="timelineWrapper">
+                <div>Simulated Year(s):<div id="simulatedYears">0</div></div>
+                <div>Simulated Month(s):<div id="simulatedMonths">0</div></div>
+                Age Year(s):<input id="ageYears" type="number" min="0" value="0" onchange="updateAgeYears()"></input>
+                Age Month(s):<input id="ageMonths" type="number" min="0" value="0" onchange="updateAgeMonths()"></input>
+            </div>
         </div>
         <div class="wrapper">
             <div class="inputs card">

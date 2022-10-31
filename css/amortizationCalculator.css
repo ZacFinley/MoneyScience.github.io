@@ -5,3 +5,48 @@ table {
 td {
     text-align: center;
 }
+
+.primaryLoanInfo {
+    width: 625px;
+    margin: auto;
+}
+
+.secondaryLoanInfo {
+    width: 570px;
+    margin: auto;
+}
+
+.calculateBtn {
+    width: 135px;
+    margin: auto;
+}
+
+.primaryLoanInfoItem {
+    display: inline;
+}
+
+.secondaryLoanInfoItem {
+    display: inline;
+}
+
+#paymentResult {
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .primaryLoanInfo {
+        width: 260px;
+    }
+
+    .secondaryLoanInfo {
+        width: 320px;
+    }
+    
+    .primaryLoanInfoItem {
+        display: block;
+    }
+
+    .secondaryLoanInfoItem {
+        display: block;
+    }
+}

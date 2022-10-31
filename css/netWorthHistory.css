@@ -9,10 +9,15 @@ body {
 .netWorthHeader {
     margin: 5px;
     border: 1px solid black;
-    display: flex;
 }
 
-.sideMargin {
+.netWorthHeaderWrapper {
+    display: flex;
+    width: 1003px;
+    margin: auto;
+}
+
+.sideBottomMargin {
     margin: 0px 50px;
 }
 
@@ -27,3 +32,20 @@ td {
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
+}
+
+@media (max-width: 1200px) {
+    .netWorthHeader {
+        width: 280px;
+        margin: auto;
+    }
+    .netWorthHeaderWrapper {
+        display: block;
+        width: 260px;
+    }
+    
+    .sideBottomMargin {
+        margin: 8px 0;
+        text-align: center;
+    }
+}

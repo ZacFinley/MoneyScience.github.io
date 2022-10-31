@@ -34,6 +34,10 @@ function addToDebtList() {
     document.getElementById("monthlyDebtBudgetInput").value = parseFloat(monthlyDebtBudget.toFixed(2));
     calculateMinimumPaymentTotal();
     makeListOutput();
+    document.getElementById("loanNameInput").value = "";
+    document.getElementById("loanBalanceInput").value = "0.00";
+    document.getElementById("loanInterestInput").value = "0.00";
+    document.getElementById("loanPaymentInput").value = "0.00";
 }
 
 function calculateMinimumPaymentTotal() {
