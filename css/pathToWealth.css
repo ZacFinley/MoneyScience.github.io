@@ -110,6 +110,19 @@
     font-size: 11px;
 }
 
+@media (max-width: 1300px) {
+    .timeline {
+        width: 250px;
+        margin: 15px auto;
+    }
+    
+    .timelineWrapper {
+        display: block;
+        width: 275px;
+        margin: auto;
+    }
+}
+
 @media (max-width: 1200px) {
     .wrapper {
         display: unset;
@@ -127,11 +140,5 @@
     
     .totalAmountsTable {
         margin: 0 auto;
-    }
-    
-    .timelineWrapper {
-        display: block;
-        width: 275px;
-        margin: auto;
     }
 }
