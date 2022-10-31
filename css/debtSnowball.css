@@ -15,3 +15,28 @@ input::-webkit-inner-spin-button {
 input {
     width: 100px;
 }
+
+.cardWrapper {
+    display: flex;
+    width: 1065px;
+    margin: auto;
+}
+
+.cardWrapperItem {
+    display: inline;
+    padding: 15px;
+}
+
+@media (max-width: 1200px) {
+    .cardWrapper {
+        display: block;
+        width: 200px;
+        padding: 5px;
+        border: 1px solid black;
+    }
+    
+    .cardWrapperItem {
+        display: block;
+        padding: unset;
+    }
+}
