@@ -7,8 +7,6 @@ TODO:
 -Mobile pages
     
     - Home page: graph
-    
-    - Net worth history chart add
 
 -print screens
 
