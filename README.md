@@ -14,7 +14,7 @@ TODO:
 
 -new name for site (look for domain)
 
-Resize charts for Ipad and phone
+Resize charts for Ipad and phone - https://www.chartjs.org/docs/latest/getting-started/
 
 adsense
 
