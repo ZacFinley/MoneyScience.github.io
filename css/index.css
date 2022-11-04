@@ -45,6 +45,7 @@ body {
     margin: 5px;
     border: 1px solid black;
     display: flex;
+    padding: 5px;
 }
 
 .yearGrowth {
