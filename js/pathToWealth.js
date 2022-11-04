@@ -107,24 +107,45 @@ function randomizeInputs() {
     document.getElementById("ageMonths").value = ageMonths;
     // Inputs
     monthlySalary = parseFloat((Math.random() * 10000).toFixed(2));
-//    monthlyRentalProfit = 0;
-//    monthlyGiving = 0;
-    monthlyTaxes = 0;
-    monthlyRent = parseFloat((monthlySalary * .25).toFixed(2));
-//    monthlyMortgage = 0;
-    monthlyUtilities = 0;
-    monthlyFood = 0;
-    monthlyTransportation = 0;
-    monthlyInternet = 0;
-    monthlyPhone = 0;
-    monthlyDebt = 0;
+    monthlyTaxes = parseFloat((monthlySalary * .3).toFixed(2));
+    if (Math.floor(Math.random()*10) > 4) {
+        monthlyRent = parseFloat((monthlySalary * .25).toFixed(2));
+        monthlyMortgage = 0;
+        totalRemainingMortgage = 0;
+        primaryHouseEquity = 0;
+        totalRemainingMortgageInterest = 0;
+        totalRemainingMortgageTerm = 0;
+    }
+    else {
+        monthlyRent = 0;
+        // Terms
+        totalRemainingMortgageTerm = Math.floor((Math.random() * 30));
+        // Balances
+        totalRemainingMortgage = parseFloat((Math.random() * ((monthlySalary - monthlyTaxes)*.25*12*totalRemainingMortgageTerm)).toFixed(2));
+        primaryHouseEquity = parseFloat((Math.random() * totalRemainingMortgage*2).toFixed(2));
+        // Interest
+        totalRemainingMortgageInterest = parseFloat((Math.random() * 10).toFixed(2));
+    }
+    
+    monthlyUtilities = parseFloat((100+(Math.random() * 200)).toFixed(2));
+    monthlyFood = parseFloat((150+(Math.random() * 450)).toFixed(2));
+    monthlyTransportation = parseFloat((50+(Math.random() * 500)).toFixed(2));
+    monthlyInternet = parseFloat((50+(Math.random() * 100)).toFixed(2));
+    monthlyPhone = parseFloat((50+(Math.random() * 100)).toFixed(2));
+    monthlyInsurance = parseFloat((10+(Math.random() * 100)).toFixed(2));
+    monthlyDebt = parseFloat((Math.random() * 1000).toFixed(2));
     monthlyRetirement = parseFloat((monthlySalary * .15).toFixed(2));
     monthlyIndividualInvesting = 0;
     monthlySavings = 0;
-    monthlyHsa = 0;
     updateInputs();
+    // Balances
+    totalRemainingDebt = parseFloat((Math.random() * 100000).toFixed(2));
+    totalRetirement = parseFloat((Math.random() * 1000 * ageYears).toFixed(2));
+    totalIndividualInvesting = 0;
+    totalSavings = parseFloat((Math.random() * 100000).toFixed(2));
+    // Terms
+    totalRemainingDebtTerm = Math.floor((Math.random() * 30));
     // Interest
-    totalRemainingMortgageInterest = Math.floor((Math.random() * 100))/20;
     totalRemainingDebtInterest = Math.floor((Math.random() * 100))/10;
     totalRetirementInterest = Math.floor((Math.random() * 100))/10;
     totalIndividualInvestingInterest = Math.floor((Math.random() * 100))/10;
@@ -133,7 +154,9 @@ function randomizeInputs() {
     totalSavingsInterest = Math.floor((Math.random()*100))/100;
     totalGivingInterest = Math.floor((Math.random() * 100))/10;
     updateInterestInputs();
+    updateMortgagePayment();
     updateRemainingIncome();
+    updateNetWorth();
 }
 
 function reset() {
@@ -512,11 +535,14 @@ function updateMortgagePayment() {
     totalRemainingMortgagePayment = totalRemainingMortgage * ((monthlyMortgageRate * Math.pow((1 + monthlyMortgageRate),monthsMortgage))/(Math.pow((1+monthlyMortgageRate),monthsMortgage)-1));
     if (isFinite(totalRemainingMortgagePayment)) {
         document.getElementById("remainingMortgagePayment").innerHTML = "$" + parseFloat(totalRemainingMortgagePayment).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        monthlyMortgage = parseFloat(totalRemainingMortgagePayment.toFixed(2));
+        
     }
     if (totalRemainingMortgage <= 0) {
         totalRemainingMortgagePayment = 0;
         document.getElementById("remainingMortgagePayment").innerHTML = "$" + parseFloat(totalRemainingMortgagePayment).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
     }
+    updateInputs();
 }
 
 function updateDebtPayment() {
