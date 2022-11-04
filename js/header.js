@@ -5,7 +5,7 @@ window.onload = function() {
 }
 
 function siteTitle() {
-    document.getElementById("header").innerHTML += "<h1>Calculated Future</h1>";
+    document.getElementById("header").innerHTML += "<h1 class='masterHeader'>Calculated Future</h1>";
 }
 
 function siteNavigation() {
