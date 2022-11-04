@@ -31,3 +31,10 @@ text-align: center;
         display: none;
     }
 }
+
+.masterHeader {
+    background: #7b4a77;
+    color: white;
+    text-align: center;
+    border-radius: 15px;
+}
