@@ -67,36 +67,36 @@ var totalGivingPayment = 0;
 var netWorth = 0;
 
 function updateInputs() {
-    document.getElementById("monthlySalary").value = monthlySalary;
-    document.getElementById("monthlyRentalProfit").value = monthlyRentalProfit;
-    document.getElementById("monthlyGiving").value = monthlyGiving;
-    document.getElementById("monthlyTaxes").value = monthlyTaxes;
-    document.getElementById("monthlyRent").value = monthlyRent;
-    document.getElementById("monthlyMortgage").value = monthlyMortgage;
-    document.getElementById("monthlyUtilities").value = monthlyUtilities;
-    document.getElementById("monthlyFood").value = monthlyFood;
-    document.getElementById("monthlyTransportation").value = monthlyTransportation;
-    document.getElementById("monthlyInternet").value = monthlyInternet;
-    document.getElementById("monthlyPhone").value = monthlyPhone;
-    document.getElementById("monthlyInsurance").value = monthlyInsurance;
-    document.getElementById("monthlyDebt").value = monthlyDebt;
-    document.getElementById("monthlyOther").value = monthlyOther;
-    document.getElementById("monthlyRetirement").value = monthlyRetirement;
-    document.getElementById("monthlyIndividualInvesting").value = monthlyIndividualInvesting;
-    document.getElementById("monthlySavings").value = monthlySavings;
-    document.getElementById("monthlyHsa").value = monthlyHsa;
+    document.getElementById("monthlySalary").value = monthlySalary.toFixed(2);
+    document.getElementById("monthlyRentalProfit").value = monthlyRentalProfit.toFixed(2);
+    document.getElementById("monthlyGiving").value = monthlyGiving.toFixed(2);
+    document.getElementById("monthlyTaxes").value = monthlyTaxes.toFixed(2);
+    document.getElementById("monthlyRent").value = monthlyRent.toFixed(2);
+    document.getElementById("monthlyMortgage").value = monthlyMortgage.toFixed(2);
+    document.getElementById("monthlyUtilities").value = monthlyUtilities.toFixed(2);
+    document.getElementById("monthlyFood").value = monthlyFood.toFixed(2);
+    document.getElementById("monthlyTransportation").value = monthlyTransportation.toFixed(2);
+    document.getElementById("monthlyInternet").value = monthlyInternet.toFixed(2);
+    document.getElementById("monthlyPhone").value = monthlyPhone.toFixed(2);
+    document.getElementById("monthlyInsurance").value = monthlyInsurance.toFixed(2);
+    document.getElementById("monthlyDebt").value = monthlyDebt.toFixed(2);
+    document.getElementById("monthlyOther").value = monthlyOther.toFixed(2);
+    document.getElementById("monthlyRetirement").value = monthlyRetirement.toFixed(2);
+    document.getElementById("monthlyIndividualInvesting").value = monthlyIndividualInvesting.toFixed(2);
+    document.getElementById("monthlySavings").value = monthlySavings.toFixed(2);
+    document.getElementById("monthlyHsa").value = monthlyHsa.toFixed(2);
 }
 
 function updateInterestInputs() {
-    document.getElementById("remainingMortgageInterest").value = totalRemainingMortgageInterest;
-    document.getElementById("remainingDebtInterest").value = totalRemainingDebtInterest;
-    document.getElementById("totalRetirementInterest").value = totalRetirementInterest;
-    document.getElementById("totalIndividualInvestingInterest").value = totalIndividualInvestingInterest;
-    document.getElementById("primaryHouseEquityInterest").value = primaryHouseInterest;
-    document.getElementById("totalRentalEquityInterest").value = rentalInterest;
-    document.getElementById("totalSavingsInterest").value = totalSavingsInterest;
-    document.getElementById("totalHsaInterest").value = totalHsaInterest;
-    document.getElementById("totalGivingInterest").value = totalGivingInterest;
+    document.getElementById("remainingMortgageInterest").value = totalRemainingMortgageInterest.toFixed(2);
+    document.getElementById("remainingDebtInterest").value = totalRemainingDebtInterest.toFixed(2);
+    document.getElementById("totalRetirementInterest").value = totalRetirementInterest.toFixed(2);
+    document.getElementById("totalIndividualInvestingInterest").value = totalIndividualInvestingInterest.toFixed(2);
+    document.getElementById("primaryHouseEquityInterest").value = primaryHouseInterest.toFixed(2);
+    document.getElementById("totalRentalEquityInterest").value = rentalInterest.toFixed(2);
+    document.getElementById("totalSavingsInterest").value = totalSavingsInterest.toFixed(2);
+    document.getElementById("totalHsaInterest").value = totalHsaInterest.toFixed(2);
+    document.getElementById("totalGivingInterest").value = totalGivingInterest.toFixed(2);
 }
 
 function randomizeInputs() {
@@ -512,21 +512,21 @@ function updateTimeline() {
 }
 
 function updateTotalAmounts() {
-    document.getElementById("remainingMortgageBalance").value = parseFloat(totalRemainingMortgage);
-    document.getElementById("remainingDebtBalance").value = parseFloat(totalRemainingDebt);
-    document.getElementById("totalRetirementBalance").value = parseFloat(totalRetirement);
-    document.getElementById("totalIndividualInvestingBalance").value = parseFloat(totalIndividualInvesting);
-    document.getElementById("primaryHouseEquityBalance").value = parseFloat(primaryHouseEquity);
-    document.getElementById("totalRentalEquityBalance").value = parseFloat(rentalEquity);
-    document.getElementById("totalSavingsBalance").value = parseFloat(totalSavings);
-    document.getElementById("totalHsaBalance").value = parseFloat(totalHsa);
+    document.getElementById("remainingMortgageBalance").value = parseFloat(totalRemainingMortgage).toFixed(2);
+    document.getElementById("remainingDebtBalance").value = parseFloat(totalRemainingDebt).toFixed(2);
+    document.getElementById("totalRetirementBalance").value = parseFloat(totalRetirement).toFixed(2);
+    document.getElementById("totalIndividualInvestingBalance").value = parseFloat(totalIndividualInvesting).toFixed(2);
+    document.getElementById("primaryHouseEquityBalance").value = parseFloat(primaryHouseEquity).toFixed(2);
+    document.getElementById("totalRentalEquityBalance").value = parseFloat(rentalEquity).toFixed(2);
+    document.getElementById("totalSavingsBalance").value = parseFloat(totalSavings).toFixed(2);
+    document.getElementById("totalHsaBalance").value = parseFloat(totalHsa).toFixed(2);
     document.getElementById("netWorth").innerHTML = Number(netWorth).toLocaleString('en-US', {style: 'currency',currency: 'USD'});
-    document.getElementById("totalGivingBalance").value = parseFloat(totalGivingBalance);
+    document.getElementById("totalGivingBalance").value = parseFloat(totalGivingBalance).toFixed(2);
     document.getElementById("totalGivingPayment").innerHTML = Number(totalGivingPayment).toLocaleString('en-US', {style: 'currency',currency: 'USD'});
-    document.getElementById("remainingMortgageInterest").value = parseFloat(totalRemainingMortgageInterest);
-    document.getElementById("remainingMortgageTerm").value = parseFloat(totalRemainingMortgageTerm);
-    document.getElementById("remainingDebtInterest").value = parseFloat(totalRemainingDebtInterest);
-    document.getElementById("remainingDebtTerm").value = parseFloat(totalRemainingDebtTerm);
+    document.getElementById("remainingMortgageInterest").value = parseFloat(totalRemainingMortgageInterest).toFixed(2);
+    document.getElementById("remainingMortgageTerm").value = parseFloat(totalRemainingMortgageTerm).toFixed(2);
+    document.getElementById("remainingDebtInterest").value = parseFloat(totalRemainingDebtInterest).toFixed(2);
+    document.getElementById("remainingDebtTerm").value = parseFloat(totalRemainingDebtTerm).toFixed(2);
 }
 
 function updateMortgagePayment() {
@@ -575,7 +575,7 @@ function liveYear() {
 function updateRemainingIncome() {
     var income = monthlySalary + monthlyRentalProfit;
     var outgo = monthlyGiving + monthlyTaxes + monthlyRent + monthlyMortgage + monthlyUtilities + monthlyFood + monthlyTransportation + monthlyInternet + monthlyPhone + monthlyInsurance + monthlyDebt + monthlyOther + monthlyRetirement + monthlyIndividualInvesting + monthlyHsa;
-    document.getElementById("monthlySavings").value = parseFloat((income - outgo).toFixed(2));
+    document.getElementById("monthlySavings").value = parseFloat((income - outgo)).toFixed(2);
 }
 
 function transferMoney() {
