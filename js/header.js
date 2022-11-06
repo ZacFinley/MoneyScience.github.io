@@ -20,7 +20,7 @@ function siteNavigation() {
                           "Net Worth History",
                           "Money Articles"];
     var navigationPath = ["pathToWealth",
-                          "netWorthGrowth
+                          "netWorthGrowth",
                           "incomeStatement",
                           "balanceSheet",
                           "amortizationCalculator",
