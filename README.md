@@ -5,14 +5,13 @@ Money Science website that will teach people about money in our society and how 
 TODO:
 
 -Mobile pages
-    
-    - Home page: graph
+    Resize charts for Ipad and phone - https://www.chartjs.org/docs/latest/getting-started/
+    - Net Worth Growth page: graph
+    - Net Worth History page: graph
 
 -print screens
 
--new name for site (look for domain)
 
-Resize charts for Ipad and phone - https://www.chartjs.org/docs/latest/getting-started/
 
 adsense
 
