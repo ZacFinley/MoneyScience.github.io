@@ -55,3 +55,36 @@ body {
 .sideMargin {
     margin: 0px 50px;
 }
+
+#inputsWrapper {
+    display: flex;
+}
+
+@media (min-width: 1250px) {
+    .inputDiv {
+        display: inline;
+    }
+}
+
+@media (max-width: 1250px) {
+    #inputsWrapper {
+        width: 340px;
+        margin: auto;
+        display: block;
+    }
+    
+    .calculateBtnWrapper {
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 900px) {
+    .netWorthHeader {
+        display: block;
+    }
+    
+    .sideMargin {
+        margin: auto;
+        width: 250px;
+    }
+}

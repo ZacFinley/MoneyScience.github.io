@@ -123,6 +123,10 @@
     }
 }
 
+.transferInputWrapper {
+    text-align: center;
+}
+
 @media (max-width: 1200px) {
     .wrapper {
         display: unset;
