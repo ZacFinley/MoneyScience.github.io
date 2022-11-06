@@ -9,6 +9,7 @@
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4125413328799616" crossorigin="anonymous"></script>
     </head>
     <body>
+        <div id="header"></div>
         <ins class="adsbygoogle"
             style="display:block"
             data-ad-client="ca-pub-4125413328799616"
@@ -16,7 +17,6 @@
             data-ad-format="auto"
             data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        <div id="header"></div>
         <h2 class="subHeader">Path to Wealth</h2>
         <p class="description">
             Have you wondered how long it would take to reach your financial goals?<br>
@@ -120,28 +120,34 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <div id="totalGivingPayment">$0.00</div>
                 <div class="transferWrapper">
-                    <label for="fromAccount">From Account:</label>
-                    <select name="fromAccount" id="fromAccount">
-                        <option value="totalRetirement">Total Retirement</option>
-                        <option value="totalIndividualInvesting">Total Individual Investing</option>
-                        <option value="totalRentalEquity">Total Rental Equity</option>
-                        <option value="totalSavings">Total Savings</option>
-                        <option value="totalHsa">Total HSA</option>
-                    </select>
-                    <label for="toAccount">To Account:</label>
-                    <select name="toAccount" id="toAccount">
-                        <option value="remainingMortgage">Remaining Mortgage</option>
-                        <option value="remainingDebt">Remaining Debt</option>
-                        <option value="totalRetirement">Total Retirement</option>
-                        <option value="totalIndividualInvesting">Total Individual Investing</option>
-                        <option value="primaryHouseEquity">Primary House Equity</option>
-                        <option value="totalRentalEquity">Total Rental Equity</option>
-                        <option value="totalSavings">Total Savings</option>
-                        <option value="totalHsa">Total HSA</option>
-                        <option value="totalGiving">Total Giving</option>
-                    </select>
-                    <label for="transferAmount">Transfer Amount:</label>
-                    <input name="transferAmount" id="transferAmountInput" type="number" min="0" value="0.00"></input>
+                    <div class="transferInputWrapper">
+                        <label for="fromAccount">From Account:</label>
+                        <select name="fromAccount" id="fromAccount">
+                            <option value="totalRetirement">Total Retirement</option>
+                            <option value="totalIndividualInvesting">Total Individual Investing</option>
+                            <option value="totalRentalEquity">Total Rental Equity</option>
+                            <option value="totalSavings">Total Savings</option>
+                            <option value="totalHsa">Total HSA</option>
+                        </select>
+                    </div>
+                    <div class="transferInputWrapper">
+                        <label for="toAccount">To Account:</label>
+                        <select name="toAccount" id="toAccount">
+                            <option value="remainingMortgage">Remaining Mortgage</option>
+                            <option value="remainingDebt">Remaining Debt</option>
+                            <option value="totalRetirement">Total Retirement</option>
+                            <option value="totalIndividualInvesting">Total Individual Investing</option>
+                            <option value="primaryHouseEquity">Primary House Equity</option>
+                            <option value="totalRentalEquity">Total Rental Equity</option>
+                            <option value="totalSavings">Total Savings</option>
+                            <option value="totalHsa">Total HSA</option>
+                            <option value="totalGiving">Total Giving</option>
+                        </select>
+                    </div>
+                    <div class="transferInputWrapper">
+                        <label for="transferAmount">Transfer Amount:</label>
+                        <input name="transferAmount" id="transferAmountInput" type="number" min="0" value="0.00"></input>
+                    </div>
                     <button class="mainButton transferButton" onclick="transferMoney()">Transfer</button>
                 </div>
             </div>
