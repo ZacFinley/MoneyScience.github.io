@@ -10,7 +10,6 @@ function siteTitle() {
 
 function siteNavigation() {
     var navigationList = ["Path to Wealth",
-                          "Net Worth Growth",
                           "Income Statement",
                           "Balance Sheet",
                           "Amortization Calculator",
@@ -18,9 +17,9 @@ function siteNavigation() {
                           "Investment Projections",
                           "Share Purchase",
                           "Net Worth History",
+                          "Net Worth Growth",
                           "Money Articles"];
     var navigationPath = ["pathToWealth",
-                          "netWorthGrowth",
                           "incomeStatement",
                           "balanceSheet",
                           "amortizationCalculator",
@@ -28,6 +27,7 @@ function siteNavigation() {
                           "investmentProjections",
                           "sharePurchase",
                           "netWorthHistory",
+                          "netWorthGrowth",
                           "moneyArticles"];
     var header = "<div class='navigationList'>";
     for (var i = 0; i < navigationList.length; i++){
