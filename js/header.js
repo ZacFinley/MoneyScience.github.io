@@ -9,8 +9,8 @@ function siteTitle() {
 }
 
 function siteNavigation() {
-    var navigationList = ["Home",
-                          "Path to Wealth",
+    var navigationList = ["Path to Wealth",
+                          "Net Worth Growth",
                           "Income Statement",
                           "Balance Sheet",
                           "Amortization Calculator",
@@ -19,8 +19,8 @@ function siteNavigation() {
                           "Share Purchase",
                           "Net Worth History",
                           "Money Articles"];
-    var navigationPath = ["index",
-                          "pathToWealth",
+    var navigationPath = ["pathToWealth",
+                          "netWorthGrowth
                           "incomeStatement",
                           "balanceSheet",
                           "amortizationCalculator",
