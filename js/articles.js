@@ -50,9 +50,24 @@ const articleData = [
                      "body":"A security that tracks an index is called an Exchange-Traded Fund (ETF). These are considered passively managed. Meaning, that aside from admin duties, the fund is not entering in and out of positions regularly. This is why the fees are likely to be lower than a mutual fund. Unlike a mutual fund, an investor can purchase and sell shares throughout the day when the market is open."
                      },
                      {
+                     "title":"Market",
+                     "publish":true,
+                     "body":"This is simply where and when a seller and a buyer agree on a price for some good or service. When the transaction has been completed then there is a market."
+                     },
+                     {
                      "title":"Stock",
                      "publish":true,
                      "body":"Ownership of a company is known as shares of stock. The percentage of a companies stock an owner owns relates to the assets and profits they share in. A share in a company is also know as a security and is usually sold on an exchange. Transactions of share are regulated by the Securities and Exchange Commission. When listed on an exchange, the company is known as a publicly traded company. This means anyone can purchase shares. Shares of a privately owned company can also be bought and sold."
+                     },
+                     {
+                     "title":"Bond",
+                     "publish":true,
+                     "body":"A bond is a financial product sold by a business or government typically. This does not give the purchaser any ownership. Instead, the issuer is creating a loan with the purchser/lender. Theay are saying that in a certain amount of time they will pay back the money with interest. The bond can sometimes be sold to another person for a discount. This is because once the lender has given the money they cannot just pull it back out. They will have to wait for the bond term to be over to get all of their money plus interest."
+                     },
+                     {
+                     "title":"Annuity",
+                     "publish":true,
+                     "body":"This is a product that insurance companies sell. They will take one or many payments and then in the future they will start paying out regular disbursements."
                      },
                      {
                      "title":"Budget",
@@ -61,12 +76,12 @@ const articleData = [
                      },
                      {
                      "title":"Financial Freedom",
-                     "publish":false,
-                     "body":"Listening to the radio, a podcast or watching tv you have heard that financial freedom means you have made it in life. How easy is it to get to that point and when do you know if you have are there? <<<Talk about Robert Kiyosaki's thoughts on this and passive income being more than expenses to be Financially free"
+                     "publish":true,
+                     "body":"Listening to the radio, a podcast or watching tv you have heard that financial freedom means you have made it in life. How easy is it to get to that point and when do you know if you have are there? One common perspective is that once your investments are producing an income that is larger than expenses financial freedom is achieved. This would mean that any job that this person has would not be needed to sustain the lifestyle they have."
                      },
                      {
                      "title":"Luxury",
-                     "publish":false,
+                     "publish":true,
                      "body":"Brand after brand is considered luxurious. They want you, to want them. Others look down on you if you do not have the entire season's collection. The question I have for you is: 'Do you want it?'<br><br>Stop and think. Does that pair of sunglasses really make you happy, or does it just give you something to show off to your 'friends' when you see them again?"
                      }
 ]
