@@ -30,8 +30,6 @@ Life insurance planner
     total benefit
     term length
     yearly expenses ie house payoff
-    
-Ben and Arthur interactive Chart
 
 
 New page that allows user to input all shares and cost and current price. Shows how much of an increase is needed to breakeven even with some shares still loosing
