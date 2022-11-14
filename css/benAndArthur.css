@@ -6,10 +6,14 @@ td {
     text-align: center;
 }
 
-.inputWrapper {
+.inputsWrapper {
     width: 400px;
     margin: auto;
     text-align: center;
+}
+
+.inputWrapper {
+    margin: 5px 0;
 }
 
 .whiteGreen {
