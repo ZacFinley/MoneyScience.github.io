@@ -31,7 +31,7 @@ function updateContributionAmount() {
 
 function createHeaderRows() {
     document.getElementById("benArthurChart").innerHTML = "<tr><th></th><th>Ben</th><th></th><th>Arthur</th><th></th></tr>";
-    document.getElementById("benArthurChart").innerHTML = "<tr><th>Age</th><th>Contribution</th><th>Total</th><th>Contribution</th><th>Total</th></tr>";
+    document.getElementById("benArthurChart").innerHTML += "<tr><th>Age</th><th>Contribution</th><th>Total</th><th>Contribution</th><th>Total</th></tr>";
 }
 
 function calculateChart(){
