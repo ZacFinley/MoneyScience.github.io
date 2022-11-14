@@ -1,0 +1,18 @@
+table {
+    width: 100%;
+}
+
+td {
+    text-align: center;
+}
+
+.inputWrapper {
+    width: 400px;
+    margin: auto;
+    text-align: center;
+}
+
+.whiteGreen {
+    color: white;
+    background-color: green;
+}
