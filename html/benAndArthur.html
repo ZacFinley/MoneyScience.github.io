@@ -1,0 +1,56 @@
+
+<html>
+    <head>
+        <title>Calculated Future - Ben and Arthur</title>
+        <script src="../js/header.js"></script>
+        <script src="../js/benAndArthur.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/global.css">
+        <link rel="stylesheet" type="text/css" href="../css/benAndArthur.css">
+        <link rel="stylesheet" type="text/css" href="../css/header.css">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4125413328799616" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="header"></div>
+        <h2 class="subHeader">Ben and Arthur</h2>
+        <p class="description">
+            This is a classic example illustrating that investing early can be more powerful than waiting.<br>
+            Ben and Arthur are the same age.<br>
+            Ben decides to invest for a period of years before Arthur starts.<br>
+            Then when Arthur starts to invest Ben stops.<br>
+            Assuming that they retire at the same time you can explore when Arthur would catch up with Ben.<br>
+            The column will turn green when it is larger than the other person.
+        </p>
+        <div class="wrapper">
+            <div class="card">
+                <div class="inputWrapper">
+                    <div>
+                        Start Age:
+                        <input id="startAgeInput" type="number" value="19" step="1" onchange="updateStartAge()"></input>
+                    </div>
+                    <div>
+                        Ben Stops and Arthur Starts Age:
+                        <input id="benEndArthurStartAgeInput" type="number" value="26" step="1" onchange="updateBenEndArthurStartAge()"></input>
+                    </div>
+                    <div>
+                        End Age:
+                        <input id="endAgeInput" type="number" value="85" step="1" onchange="updateEndAge()"></input>
+                    </div>
+                    <div>
+                        Annual Interest Rate:
+                        <input id="interestRateInput" type="number" value="10" step="1" onchange="updateInterestRate()"></input>
+                    </div>
+                    <div>
+                        Contribution Amount:
+                        <input id="contributionAmountInput" type="number" value="1000" onchange="updateContributionAmount()"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <table id="benArthurChart">
+                </table>
+            </div>
+        </div>
+        <script>calculateChart();</script>
+        <div id="footer"></div>
+    </body>
+</html>
