@@ -17,6 +17,7 @@ function siteNavigation() {
                           "Debt Snowball",
                           "Investment Projections",
                           "Share Purchase",
+                          "Investment Orders",
                           "Net Worth History",
                           "Net Worth Growth",
                           "Money Articles"];
@@ -28,6 +29,7 @@ function siteNavigation() {
                           "debtSnowball",
                           "investmentProjections",
                           "sharePurchase",
+                          "investmentOrders",
                           "netWorthHistory",
                           "netWorthGrowth",
                           "moneyArticles"];
