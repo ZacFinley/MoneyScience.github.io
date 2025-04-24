@@ -1,0 +1,74 @@
+table {
+    width: 100%;
+}
+
+td {
+    text-align: center;
+}
+
+.primaryLoanInfo {
+    width: 630px;
+    margin: auto;
+}
+
+.secondaryLoanInfo {
+    width: 570px;
+    margin: auto;
+}
+
+.calculateBtn {
+    width: 135px;
+    margin: auto;
+}
+
+.primaryLoanInfoItem {
+    display: inline;
+}
+
+.secondaryLoanInfoItem {
+    display: inline;
+}
+
+.accountName {
+    text-align: center;
+    font-size: 50px;
+}
+
+.cashBalance {
+    text-align: center;
+    font-size: 30px;
+}
+
+.totalBalance {
+    text-align: center;
+    font-size: 40px;
+}
+
+.orderScenario {
+    background-color: #a30000;
+    color: white;
+}
+
+
+
+#paymentResult {
+    text-align: center;
+}
+
+@media (max-width: 1200px) {
+    .primaryLoanInfo {
+        width: 260px;
+    }
+
+    .secondaryLoanInfo {
+        width: 320px;
+    }
+    
+    .primaryLoanInfoItem {
+        display: block;
+    }
+
+    .secondaryLoanInfoItem {
+        display: block;
+    }
+}
