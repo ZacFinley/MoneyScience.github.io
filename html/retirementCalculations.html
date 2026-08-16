@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <title>Calculated Future - Retirement Calculations</title>
+        <script src="../js/header.js"></script>
+        <link rel="stylesheet" type="text/css" href="../css/global.css">
+        <link rel="stylesheet" type="text/css" href="../css/retirementCalculations.css">
+        <link rel="stylesheet" type="text/css" href="../css/header.css">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4125413328799616" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="header"></div>
+        <h2 class="subHeader">Retirement Calculations</h2>
+        <p class="description">
+            This will allow you to input all of your invesment accounts with income contributions and employer matches so that it can give you a year-by-year snapshot of the growth.<br>
+            It will also let you know when you will be able to pull money out penalty free.<br>
+            For traditional investment accounts it will tell you when RMD's will start and an estimated amount per year.<br>
+            All calculations are based on current tax and IRS data.<br>
+            These are subject to change and none of these estimated calculations should be used for financial decisions shall be made with licensed tax and investment advisors.
+        </p>
+        <div class="card">
+            <input type="file" id="fileInput" accept=".json">
+            <button id="uploadButton">Upload</button>
+        </div>
+        <div id="clientsCard" class="card"></div>
+        <div id="futureCardsWrapper"></div>
+        <div id="footer"></div>
+<!--        <script type="text/javascript" src="../json/retirementCalculations.json"></script>-->
+        <script type="text/javascript" src="../json/retirementCalculations-ZAC.json"></script>
+        <script type="text/javascript" src="../json/retirementCalculations-MCELFRESH.json"></script>
+        <script type="text/javascript" src="../json/rmdLifetimeData.json"></script>
+        <script type="text/javascript" src="../json/taxData.json"></script>
+        <script src="../js/retirementCalculations.js"></script>
+    </body>
+</html>
+
