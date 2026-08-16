@@ -1,0 +1,172 @@
+taxData = {
+    "year": 2026,
+    "standard_deduction": {
+        "single": -16100,
+        "married_filing_jointly": -32200,
+        "enhanced_senior_deduction": -6000,
+        "single_over_sixty_five": -1650,
+        "single_blind": -1650,
+        "married_over_sixty_five": -2050,
+        "married_blind": -2050
+    },
+    "net_investment_income_tax": {
+        "magi_thresholds": [
+            {
+                "single": 200000.00,
+                "married_filing_jointly": 250000.00
+            }
+        ]
+    },
+    "federal_brackets": {
+        "single_ordinary": [
+            {
+                "percent": 0.1,
+                "min": 0.00,
+                "max": 12400.00
+            },
+            {
+                "percent": 0.12,
+                "min": 12401.00,
+                "max": 50400.00
+            },
+            {
+                "percent": 0.22,
+                "min": 50401.00,
+                "max": 105700.00
+            },
+            {
+                "percent": 0.24,
+                "min": 105701.00,
+                "max": 201775.00
+            },
+            {
+                "percent": 0.32,
+                "min": 201776.00,
+                "max": 256225.00
+            },
+            {
+                "percent": 0.35,
+                "min": 256226.00,
+                "max": 640600.00
+            },
+            {
+                "percent": 0.37,
+                "min": 640600.00,
+                "max": Infinity
+            }
+        ],
+        "married_filing_jointly_ordinary": [
+            {
+                "percent": 0.1,
+                "min": 0.00,
+                "max": 24800.00
+            },
+            {
+                "percent": 0.12,
+                "min": 24801.00,
+                "max": 100800.00
+            },
+            {
+                "percent": 0.22,
+                "min": 100801.00,
+                "max": 211400.00
+            },
+            {
+                "percent": 0.24,
+                "min": 211401.00,
+                "max": 403550.00
+            },
+            {
+                "percent": 0.32,
+                "min": 403551.00,
+                "max": 512450.00
+            },
+            {
+                "percent": 0.35,
+                "min": 512451.00,
+                "max": 768700.00
+            },
+            {
+                "percent": 0.37,
+                "min": 768700.00,
+                "max": Infinity
+            }
+        ],
+        "single_capital_gains": [
+            {
+                "percent": 0.0,
+                "min": 0.00,
+                "max": 49450.00
+            },
+            {
+                "percent": 0.15,
+                "min": 49451.00,
+                "max": 545500.00
+            },
+            {
+                "percent": 0.20,
+                "min": 545501.00,
+                "max": Infinity
+            }
+        ],
+        "married_filing_jointly_capital_gains": [
+            {
+                "percent": 0.0,
+                "min": 0.00,
+                "max": 98900.00
+            },
+            {
+                "percent": 0.15,
+                "min": 98901.00,
+                "max": 613700.00
+            },
+            {
+                "percent": 0.20,
+                "min": 613701.00,
+                "max": Infinity
+            }
+        ],
+        "qualified_dividends": {
+            "single": [
+                {
+                    "percent": 0.0,
+                    "min": 0.00,
+                    "max": 49450.00
+                },
+                {
+                    "percent": 0.15,
+                    "min": 49451.00,
+                    "max": 545500.00
+                },
+                {
+                    "percent": 0.20,
+                    "min": 545501.00,
+                    "max": Infinity
+                }
+            ],
+            "married_filing_jointly": [
+                {
+                    "percent": 0.0,
+                    "min": 0.00,
+                    "max": 98900.00
+                },
+                {
+                    "percent": 0.15,
+                    "min": 98901.00,
+                    "max": 613700.00
+                },
+                {
+                    "percent": 0.20,
+                    "min": 613701.00,
+                    "max": Infinity
+                }
+            ]
+        }
+    },
+    "state_tax_rates": [
+        {
+            "state_code": "CO",
+            "rate": 0.0440
+        }
+    ]
+}

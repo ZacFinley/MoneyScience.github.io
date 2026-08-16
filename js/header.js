@@ -20,7 +20,9 @@ function siteNavigation() {
                           "Investment Orders",
                           "Net Worth History",
                           "Net Worth Growth",
-                          "Money Articles"];
+                          "Future Dividends",
+                          "Money Articles",
+                          "Retirement Calculations"];
     var navigationPath = ["pathToWealth",
                           "incomeStatement",
                           "balanceSheet",
@@ -32,7 +34,9 @@ function siteNavigation() {
                           "investmentOrders",
                           "netWorthHistory",
                           "netWorthGrowth",
-                          "moneyArticles"];
+                          "futureDividends",
+                          "moneyArticles",
+                          "retirementCalculations"];
     var header = "<div class='navigationList'>";
     for (var i = 0; i < navigationList.length; i++){
         header += "<a class='listItem' href='" + navigationPath[i] + ".html'>" + navigationList[i] + "</a>";

@@ -1,0 +1,25 @@
+
+.asset-acct-grouping-wrapper {
+    display: flex;
+    gap: 15px;
+}
+
+.asset-acct-grouping {
+    flex: 1;
+}
+
+.indent {
+    text-indent: 40px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.card {
+margin: 10px 10px;
+}
+
+.acct-card-header{
+    text-align: center;
+}
